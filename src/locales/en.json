@@ -1,0 +1,21 @@
+{
+    "home": {
+        "title": "Hey, I'm Max &#x1F44B;",
+        "buttonWork": "Check out my work",
+        "buttonContact": "Contact me"
+    },
+    "footer": {
+        "description": "Max Kruiswegt is a full-stack developer based in the Netherlands. He specializes in creating websites and web applications.",
+        "vat": "VAT No: NL004755047B80"
+    },
+    "construction": {
+        "title": "Under construction",
+        "description": "I'm currently working on this page. Please check back later.",
+        "button": "Go back to the homepage"
+    },
+    "404": {
+        "title": "404",
+        "description": "The page you are looking for does not exist.",
+        "button": "Go back to the homepage"
+    }
+}

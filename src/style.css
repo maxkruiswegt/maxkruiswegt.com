@@ -1,0 +1,181 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+@layer base {
+  :root {
+    --text: #f5eaea;
+    --text-10: #ddd3d3;
+    --text-20: #c4bbbb;
+    --text-30: #aca4a4;
+    --text-40: #938c8c;
+    --text-50: #7b7575;
+    --text-60: #625e5e;
+    --text-70: #494646;
+    --text-80: #312f2f;
+    --text-90: #181717;
+    --background: #171717;
+    --button-primary-text: #ffffff;
+    --button-secondary-text: #dedede;
+    --primary: #bf3f36;
+    --primary-10: #ac3931;
+    --primary-20: #99322b;
+    --primary-30: #862c26;
+    --primary-40: #732620;
+    --primary-50: #60201b;
+    --primary-60: #4c1916;
+    --primary-70: #391310;
+    --primary-80: #260d0b;
+    --primary-90: #130605;
+    --secondary: #722018;
+    --secondary-10: #671d16;
+    --secondary-20: #5b1a13;
+    --secondary-30: #501611;
+    --secondary-40: #44130e;
+    --secondary-50: #39100c;
+    --secondary-60: #2e0d0a;
+    --secondary-70: #220a07;
+    --secondary-80: #170605;
+    --secondary-90: #0b0302;
+    --accent: #a92519;
+    --accent-10: #982117;
+    --accent-20: #871e14;
+    --accent-30: #761a12;
+    --accent-40: #65160f;
+    --accent-50: #55130d;
+    --accent-60: #440f0a;
+    --accent-70: #330b07;
+    --accent-80: #220705;
+    --accent-90: #110402;
+  }
+  .light {
+    --text: #150a0a;
+    --text-10: #2c2323;
+    --text-20: #443b3b;
+    --text-30: #5b5454;
+    --text-40: #736c6c;
+    --text-50: #8a8585;
+    --text-60: #a19d9d;
+    --text-70: #b9b6b6;
+    --text-80: #d0cece;
+    --text-90: #e8e7e7;
+    --background: #fbf4f4;
+    --button-primary-text: #000000;
+    --button-secondary-text: #242424;
+    --primary: #c94940;
+    --primary-10: #b5423a;
+    --primary-20: #a13a33;
+    --primary-30: #8d332d;
+    --primary-40: #792c26;
+    --primary-50: #652520;
+    --primary-60: #501d1a;
+    --primary-70: #3c1613;
+    --primary-80: #280f0d;
+    --primary-90: #140706;
+    --secondary: #e7958d;
+    --secondary-10: #d0867f;
+    --secondary-20: #b97771;
+    --secondary-30: #a26863;
+    --secondary-40: #8b5955;
+    --secondary-50: #744b47;
+    --secondary-60: #5c3c38;
+    --secondary-70: #452d2a;
+    --secondary-80: #2e1e1c;
+    --secondary-90: #170f0e;
+    --accent: #e66256;
+    --accent-10: #cf584d;
+    --accent-20: #b84e45;
+    --accent-30: #a1453c;
+    --accent-40: #8a3b34;
+    --accent-50: #73312b;
+    --accent-60: #5c2722;
+    --accent-70: #451d1a;
+    --accent-80: #2e1411;
+    --accent-90: #170a09;
+  }
+
+  html {
+    overflow-y: scroll;
+  }
+
+  body {
+    color: var(--text, #f5eaea);
+    background-color: var(--background, #171717);
+    @apply font-body font-normal text-base leading-normal;
+  }
+
+  p {
+    @apply whitespace-pre-wrap break-all;
+  }
+  
+  h1 {
+    @apply font-heading font-bold text-5xl leading-tight;
+  }
+  
+  h2 {
+    @apply font-heading font-bold text-4xl leading-tight;
+  }
+  
+  h3 {
+    @apply font-heading font-bold text-3xl leading-snug;
+  }
+  
+  h4 {
+    @apply font-heading font-bold text-2xl leading-snug;
+  }
+  
+  h5 {
+    @apply font-heading font-bold text-xl leading-normal;
+  }
+  
+  small {
+    @apply font-body font-normal text-sm leading-normal;
+  }
+
+  ::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--text);
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-20);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+
+  .btn {
+    @apply py-4 px-8 font-bold rounded-lg transition duration-300 flex items-center justify-center text-center shadow-lg;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-button-primary-text;
+  }
+
+  .btn-primary:hover {
+    @apply bg-primary-20 scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-button-secondary-text;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-secondary-20 scale-105;
+  }
+}

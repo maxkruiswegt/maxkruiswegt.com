@@ -1,0 +1,21 @@
+{
+    "home": {
+        "title": "Hoi, ik ben Max &#x1F44B;",
+        "buttonWork": "Bekijk mijn werk",
+        "buttonContact": "Contacteer mij"
+    },
+    "footer": {
+        "description": "Max Kruiswegt is een full-stack ontwikkelaar gevestigd in Nederland. Hij is gespecialiseerd in het maken van websites en webapplicaties.",
+        "vat": "BTW Nr: NL004755047B80"
+    },
+    "construction": {
+        "title": "In aanbouw",
+        "description": "Ik ben momenteel bezig met deze pagina. Kom later nog eens terug.",
+        "button": "Terug naar de homepagina"
+    },
+    "404": {
+        "title": "404",
+        "description": "De pagina die je zoekt bestaat niet.",
+        "button": "Terug naar de homepagina"
+    }
+}
