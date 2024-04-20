@@ -1,0 +1,39 @@
+name: Deployment
+
+on:
+  push:
+    branches: [ main ]
+    
+jobs:
+  deploy:
+    name: Deploy Frontend
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Install Dependencies and Build Frontend
+      run: |
+        npm install
+        npm run build
+
+    - name: Clear Web Server Directory
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: rm -rf /var/www/maxkruiswegt.com/html/*
+
+    - name: Copy Built Files to Web Server
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        source: "dist/*"
+        target: "/var/www/maxkruiswegt.com/html/"
+        strip_components: 2
