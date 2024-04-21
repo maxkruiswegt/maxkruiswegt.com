@@ -5,7 +5,7 @@ export const useThemeStore = defineStore("theme", () => {
     const theme = ref('localStorage' in window ? (localStorage.getItem('theme') || 'dark') : 'dark');
 
     const icon = computed(() => theme.value === 'light' ? 'light_mode' : 'dark_mode');
-    const logo = computed(() => theme.value === 'light' ? '/images/MKLogo.png' : '/images/MKLogoLight.png');
+    const logo = computed(() => theme.value === 'light' ? '/images/MKLogo.webp' : '/images/MKLogoLight.webp');
 
     function toggleTheme(){
         theme.value = theme.value === 'dark' ? 'light' : 'dark';
