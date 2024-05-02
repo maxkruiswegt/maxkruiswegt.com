@@ -9,8 +9,8 @@ import AppFooter from './components/AppFooter.vue'
     <header>
       <AppNavbar />
     </header>
-    <main>
-      <RouterView />
+    <main class="flex flex-col items-center">
+      <RouterView class="max-w-screen-xl p-4 lg:p-8" />
     </main>
     <footer class="mt-auto">
       <AppFooter />

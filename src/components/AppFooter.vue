@@ -1,14 +1,9 @@
 <script setup>
 import { useThemeStore } from '@/stores/ThemeStore';
-import { watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { t, locale } = useI18n();
 const themeStore = useThemeStore();
-
-watchEffect(() => {
-  console.log(locale.value);
-});
 
 const year = new Date().getFullYear();
 </script>
@@ -21,7 +16,7 @@ const year = new Date().getFullYear();
                     <RouterLink :to="{ name: `home_${locale}` }">
                         <img :src="themeStore.logo" class="h-8 me-3" alt="Max Kruiswegt Logo" />
                     </RouterLink>
-                    <p class="text-text-30 mt-2" v-html="t('footer.description')"></p>
+                    <p class="text-text-30 mt-2 break-normal" v-html="t('footer.description')"></p>
                 </div>
                 <div class="grid grid-cols-2 gap-8 sm:gap-6">
                     <div>

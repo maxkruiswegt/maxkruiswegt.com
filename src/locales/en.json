@@ -17,5 +17,28 @@
         "title": "404",
         "description": "The page you are looking for does not exist.",
         "button": "Go back to the homepage"
+    },
+    "portfolio": {
+        "title": "Portfolio",
+        "description": "Here are some of the projects I have worked on.",
+        "viewButton": "View project",
+        "backButton": "Go back",
+        "projects": {
+            "cody": {
+                "title": "Cody",
+                "description": "A multipurpose study Discord bot.",
+                "image": "/images/CodyBanner.webp"
+            },
+            "project-planner": {
+                "title": "Project Planner",
+                "description": "A web application to plan projects.",
+                "image": "/images/ProjectPlannerBanner.webp"
+            },
+            "personal-website": {
+                "title": "maxkruiswegt.com",
+                "description": "The website you are currently on.",
+                "image": "/images/PersonalWebsiteBanner.webp"
+            }
+        }
     }
 }

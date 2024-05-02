@@ -5,7 +5,7 @@ const { t, locale } = useI18n();
 </script>
 
 <template>
-    <div class="mt-[10vh] mb-[20vh] lg:mt-[25vh] lg:mb-[35vh] flex justify-center">
+    <div class="mt-[10vh] mb-[20vh] lg:mt-[25vh] lg:mb-[35vh]">
         <div class="flex flex-col items-center lg:flex-row lg:border-b-2 lg:border-text gap-8 lg:gap-20">
             <div>
                 <img src="/images/Max.webp" alt="Max Kruiswegt" class="h-80" />

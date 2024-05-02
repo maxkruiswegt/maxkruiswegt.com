@@ -1,13 +1,23 @@
 <script setup>
+import Project from '@/components/ProjectPreview.vue';
 import { useI18n } from 'vue-i18n';
 
-const { t, locale } = useI18n();
+const { t, tm, locale } = useI18n();
 </script>
 
 <template>
-    <div class="flex flex-col items-center justify-center h-[55vh]">
-        <h1 class="text-center text-4xl" v-html="t('construction.title')"></h1>
-        <p class="text-text-30 text-center" v-html="t('construction.description')"></p>
-        <RouterLink :to="{ name: `home_${locale}` }" class="btn btn-primary mt-4" v-html="t('construction.button')"></RouterLink>
+    <div class="mt-[5vh] mb-[10vh] lg:mt-[10vh] lg:mb-[20vh]">
+        <h1>{{ t('portfolio.title') }}</h1>
+        <p class="text-lg break-normal">{{ t('portfolio.description') }}</p>
+        <div class="grid grid-cols-1 gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-3">
+            <Project
+                v-for="(project, key) in tm('portfolio.projects')"
+                :key="key"
+                :id="key"
+                :title="project.title"
+                :description="project.description"
+                :image="project.image"
+            />
+        </div>
     </div>
 </template>

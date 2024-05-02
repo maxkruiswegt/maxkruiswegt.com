@@ -7,12 +7,14 @@ const router = createRouter({
     { path: '/', name: 'home_en', component: () => import('../views/Home.vue') },
     { path: '/portfolio', name: 'portfolio_en', component: () => import('../views/Portfolio.vue') },
     { path: '/contact', name: 'contact_en', component: () => import('../views/Contact.vue') },
+    { path: '/portfolio/:id', name: 'project_en', component: () => import('../views/Project.vue'), props: true },
     {
       path: '/nl',
       children: [
         { path: '', name: 'home_nl', component: () => import('../views/Home.vue') },
         { path: 'portfolio', name: 'portfolio_nl', component: () => import('../views/Portfolio.vue') },
         { path: 'contact', name: 'contact_nl', component: () => import('../views/Contact.vue') },
+        { path: 'portfolio/:id', name: 'project_nl', component: () => import('../views/Project.vue'), props: true }
       ]
     },
     { path: '/:pathMatch(.*)*', name: '404', component: () => import('../views/404.vue') },

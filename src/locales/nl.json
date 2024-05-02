@@ -17,5 +17,28 @@
         "title": "404",
         "description": "De pagina die je zoekt bestaat niet.",
         "button": "Terug naar de homepagina"
+    },
+    "portfolio": {
+        "title": "Portfolio",
+        "description": "Hier zijn enkele van de projecten waar ik aan heb gewerkt.",
+        "viewButton": "Bekijk project",
+        "backButton": "Ga terug",
+        "projects": {
+            "cody": {
+                "title": "Cody",
+                "description": "Een veelzijdige studie Discord-bot.",
+                "image": "/images/CodyBanner.webp"
+            },
+            "project-planner": {
+                "title": "Project Planner",
+                "description": "Een webapplicatie om projecten te plannen.",
+                "image": "/images/ProjectPlannerBanner.webp"
+            },
+            "personal-website": {
+                "title": "maxkruiswegt.com",
+                "description": "De website waar je momenteel op bent.",
+                "image": "/images/PersonalWebsiteBanner.webp"
+            }
+        }
     }
 }
