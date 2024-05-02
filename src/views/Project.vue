@@ -50,7 +50,7 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div class="w-full max-w-[65ch] my-10">
+    <div class="w-full markdown-page my-10">
         <div class="mb-4 flex">
             <RouterLink :to="{ name: `portfolio_${locale}` }" class="transition duration-300 hover:text-primary hover:scale-105 flex gap-1">
                 <span class="material-symbols-outlined">arrow_back</span>
@@ -62,6 +62,10 @@ onMounted(async () => {
 </template>
 
 <style>
+.markdown-page {
+    @apply max-w-prose;
+}
+
 .markdown-link {
     @apply text-primary;
 }
