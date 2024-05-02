@@ -57,6 +57,7 @@ onMounted(async () => {
                 <p>{{ t('portfolio.backButton') }}</p>
             </RouterLink>
         </div>
+        <img :src="t(`portfolio.projects.${props.id}.image`)" alt="Project image" class="rounded-lg mb-4 border-2 border-text" />
         <div v-if="markdown" v-html="markdown"></div>
     </div>
 </template>
