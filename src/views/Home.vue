@@ -8,7 +8,7 @@ const { t, locale } = useI18n();
     <div class="mt-[10vh] mb-[20vh] lg:mt-[25vh] lg:mb-[35vh]">
         <div class="flex flex-col items-center lg:flex-row lg:border-b-2 lg:border-text gap-8 lg:gap-20">
             <div>
-                <img src="/images/Max.webp" alt="Max Kruiswegt" class="h-80" />
+                <img src="/images/Max.webp" alt="Max Kruiswegt" class="h-60 lg:h-80" />
             </div>
             <div>
                 <div class="text-center lg:text-left">

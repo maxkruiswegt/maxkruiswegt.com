@@ -51,13 +51,14 @@ onMounted(async () => {
 
 <template>
     <div class="w-full markdown-page my-10">
-        <div class="mb-4 flex">
+        <div class="flex mb-4">
             <RouterLink :to="{ name: `portfolio_${locale}` }" class="transition duration-300 hover:text-primary hover:scale-105 flex gap-1">
                 <span class="material-symbols-outlined">arrow_back</span>
                 <p>{{ t('portfolio.backButton') }}</p>
             </RouterLink>
         </div>
-        <img :src="t(`portfolio.projects.${props.id}.image`)" alt="Project image" class="rounded-lg mb-4 border-2 border-text" />
+        <h3 class="mb-2">{{ t(`portfolio.projects.${props.id}.title`) }}</h3>
+        <img :src="t(`portfolio.projects.${props.id}.image`)" alt="Project image" class="rounded-lg mb-10 border-2 border-text" />
         <div v-if="markdown" v-html="markdown"></div>
     </div>
 </template>
