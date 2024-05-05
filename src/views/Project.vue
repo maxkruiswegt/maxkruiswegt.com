@@ -5,6 +5,10 @@ import markdownit from 'markdown-it';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 
+// Carousel
+import 'vue3-carousel/dist/carousel.css'
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+
 const { t, tm, locale } = useI18n();
 const md = markdownit();
 const router = useRouter();
@@ -57,13 +61,37 @@ onMounted(async () => {
                 <p>{{ t('portfolio.backButton') }}</p>
             </RouterLink>
         </div>
-        <h3 class="mb-2">{{ t(`portfolio.projects.${props.id}.title`) }}</h3>
-        <img :src="t(`portfolio.projects.${props.id}.image`)" alt="Project image" class="rounded-lg mb-10 border-2 border-text" />
+        <h3 class="mb-1">{{ t(`portfolio.projects.${props.id}.title`) }}</h3>
+        <Carousel class="mb-5">
+            <Slide v-for="(image, index) in tm(`portfolio.projects.${props.id}.images`)" :key="index" class="rounded-lg overflow-hidden">
+                <img :src="image" alt="Project image" class="rounded-lg border-2 border-text aspect-video object-cover" />
+            </Slide>
+            <template #addons>
+                <Navigation />
+                <Pagination />
+            </template>
+        </Carousel>
         <div v-if="markdown" v-html="markdown"></div>
     </div>
 </template>
 
 <style>
+.carousel__slide {
+  @apply p-0.5;
+}
+
+.carousel__prev, .carousel__next {
+    @apply text-text duration-300 hover:text-primary;
+}
+
+.carousel__pagination-button::after {
+    @apply bg-text duration-200 hover:bg-primary;
+}
+
+.carousel__pagination-button--active::after {
+    @apply bg-primary;
+}
+
 .markdown-page {
     @apply max-w-prose;
 }

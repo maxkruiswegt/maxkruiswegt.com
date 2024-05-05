@@ -16,7 +16,7 @@ const { t, tm, locale } = useI18n();
                 :id="key"
                 :title="project.title"
                 :description="project.description"
-                :image="project.image"
+                :image="project.images[0]"
             />
         </div>
     </div>

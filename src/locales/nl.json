@@ -27,17 +27,34 @@
             "cody": {
                 "title": "Cody",
                 "description": "Een veelzijdige studie Discord-bot.",
-                "image": "/images/CodyBanner.webp"
+                "images": [
+                    "/images/cody/Banner.webp",
+                    "/images/cody/Banner2.webp",
+                    "/images/cody/Banner3.webp",
+                    "/images/cody/Banner4.webp",
+                    "/images/cody/Banner5.webp",
+                    "/images/cody/Banner6.webp",
+                    "/images/cody/Banner7.webp"
+                ]
             },
             "project-planner": {
                 "title": "Project Planner",
                 "description": "Een webapplicatie om projecten te plannen.",
-                "image": "/images/ProjectPlannerBanner.webp"
+                "images": [
+                    "/images/projectplanner/Banner.webp",
+                    "/images/projectplanner/Banner2.webp",
+                    "/images/projectplanner/Banner3.webp"
+                ]
             },
             "portfolio-website": {
                 "title": "Portfolio Website",
                 "description": "De website waar je momenteel op bent.",
-                "image": "/images/PortfolioWebsiteBanner.webp"
+                "images": [
+                    "/images/portfoliowebsite/Banner.webp",
+                    "/images/portfoliowebsite/Banner2.webp",
+                    "/images/portfoliowebsite/Banner3.webp",
+                    "/images/portfoliowebsite/Banner4.webp"
+                ]
             }
         }
     }
