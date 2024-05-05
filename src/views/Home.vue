@@ -14,9 +14,9 @@ const { t, locale } = useI18n();
                 <div class="text-center lg:text-left">
                     <h1 v-html="t('home.title')"></h1>
                 </div>
-                <div class="flex justify-center lg:justify-normal gap-4 mt-4">
-                    <RouterLink :to="{ name: `portfolio_${locale}` }" class="btn btn-secondary" v-html="t('home.buttonWork')"></RouterLink>
-                    <RouterLink :to="{ name: `contact_${locale}` }" class="btn btn-primary" v-html="t('home.buttonContact')"></RouterLink>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-normal gap-4 mt-4">
+                    <RouterLink :to="{ name: `portfolio_${locale}` }" class="btn btn-primary" v-html="t('home.buttonWork')"></RouterLink>
+                    <RouterLink :to="{ name: `contact_${locale}` }" class="btn btn-secondary" v-html="t('home.buttonContact')"></RouterLink>
                 </div>
             </div>
         </div>
