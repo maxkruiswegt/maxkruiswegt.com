@@ -1,4 +1,4 @@
-### 📝 Project Planner
+#### 📜 Projectoverzicht
 Welkom bij Project Planner, een dynamische projectmanagement webapplicatie! Het is gebouwd met Vue 3 voor de frontend en PHP voor de backend, wat zorgt voor een naadloze single-page applicatie ervaring. De frontend communiceert met de backend via API calls, die worden verwerkt en geïnteracteerd met de database door de backend. Geïnteresseerd in de code? Bekijk de [GitHub repository](https://github.com/ItsMaxDev/Project-Planner).
 
 &nbsp;

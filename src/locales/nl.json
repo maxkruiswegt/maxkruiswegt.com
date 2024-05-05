@@ -34,10 +34,10 @@
                 "description": "Een webapplicatie om projecten te plannen.",
                 "image": "/images/ProjectPlannerBanner.webp"
             },
-            "personal-website": {
-                "title": "maxkruiswegt.com",
+            "portfolio-website": {
+                "title": "Portfolio Website",
                 "description": "De website waar je momenteel op bent.",
-                "image": "/images/PersonalWebsiteBanner.webp"
+                "image": "/images/PortfolioWebsiteBanner.webp"
             }
         }
     }

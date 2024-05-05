@@ -1,4 +1,4 @@
-### 📝 Project Planner
+#### 📜 Project Overview
 Welcome to Project Planner, a dynamic project management web application! It's built using Vue 3 for the frontend and PHP for the backend, creating a seamless single-page application experience. The frontend communicates with the backend via API calls, which are processed and interacted with the database by the backend. Interested in the code? Check out the [GitHub repository](https://github.com/ItsMaxDev/Project-Planner).
 
 &nbsp;

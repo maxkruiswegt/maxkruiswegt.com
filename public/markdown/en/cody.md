@@ -1,4 +1,4 @@
-### 🤖 Cody
+#### 📜 Project Overview
 Cody is a versatile Discord bot crafted in **C#** using **DSharpPlus**. It was created for Cajun Koi's [Discord server](https://discord.gg/cajunkoi), where I serve as the Community Manager. 
 
 &nbsp;

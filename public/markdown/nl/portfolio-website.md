@@ -1,4 +1,4 @@
-### 🚀 Persoonlijke Website
+#### 📜 Projectoverzicht
 
 Welkom op mijn persoonlijke website! Deze site is gebouwd met Vue 3 en Vite, en toont mijn werk als ontwikkelaar. Geïnteresseerd in de code? Bekijk de [GitHub repository](https://github.com/ItsMaxDev/maxkruiswegt.com).
 

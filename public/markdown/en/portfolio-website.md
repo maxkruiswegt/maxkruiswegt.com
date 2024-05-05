@@ -1,4 +1,4 @@
-### 🚀 Personal Website
+#### 📜 Project Overview
 
 Welcome to my personal website! This site is built with Vue 3 and Vite, showcasing my work as a developer. Interested in the code? Check out the [GitHub repository](https://github.com/ItsMaxDev/maxkruiswegt.com).
 
