@@ -13,21 +13,6 @@ const props = defineProps({
         return ['info', 'success', 'warning', 'error'].includes(value);
       }
   }
-})
-
-const alertType = computed(() => {
-  switch (props.type) {
-    case 'info':
-      return 'info';
-    case 'success':
-      return 'success';
-    case 'warning':
-      return 'warning';
-    case 'error':
-      return 'error';
-    default:
-      return false;
-  }
 });
 
 const svg = computed(() => {
@@ -47,7 +32,7 @@ const svg = computed(() => {
 </script>
 
 <template>
-    <div v-if="message" role="alert" class="alert" :class="alertType">
+    <div v-if="message" role="alert" class="alert" :class="type">
       <span v-html="svg"></span>
       <span>{{ message }}</span>
     </div>
