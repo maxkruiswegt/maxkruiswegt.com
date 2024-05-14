@@ -1,4 +1,7 @@
 {
+    "buttons": {
+        "back": "Go back"
+    },
     "home": {
         "title": "Hey, I'm Max&#x1F44B;",
         "buttonWork": "Check out my work",
@@ -22,7 +25,6 @@
         "title": "Portfolio",
         "description": "Here are some of the projects I have worked on.",
         "viewButton": "View project",
-        "backButton": "Go back",
         "projects": {
             "cody": {
                 "title": "Cody",

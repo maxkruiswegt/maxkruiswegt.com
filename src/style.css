@@ -196,4 +196,8 @@
   .btn-secondary:hover {
     @apply bg-secondary-20 scale-105;
   }
+
+  .input {
+    @apply p-2 rounded-lg bg-background-10;
+  }
 }

@@ -17,6 +17,13 @@ const router = createRouter({
         { path: 'portfolio/:id', name: 'project_nl', component: () => import('../views/Project.vue'), props: true }
       ]
     },
+    {
+      path: '/admin',
+      children: [
+        { path: '', name: 'admin', component: () => import('../views/admin/AdminHome.vue') },
+        { path: 'users', name: 'admin_users', component: () => import('../views/admin/AdminUsers.vue') }
+      ]
+    },
     { path: '/:pathMatch(.*)*', name: '404', component: () => import('../views/404.vue') },
   ]
 })

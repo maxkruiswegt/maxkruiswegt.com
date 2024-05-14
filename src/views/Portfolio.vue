@@ -6,7 +6,7 @@ const { t, tm, locale } = useI18n();
 </script>
 
 <template>
-    <div class="mt-[5vh] mb-[10vh] lg:mt-[10vh] lg:mb-[20vh]">
+    <div>
         <h1>{{ t('portfolio.title') }}</h1>
         <p class="text-lg break-normal">{{ t('portfolio.description') }}</p>
         <div class="grid grid-cols-1 gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-3">

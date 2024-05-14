@@ -54,11 +54,11 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div class="w-full markdown-page my-10">
+    <div class="w-full markdown-page">
         <div class="flex mb-4">
             <RouterLink :to="{ name: `portfolio_${locale}` }" class="transition duration-300 hover:text-primary hover:scale-105 flex gap-1">
                 <span class="material-symbols-outlined">arrow_back</span>
-                <p>{{ t('portfolio.backButton') }}</p>
+                <p>{{ t('buttons.back') }}</p>
             </RouterLink>
         </div>
         <h3 class="mb-1">{{ t(`portfolio.projects.${props.id}.title`) }}</h3>
