@@ -59,5 +59,16 @@
                 ]
             }
         }
+    },
+    "contact": {
+        "title": "Contact",
+        "description": "Feel free to contact me if you have any questions or would like to work together.",
+        "form": {
+            "name": "Name",
+            "email": "Email",
+            "subject": "Subject",
+            "message": "Message",
+            "submit": "Send"
+        }
     }
 }

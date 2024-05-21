@@ -23,7 +23,7 @@ const login = async () => {
     <div class="max-w-xs">
         <Alert v-if="error" :message="error" type="error" class="mb-2" />
         <form @submit.prevent="login" class="w-full">
-            <div class="bg-background-20 p-5 rounded-lg shadow-lg">
+            <div class="bg-background-10 p-5 rounded-lg shadow-lg">
                 <h2 class="text-center">Login</h2>
                 <div class="mt-4 flex flex-col">
                     <label class="mb-1">Email</label>

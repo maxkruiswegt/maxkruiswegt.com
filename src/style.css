@@ -198,6 +198,6 @@
   }
 
   .input {
-    @apply p-2 rounded-lg bg-background-10;
+    @apply p-2 rounded-lg bg-background;
   }
 }

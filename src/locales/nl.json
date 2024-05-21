@@ -59,5 +59,16 @@
                 ]
             }
         }
+    },
+    "contact": {
+        "title": "Contact",
+        "description": "Voel je vrij om contact met me op te nemen als je vragen hebt of samen wilt werken.",
+        "form": {
+            "name": "Naam",
+            "email": "E-mail",
+            "subject": "Onderwerp",
+            "message": "Bericht",
+            "submit": "Versturen"
+        }
     }
 }
