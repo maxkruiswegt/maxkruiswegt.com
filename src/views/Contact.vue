@@ -44,7 +44,7 @@ const submitContactForm = async () => {
 </script>
 
 <template>
-    <div class="max-w-lg w-full lg:my-[15vh]">
+    <div class="contact-container">
         <Alert v-if="alertMessage" :message="alertMessage" :type="alertType" class="mb-2" />
         <form @submit.prevent="submitContactForm">
             <div class="bg-background-10 p-5 rounded-lg shadow-lg">
@@ -73,3 +73,9 @@ const submitContactForm = async () => {
         </form>
     </div>
 </template>
+
+<style scoped>
+.contact-container {
+    @apply max-w-lg w-full lg:my-[15vh];
+}
+</style>
