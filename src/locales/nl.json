@@ -46,6 +46,19 @@
                     "/images/realestatewebsite/Banner7-mobile.webp"
                 ]
             },
+            "banking-application": {
+                "title": "Bankapplicatie",
+                "description": "Full stack bankapplicatie.",
+                "images": [
+                    "/images/bankingapplication/Banner.webp",
+                    "/images/bankingapplication/Banner2.webp",
+                    "/images/bankingapplication/Banner3.webp",
+                    "/images/bankingapplication/Banner4.webp",
+                    "/images/bankingapplication/Banner5.webp",
+                    "/images/bankingapplication/Banner6.webp",
+                    "/images/bankingapplication/Banner7.webp"
+                ]
+            },
             "cody": {
                 "title": "Cody",
                 "description": "Een veelzijdige studie Discord-bot.",
