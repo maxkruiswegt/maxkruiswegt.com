@@ -146,11 +146,11 @@ const adjustObjectFit = (event) => {
 }
 
 .markdown-bullet-list {
-    @apply list-disc list-inside pl-4;
+    @apply list-disc pl-8;
 }
 
 .markdown-ordered-list {
-    @apply list-decimal list-inside pl-4;
+    @apply list-decimal pl-8;
 }
 
 .markdown-bullet-list li, .markdown-ordered-list li {
