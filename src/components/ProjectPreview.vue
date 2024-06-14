@@ -27,7 +27,7 @@ const props = defineProps({
     <div class="bg-background-10 shadow-md rounded-lg p-6">
         <h4>{{ title }}</h4>
         <p class="mb-4 break-normal">{{ description }}</p>
-        <img :src="image" alt="Project Image" class="rounded-lg mb-4" />
+        <img :src="image" alt="Project Image" class="rounded-lg mb-4 aspect-video object-cover" />
         <RouterLink :to="{ name: `project_${locale}`, params: { id: id }}" class="btn btn-primary mt-2">{{ t('portfolio.viewButton') }}</RouterLink>
     </div>
 </template>
