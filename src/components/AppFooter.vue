@@ -35,7 +35,7 @@ const year = new Date().getFullYear();
                     </div>
                     <div>
                         <h2 class="mb-6 text-sm font-semibold uppercase">Information</h2>
-                        <ul class="text-text-30 font-medium">
+                        <ul class="text-text-30 font-medium break-all">
                             <li class="mb-4 flex gap-2">
                                 <span class="material-symbols-outlined">mail</span>
                                 <p>info@maxkruiswegt.com</p>

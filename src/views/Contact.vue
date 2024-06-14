@@ -26,11 +26,11 @@ const submitContactForm = async () => {
         const data = response.data;
 
         if(data.error) throw Error(data.error);
-        
+
         // Show success message
         alertType.value = 'success';
         alertMessage.value = data.message;
-        
+
         // Clear form
         name.value = '';
         email.value = '';
@@ -50,23 +50,23 @@ const submitContactForm = async () => {
             <div class="bg-background-10 p-5 rounded-lg shadow-lg">
                 <h2 class="text-center">{{ t('contact.title') }}</h2>
                 <p class="text-center mt-2 break-words">{{ t('contact.description') }}</p>
-                <div class="mt-4 flex flex-col">
-                    <label class="mb-1">{{ t('contact.form.name') }}</label>
-                    <input v-model="name" type="text" class="input" required>
+                <div class="form-group">
+                    <label class="form-label">{{ t('contact.form.name') }}</label>
+                    <input v-model="name" type="text" required>
                 </div>
-                <div class="mt-4 flex flex-col">
-                    <label class="mb-1">{{ t('contact.form.email') }}</label>
-                    <input v-model="email" type="email" class="input" required>
+                <div class="form-group">
+                    <label class="form-label">{{ t('contact.form.email') }}</label>
+                    <input v-model="email" type="email" required>
                 </div>
-                <div class="mt-4 flex flex-col">
-                    <label class="mb-1">{{ t('contact.form.subject') }}</label>
-                    <input v-model="subject" type="text" class="input" required>
+                <div class="form-group">
+                    <label class="form-label">{{ t('contact.form.subject') }}</label>
+                    <input v-model="subject" type="text" required>
                 </div>
-                <div class="mt-4 flex flex-col">
-                    <label class="mb-1">{{ t('contact.form.message') }}</label>
-                    <textarea v-model="message" class="input" rows="4" required></textarea>
+                <div class="form-group">
+                    <label class="form-label">{{ t('contact.form.message') }}</label>
+                    <textarea v-model="message" rows="4" required></textarea>
                 </div>
-                <div class="mt-4 flex justify-end">
+                <div class="form-group">
                     <button class="btn btn-primary w-full">{{ t('contact.form.submit') }}</button>
                 </div>
             </div>
@@ -77,5 +77,13 @@ const submitContactForm = async () => {
 <style scoped>
 .contact-container {
     @apply max-w-lg w-full lg:my-[15vh];
+}
+
+.form-group {
+    @apply mt-4 flex flex-col;
+}
+
+.form-label {
+    @apply mb-1;
 }
 </style>

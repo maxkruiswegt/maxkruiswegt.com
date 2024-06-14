@@ -126,29 +126,29 @@
   }
 
   p {
-    @apply whitespace-pre-wrap break-all;
+    @apply whitespace-pre-wrap break-words;
   }
-  
+
   h1 {
     @apply font-heading font-bold text-4xl lg:text-5xl leading-tight;
   }
-  
+
   h2 {
     @apply font-heading font-bold text-3xl lg:text-4xl leading-tight;
   }
-  
+
   h3 {
     @apply font-heading font-bold text-2xl lg:text-3xl leading-snug;
   }
-  
+
   h4 {
     @apply font-heading font-bold text-xl lg:text-2xl leading-snug;
   }
-  
+
   h5 {
     @apply font-heading font-bold text-base lg:text-xl leading-normal;
   }
-  
+
   small {
     @apply font-body font-normal text-sm leading-normal;
   }
@@ -197,7 +197,7 @@
     @apply bg-secondary-20 scale-105;
   }
 
-  .input {
+  input, textarea, select {
     @apply p-2 rounded-lg bg-background;
   }
 }
