@@ -35,22 +35,37 @@ onMounted(async () => {
             throw new Error('Content not found');
         }
 
-        md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
-            tokens[idx].attrPush(['class', 'markdown-link']);
-            tokens[idx].attrPush(['target', '_blank']);
-            return self.renderToken(tokens, idx, options);
-        };
+        setRendererRules();
 
-        md.renderer.rules.paragraph_open = function (tokens, idx, options, env, self) {
-            tokens[idx].attrPush(['class', 'markdown-text']);
-            return self.renderToken(tokens, idx, options);
-        };
-
+        // Render markdown content
         markdown.value = md.render(file.data);
     } catch (error) {
         markdown.value = error.message;
     }
 });
+
+const setRendererRules = () => {
+    md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+        tokens[idx].attrPush(['class', 'markdown-link']);
+        tokens[idx].attrPush(['target', '_blank']);
+        return self.renderToken(tokens, idx, options);
+    };
+
+    md.renderer.rules.paragraph_open = function (tokens, idx, options, env, self) {
+        tokens[idx].attrPush(['class', 'markdown-text']);
+        return self.renderToken(tokens, idx, options);
+    };
+
+    md.renderer.rules.bullet_list_open = function (tokens, idx, options, env, self) {
+        tokens[idx].attrPush(['class', 'markdown-bullet-list']);
+        return self.renderToken(tokens, idx, options);
+    };
+
+    md.renderer.rules.ordered_list_open = function (tokens, idx, options, env, self) {
+        tokens[idx].attrPush(['class', 'markdown-ordered-list']);
+        return self.renderToken(tokens, idx, options);
+    };
+};
 
 const adjustHeight = () => {
     const images = document.querySelectorAll('.aspect-video');
@@ -128,5 +143,17 @@ const adjustObjectFit = (event) => {
 
 .markdown-text {
     @apply break-normal;
+}
+
+.markdown-bullet-list {
+    @apply list-disc list-inside pl-4;
+}
+
+.markdown-ordered-list {
+    @apply list-decimal list-inside pl-4;
+}
+
+.markdown-bullet-list li, .markdown-ordered-list li {
+    @apply my-2;
 }
 </style>
