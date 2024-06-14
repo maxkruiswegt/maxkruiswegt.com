@@ -26,6 +26,26 @@
         "description": "Here are some of the projects I have worked on.",
         "viewButton": "View project",
         "projects": {
+            "real-estate-website": {
+                "title": "Real Estate Website",
+                "description": "A website for a real estate listings.",
+                "images": [
+                    "/images/realestatewebsite/Banner.webp",
+                    "/images/realestatewebsite/Banner-mobile.webp",
+                    "/images/realestatewebsite/Banner2.webp",
+                    "/images/realestatewebsite/Banner2-mobile.webp",
+                    "/images/realestatewebsite/Banner3.webp",
+                    "/images/realestatewebsite/Banner3-mobile.webp",
+                    "/images/realestatewebsite/Banner4.webp",
+                    "/images/realestatewebsite/Banner4-mobile.webp",
+                    "/images/realestatewebsite/Banner5.webp",
+                    "/images/realestatewebsite/Banner5-mobile.webp",
+                    "/images/realestatewebsite/Banner6.webp",
+                    "/images/realestatewebsite/Banner6-mobile.webp",
+                    "/images/realestatewebsite/Banner7.webp",
+                    "/images/realestatewebsite/Banner7-mobile.webp"
+                ]
+            },
             "cody": {
                 "title": "Cody",
                 "description": "A multipurpose study Discord bot.",
