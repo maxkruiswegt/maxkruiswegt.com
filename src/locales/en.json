@@ -28,7 +28,7 @@
         "projects": {
             "real-estate-website": {
                 "title": "Real Estate Website",
-                "description": "A website for a real estate listings.",
+                "description": "A website for real estate listings.",
                 "images": [
                     "/images/realestatewebsite/Banner.webp",
                     "/images/realestatewebsite/Banner-mobile.webp",
