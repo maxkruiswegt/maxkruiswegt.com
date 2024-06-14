@@ -51,6 +51,28 @@ onMounted(async () => {
         markdown.value = error.message;
     }
 });
+
+const adjustHeight = () => {
+    const images = document.querySelectorAll('.aspect-video');
+    images.forEach((image) => {
+        image.style.height = `${image.offsetWidth * 0.5625}px`;
+    });
+};
+
+// Adjust object-fit for images in the carousel
+const adjustObjectFit = (event) => {
+    const img = event.target;
+    const aspectRatio = img.naturalWidth / img.naturalHeight;
+
+    if (aspectRatio > 1) {
+        // Image is wider than tall, suitable for 'cover'
+        img.style.objectFit = 'cover';
+        img.style.width = '100%';
+    } else {
+        // Image is as tall as or taller than it is wide, suitable for 'contain'
+        img.style.objectFit = 'contain';
+    }
+};
 </script>
 
 <template>
@@ -64,7 +86,7 @@ onMounted(async () => {
         <h3 class="mb-1">{{ t(`portfolio.projects.${props.id}.title`) }}</h3>
         <Carousel class="mb-5">
             <Slide v-for="(image, index) in tm(`portfolio.projects.${props.id}.images`)" :key="index" class="rounded-lg overflow-hidden">
-                <img :src="image" alt="Project image" class="rounded-lg border-2 border-text aspect-video object-cover" />
+                <img :src="image" @load="adjustObjectFit" alt="Project image" class="rounded-lg border-2 border-text h-52 sm:h-80" ref="imageElement" />
             </Slide>
             <template #addons>
                 <Navigation />
@@ -77,7 +99,7 @@ onMounted(async () => {
 
 <style>
 .carousel__slide {
-  @apply p-0.5;
+    @apply p-0.5;
 }
 
 .carousel__prev, .carousel__next {
