@@ -25,15 +25,22 @@ const markdown = ref('');
 onMounted(async () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      entry.target.classList.toggle('show-element', entry.isIntersecting);
-      // observer.unobserve(entry.target);
-    })
+      handleIntersection(entry, observer);
+    });
   });
 
   const hiddenElements = document.querySelectorAll('.hidden-element');
   hiddenElements.forEach((element) => {
     observer.observe(element);
   });
+
+  function handleIntersection(entry, observer) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show-element');
+      entry.target.classList.remove('hidden-element');
+      observer.unobserve(entry.target);
+    }
+  }
 
   try {
     const projectKey = `portfolio.projects.${props.id}`;
