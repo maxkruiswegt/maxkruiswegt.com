@@ -17,3 +17,13 @@ import AppFooter from './components/AppFooter.vue'
     </footer>
   </div>
 </template>
+
+<style scoped>
+header {
+  animation: fade-down 1s;
+}
+
+footer {
+  animation: fade-up 1s;
+}
+</style>
