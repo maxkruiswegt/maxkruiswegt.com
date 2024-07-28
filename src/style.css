@@ -185,7 +185,11 @@
     @apply bg-primary text-button-primary-text;
   }
 
-  .btn-primary:hover {
+  .btn-primary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-primary:hover:not([disabled]) {
     @apply bg-primary-20 scale-105;
   }
 
@@ -193,7 +197,11 @@
     @apply bg-secondary text-button-secondary-text;
   }
 
-  .btn-secondary:hover {
+  .btn-secondary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-secondary:hover:not([disabled]) {
     @apply bg-secondary-20 scale-105;
   }
 
