@@ -208,4 +208,39 @@
   input, textarea, select {
     @apply p-2 rounded-lg bg-background;
   }
+
+  .hidden-element {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+  }
+
+  .show-element {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+
+  @keyframes fade-down {
+    from {
+      opacity: 0;
+      transform: translateY(-30px) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px) scale(1);
+    }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px) scale(1);
+    }
+  }
 }
