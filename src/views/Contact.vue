@@ -1,7 +1,7 @@
 <script setup>
 import Alert from '@/components/Alert.vue';
 import axios from 'axios';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { t, locale } = useI18n();
@@ -52,10 +52,24 @@ const submitContactForm = async () => {
     buttonDisabled.value = false;
   }
 };
+
+onMounted(() => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle('show-element', entry.isIntersecting);
+      // observer.unobserve(entry.target);
+    })
+  });
+
+  const hiddenElements = document.querySelectorAll('.hidden-element');
+  hiddenElements.forEach((element) => {
+    observer.observe(element);
+  });
+});
 </script>
 
 <template>
-  <div class="contact-container">
+  <div class="contact-container hidden-element">
     <Alert v-if="alertMessage" :message="alertMessage" :type="alertType" class="mb-2" />
     <form @submit.prevent="submitContactForm">
       <div class="bg-background-10 p-5 rounded-lg shadow-lg">
