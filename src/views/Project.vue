@@ -107,16 +107,26 @@ const adjustObjectFit = (event) => {
     img.style.objectFit = 'contain';
   }
 };
+
+function goBack() {
+  const backUrl = router.options.history.state.back
+  const route = router.resolve({ path: `${backUrl}` })
+
+  if (route.name === `portfolio_${locale.value}`) {
+    router.back();
+  } else {
+    router.push({ name: `portfolio_${locale.value}` });
+  }
+}
 </script>
 
 <template>
   <div class="w-full markdown-page hidden-element">
     <div class="flex mb-4">
-      <RouterLink :to="{ name: `portfolio_${locale}` }"
-        class="transition duration-300 hover:text-primary hover:scale-105 flex gap-1">
+      <button @click="goBack" class="transition duration-300 hover:text-primary hover:scale-105 flex gap-1">
         <span class="material-symbols-outlined">arrow_back</span>
         <p>{{ t('buttons.back') }}</p>
-      </RouterLink>
+      </button>
     </div>
     <h3 class="mb-1">{{ t(`portfolio.projects.${props.id}.title`) }}</h3>
     <Carousel class="mb-5">
