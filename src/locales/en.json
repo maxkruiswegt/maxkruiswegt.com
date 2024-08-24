@@ -72,6 +72,14 @@
                     "/images/cody/Banner7.webp"
                 ]
             },
+            "meteozandvoort": {
+                "title": "Meteo Zandvoort",
+                "description": "A weather website for Zandvoort.",
+                "images": [
+                    "/images/meteozandvoort/Banner.webp",
+                    "/images/meteozandvoort/Banner2.webp"
+                ]
+            },
             "project-planner": {
                 "title": "Project Planner",
                 "description": "A web application to plan projects.",
