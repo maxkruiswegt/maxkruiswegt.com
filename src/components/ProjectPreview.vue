@@ -54,6 +54,7 @@ const props = defineProps({
 }
 
 .project-image {
+  width: 100%;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
   aspect-ratio: 16 / 9;
