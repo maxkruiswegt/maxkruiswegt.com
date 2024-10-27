@@ -47,6 +47,7 @@ function triggerConfetti() {
           src="/images/Max.webp"
           alt="Max Kruiswegt"
           class="h-72 lg:h-96 cursor-pointer"
+          draggable="false"
           @mouseover="switchImage($event, '/images/Max_Cool.webp')"
           @mouseout="switchImage($event, '/images/Max.webp')"
           @click="triggerConfetti"
