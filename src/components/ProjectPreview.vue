@@ -43,7 +43,7 @@ const props = defineProps({
 <style scoped>
 .project-preview {
   background-color: var(--background-10);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   padding: 1.5rem;
 }
