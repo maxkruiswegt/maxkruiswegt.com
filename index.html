@@ -15,6 +15,23 @@
 
     <!-- Dark mode favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon" media="(prefers-color-scheme: dark)" />
+
+    <style>
+      /* Prevent white flash */
+      body {
+        background-color: #171717;
+      }
+      .light body {
+        background-color: #fbf4f4;
+      }
+    </style>
+    <script>
+      // Apply saved theme before Vue app is mounted
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.add('light');
+      }
+    </script>
   </head>
   <body>
     <div id="app"></div>
