@@ -3,6 +3,10 @@ import { ref } from 'vue';
 import { useThemeStore } from '@/stores/ThemeStore';
 import { useI18n } from 'vue-i18n';
 
+/* icons */
+import flag_nl from '@/assets/images/icons/flag_nl.svg';
+import flag_en from '@/assets/images/icons/flag_en.svg';
+
 const { t, locale } = useI18n();
 
 const themeStore = useThemeStore();
@@ -10,6 +14,30 @@ const themeStore = useThemeStore();
 const isMenuOpen = ref(false);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
+};
+
+const isDropdownOpen = ref(false);
+const toggleDropdown = () => {
+  isDropdownOpen.value = !isDropdownOpen.value;
+};
+const changeLanguage = (lang) => {
+  const currentPath = window.location.pathname;
+  const newPath =
+    lang === 'nl'
+      ? currentPath.startsWith('/nl')
+        ? currentPath
+        : '/nl' + currentPath
+      : currentPath.startsWith('/nl')
+      ? currentPath.substring(3)
+      : currentPath;
+
+  if (currentPath !== newPath) {
+    window.location.pathname = newPath;
+  }
+};
+
+const closeDropdown = () => {
+  isDropdownOpen.value = false;
 };
 </script>
 
@@ -28,6 +56,39 @@ const toggleMenu = () => {
           />
         </RouterLink>
         <div class="navbar-actions">
+          <div class="language-dropdown">
+            <img
+              :src="locale === 'nl' ? flag_nl : flag_en"
+              alt="Language Flag"
+              class="language-icon"
+              @click="toggleDropdown"
+            />
+            <div
+              class="dropdown-menu"
+              v-if="isDropdownOpen"
+            >
+              <div
+                class="dropdown-item"
+                @click="changeLanguage('nl')"
+              >
+                <img
+                  :src="flag_nl"
+                  alt="Dutch"
+                />
+                <span>Dutch</span>
+              </div>
+              <div
+                class="dropdown-item"
+                @click="changeLanguage('en')"
+              >
+                <img
+                  :src="flag_en"
+                  alt="English"
+                />
+                <span>English</span>
+              </div>
+            </div>
+          </div>
           <span
             class="material-symbols-outlined theme-icon"
             @click="themeStore.toggleTheme()"
@@ -66,6 +127,39 @@ const toggleMenu = () => {
             @click="themeStore.toggleTheme()"
             >{{ themeStore.icon }}</span
           >
+          <div class="language-dropdown">
+            <img
+              :src="locale === 'nl' ? flag_nl : flag_en"
+              alt="Language Flag"
+              class="language-icon"
+              @click="toggleDropdown"
+            />
+            <div
+              class="dropdown-menu"
+              v-if="isDropdownOpen"
+            >
+              <div
+                class="dropdown-item"
+                @click="changeLanguage('nl')"
+              >
+                <img
+                  :src="flag_nl"
+                  alt="Dutch"
+                />
+                <span>Dutch</span>
+              </div>
+              <div
+                class="dropdown-item"
+                @click="changeLanguage('en')"
+              >
+                <img
+                  :src="flag_en"
+                  alt="English"
+                />
+                <span>English</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div
@@ -96,6 +190,11 @@ const toggleMenu = () => {
           </RouterLink>
         </div>
       </div>
+      <div
+        v-if="isDropdownOpen"
+        class="mask"
+        @click="closeDropdown"
+      ></div>
     </div>
   </nav>
 </template>
@@ -129,7 +228,7 @@ const toggleMenu = () => {
 }
 
 .logo {
-  height: 2rem;
+  height: 1.75rem;
 }
 
 .navbar-actions {
@@ -141,7 +240,7 @@ const toggleMenu = () => {
 .theme-icon,
 .menu-icon {
   cursor: pointer;
-  font-size: 1.777rem;
+  height: 24px;
   transition: all 0.3s;
 }
 
@@ -180,6 +279,65 @@ const toggleMenu = () => {
   span {
     font-size: 1.333rem;
   }
+}
+
+/* Language dropdown */
+.language-dropdown {
+  display: flex;
+  position: relative;
+}
+
+.language-icon {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--text);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 0.5rem;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: var(--background);
+
+  &:first-child {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+  &:last-child {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+}
+
+.dropdown-item:hover {
+  background-color: var(--text-30);
+}
+
+.dropdown-item img {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 999;
 }
 
 /* Small Devices */
