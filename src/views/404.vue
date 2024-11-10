@@ -5,7 +5,7 @@ const { t, locale } = useI18n();
 </script>
 
 <template>
-  <div class="unknown-page">
+  <div class="unknown-page hidden-element">
     <h1 v-html="t('404.title')"></h1>
     <p
       class="unknown-text"
