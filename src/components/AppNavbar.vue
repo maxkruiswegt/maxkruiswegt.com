@@ -75,7 +75,7 @@ const closeDropdown = () => {
                   :src="flag_nl"
                   alt="Dutch"
                 />
-                <span>Dutch</span>
+                <span>{{ t('languages.nl') }}</span>
               </div>
               <div
                 class="dropdown-item"
@@ -85,7 +85,7 @@ const closeDropdown = () => {
                   :src="flag_en"
                   alt="English"
                 />
-                <span>English</span>
+                <span>{{ t('languages.en') }}</span>
               </div>
             </div>
           </div>
@@ -106,21 +106,21 @@ const closeDropdown = () => {
             class="navlink"
           >
             <span class="material-symbols-outlined">home</span>
-            <p>Home</p>
+            <p>{{ t('navigation.home') }}</p>
           </RouterLink>
           <RouterLink
             :to="{ name: `portfolio_${locale}` }"
             class="navlink"
           >
             <span class="material-symbols-outlined">work</span>
-            <p>Portfolio</p>
+            <p>{{ t('navigation.portfolio') }}</p>
           </RouterLink>
           <RouterLink
             :to="{ name: `contact_${locale}` }"
             class="navlink"
           >
             <span class="material-symbols-outlined">help</span>
-            <p>Contact</p>
+            <p>{{ t('navigation.contact') }}</p>
           </RouterLink>
           <span
             class="material-symbols-outlined theme-icon"
@@ -146,7 +146,7 @@ const closeDropdown = () => {
                   :src="flag_nl"
                   alt="Dutch"
                 />
-                <span>Dutch</span>
+                <span>{{ t('languages.nl') }}</span>
               </div>
               <div
                 class="dropdown-item"
@@ -156,7 +156,7 @@ const closeDropdown = () => {
                   :src="flag_en"
                   alt="English"
                 />
-                <span>English</span>
+                <span>{{ t('languages.en') }}</span>
               </div>
             </div>
           </div>
@@ -172,21 +172,21 @@ const closeDropdown = () => {
             class="navlink-mobile"
           >
             <span class="material-symbols-outlined">home</span>
-            <p>Home</p>
+            <p>{{ t('navigation.home') }}</p>
           </RouterLink>
           <RouterLink
             :to="{ name: `portfolio_${locale}` }"
             class="navlink-mobile"
           >
             <span class="material-symbols-outlined">work</span>
-            <p>Portfolio</p>
+            <p>{{ t('navigation.portfolio') }}</p>
           </RouterLink>
           <RouterLink
             :to="{ name: `contact_${locale}` }"
             class="navlink-mobile"
           >
             <span class="material-symbols-outlined">help</span>
-            <p>Contact</p>
+            <p>{{ t('navigation.contact') }}</p>
           </RouterLink>
         </div>
       </div>
