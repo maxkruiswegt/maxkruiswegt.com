@@ -6,19 +6,19 @@ Welcome to the repository for my portfolio website. This site is built with Vue 
 
 ## 📖 Pages
 
-- 🏠 Home: The landing page of my portfolio.
-- 💼 Portfolio: A showcase of my projects and contributions.
-- 📞 Contact: A page where you can find ways to get in touch with me.
-- 🌐 Multilingual: The website is available in English and Dutch.
+- **🏠 Home**: The landing page of my portfolio.
+- **💼 Portfolio**: A showcase of my projects and contributions.
+- **📞 Contact**: A page where you can find ways to get in touch with me.
+- **🌐 Multilingual**: The website is available in English and Dutch.
 
 ## 💻 Development
 
-This project uses Vue 3, Vite, Vue Router, Vue I18n, and Pinia. Styles are handled with Tailwind CSS.
+This project uses Vue 3, Vite, HTML, CSS, JavaScript, I18n for language support, and Pinia for stores.
 
 ### Prerequisites
 
-- Node.js
-- npm
+- **Node.js**
+- **npm**
 
 ### Setup
 
