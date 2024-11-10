@@ -3,16 +3,16 @@ import { computed } from 'vue';
 
 const props = defineProps({
   message: {
-      type: String,
-      required: true
+    type: String,
+    required: true,
   },
   type: {
-      type: String,
-      required: false,
-      validator: (value) => {
-        return ['info', 'success', 'warning', 'error'].includes(value);
-      }
-  }
+    type: String,
+    required: false,
+    validator: (value) => {
+      return ['info', 'success', 'warning', 'error'].includes(value);
+    },
+  },
 });
 
 const svg = computed(() => {
@@ -32,10 +32,15 @@ const svg = computed(() => {
 </script>
 
 <template>
-    <div v-if="message" role="alert" class="alert" :class="type">
-      <span v-html="svg"></span>
-      <span>{{ message }}</span>
-    </div>
+  <div
+    v-if="message"
+    role="alert"
+    class="alert"
+    :class="type"
+  >
+    <span v-html="svg"></span>
+    <span>{{ message }}</span>
+  </div>
 </template>
 
 <style scoped>

@@ -26,7 +26,7 @@ const submitContactForm = async () => {
       name: name.value,
       email: email.value,
       subject: subject.value,
-      message: message.value
+      message: message.value,
     });
 
     // Get response data
@@ -46,7 +46,7 @@ const submitContactForm = async () => {
     message.value = '';
   } catch (err) {
     alertType.value = 'error';
-    alertMessage.value = err.response?.data.error || err.message
+    alertMessage.value = err.response?.data.error || err.message;
   } finally {
     // Enable button
     buttonDisabled.value = false;
@@ -77,29 +77,54 @@ onMounted(() => {
 
 <template>
   <div class="contact-container hidden-element">
-    <Alert v-if="alertMessage" :message="alertMessage" :type="alertType" class="mb-2" />
+    <Alert
+      v-if="alertMessage"
+      :message="alertMessage"
+      :type="alertType"
+    />
     <form @submit.prevent="submitContactForm">
-      <div class="bg-background-10 p-5 rounded-lg shadow-lg">
-        <h2 class="text-center">{{ t('contact.title') }}</h2>
-        <p class="text-center mt-2 break-words">{{ t('contact.description') }}</p>
+      <div class="contact-card">
+        <h2 class="card-title">{{ t('contact.title') }}</h2>
+        <p class="card-text">{{ t('contact.description') }}</p>
         <div class="form-group">
           <label class="form-label">{{ t('contact.form.name') }}</label>
-          <input v-model="name" type="text" required>
+          <input
+            v-model="name"
+            type="text"
+            required
+          />
         </div>
         <div class="form-group">
           <label class="form-label">{{ t('contact.form.email') }}</label>
-          <input v-model="email" type="email" required>
+          <input
+            v-model="email"
+            type="email"
+            required
+          />
         </div>
         <div class="form-group">
           <label class="form-label">{{ t('contact.form.subject') }}</label>
-          <input v-model="subject" type="text" required>
+          <input
+            v-model="subject"
+            type="text"
+            required
+          />
         </div>
         <div class="form-group">
           <label class="form-label">{{ t('contact.form.message') }}</label>
-          <textarea v-model="message" rows="4" required></textarea>
+          <textarea
+            v-model="message"
+            rows="4"
+            required
+          ></textarea>
         </div>
         <div class="form-group">
-          <button class="btn btn-primary w-full" :disabled="buttonDisabled">{{ t('contact.form.submit') }}</button>
+          <button
+            class="btn btn-primary"
+            :disabled="buttonDisabled"
+          >
+            {{ t('contact.form.submit') }}
+          </button>
         </div>
       </div>
     </form>
@@ -107,15 +132,67 @@ onMounted(() => {
 </template>
 
 <style scoped>
+/* Extra Small Devices (Less than 576px) */
 .contact-container {
-  @apply max-w-lg w-full lg:my-[15vh];
+  max-width: 32rem;
+  width: 100%;
+}
+
+.alert {
+  margin-bottom: 0.5rem;
+}
+
+.contact-card {
+  background-color: var(--background-10);
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  text-align: center;
+}
+
+.card-text {
+  text-align: center;
+  margin-top: 0.5rem;
+  overflow-wrap: break-word;
 }
 
 .form-group {
-  @apply mt-4 flex flex-col;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-label {
-  @apply mb-1;
+  margin-bottom: 0.25rem;
+}
+
+/* Small Devices */
+@media screen and (min-width: 576px) {
+}
+
+/* Medium Devices */
+@media screen and (min-width: 768px) {
+}
+
+/* Large Devices*/
+@media screen and (min-width: 992px) {
+  .contact-container {
+    margin: 15vh auto;
+  }
+}
+
+/* Extra Large Devices */
+@media screen and (min-width: 1200px) {
+}
+
+/* Extra Extra Large Devices */
+@media screen and (min-width: 1600px) {
+}
+
+/* Very Large Devices */
+@media screen and (min-width: 2560px) {
 }
 </style>

@@ -6,8 +6,8 @@ import axios from 'axios';
 import { useRouter } from 'vue-router';
 
 // Carousel
-import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import 'vue3-carousel/dist/carousel.css';
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 
 const { t, tm, locale } = useI18n();
 const md = markdownit();
@@ -16,8 +16,8 @@ const router = useRouter();
 const props = defineProps({
   id: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 const markdown = ref('');
@@ -109,8 +109,8 @@ const adjustObjectFit = (event) => {
 };
 
 function goBack() {
-  const backUrl = router.options.history.state.back
-  const route = router.resolve({ path: `${backUrl}` })
+  const backUrl = router.options.history.state.back;
+  const route = router.resolve({ path: `${backUrl}` });
 
   if (route.name === `portfolio_${locale.value}`) {
     router.back();
@@ -121,73 +121,109 @@ function goBack() {
 </script>
 
 <template>
-  <div class="w-full markdown-page hidden-element">
-    <div class="flex mb-4">
-      <button @click="goBack" class="transition duration-300 hover:text-primary hover:scale-105 flex gap-1">
+  <div class="project-page hidden-element">
+    <div class="back-button-wrapper">
+      <button
+        @click="goBack"
+        class="back-button"
+      >
         <span class="material-symbols-outlined">arrow_back</span>
         <p>{{ t('buttons.back') }}</p>
       </button>
     </div>
-    <h3 class="mb-1">{{ t(`portfolio.projects.${props.id}.title`) }}</h3>
-    <Carousel class="mb-5">
-      <Slide v-for="(image, index) in tm(`portfolio.projects.${props.id}.images`)" :key="index"
-        class="rounded-lg overflow-hidden">
-        <img :src="image" @load="adjustObjectFit" alt="Project image"
-          class="rounded-lg border-2 border-text h-52 sm:h-80" ref="imageElement" />
+    <h3 class="project-title">{{ t(`portfolio.projects.${props.id}.title`) }}</h3>
+    <Carousel class="project-carousel">
+      <Slide
+        v-for="(image, index) in tm(`portfolio.projects.${props.id}.images`)"
+        :key="index"
+        class="carousel-slide"
+      >
+        <img
+          :src="image"
+          @load="adjustObjectFit"
+          alt="Project image"
+          class="carousel-image"
+          ref="imageElement"
+        />
       </Slide>
       <template #addons>
         <Navigation />
         <Pagination />
       </template>
     </Carousel>
-    <div v-if="markdown" v-html="markdown"></div>
+    <div
+      v-if="markdown"
+      v-html="markdown"
+    ></div>
   </div>
 </template>
 
-<style>
-.carousel__slide {
-  @apply p-0.5;
+<style scoped>
+/* Extra Small Devices (Less than 576px) */
+.project-page {
+  width: 100%;
+  max-width: 60ch;
 }
 
-.carousel__prev,
-.carousel__next {
-  @apply text-text duration-300 hover:text-primary;
+.back-button-wrapper {
+  display: flex;
+  margin-bottom: 1rem;
 }
 
-.carousel__pagination-button::after {
-  @apply bg-text duration-200 hover:bg-primary;
+.back-button {
+  display: flex;
+  gap: 0.25rem;
+  transition: all 0.3s;
 }
 
-.carousel__pagination-button--active::after {
-  @apply bg-primary;
+.back-button:hover {
+  color: var(--primary);
+  transform: scale(1.05);
 }
 
-.markdown-page {
-  @apply max-w-prose;
+.project-title {
+  margin-bottom: 0.25rem;
 }
 
-.markdown-link {
-  @apply text-primary;
+.project-carousel {
+  margin-bottom: 1.25rem;
 }
 
-.markdown-link:hover {
-  @apply text-primary-20 underline;
+.carousel-slide {
+  overflow: hidden;
+  border-radius: 0.5rem;
 }
 
-.markdown-text {
-  @apply break-normal;
+.carousel-image {
+  border-radius: 0.5rem;
+  border: 2px solid var(--text);
+  height: 13rem;
 }
 
-.markdown-bullet-list {
-  @apply list-disc pl-8;
+/* Small Devices */
+@media screen and (min-width: 576px) {
 }
 
-.markdown-ordered-list {
-  @apply list-decimal pl-8;
+/* Medium Devices */
+@media screen and (min-width: 768px) {
+  .carousel-image {
+    height: 20rem;
+  }
 }
 
-.markdown-bullet-list li,
-.markdown-ordered-list li {
-  @apply my-2;
+/* Large Devices*/
+@media screen and (min-width: 992px) {
+}
+
+/* Extra Large Devices */
+@media screen and (min-width: 1200px) {
+}
+
+/* Extra Extra Large Devices */
+@media screen and (min-width: 1600px) {
+}
+
+/* Very Large Devices */
+@media screen and (min-width: 2560px) {
 }
 </style>
