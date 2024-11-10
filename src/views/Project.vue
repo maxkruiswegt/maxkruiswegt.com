@@ -23,25 +23,6 @@ const props = defineProps({
 const markdown = ref('');
 
 onMounted(async () => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      handleIntersection(entry, observer);
-    });
-  });
-
-  const hiddenElements = document.querySelectorAll('.hidden-element');
-  hiddenElements.forEach((element) => {
-    observer.observe(element);
-  });
-
-  function handleIntersection(entry, observer) {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show-element');
-      entry.target.classList.remove('hidden-element');
-      observer.unobserve(entry.target);
-    }
-  }
-
   try {
     const projectKey = `portfolio.projects.${props.id}`;
 
@@ -84,13 +65,6 @@ const setRendererRules = () => {
     tokens[idx].attrPush(['class', 'markdown-ordered-list']);
     return self.renderToken(tokens, idx, options);
   };
-};
-
-const adjustHeight = () => {
-  const images = document.querySelectorAll('.aspect-video');
-  images.forEach((image) => {
-    image.style.height = `${image.offsetWidth * 0.5625}px`;
-  });
 };
 
 // Adjust object-fit for images in the carousel

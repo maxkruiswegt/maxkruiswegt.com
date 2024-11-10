@@ -1,7 +1,14 @@
 <script setup>
+import { onMounted } from 'vue';
 import { RouterView } from 'vue-router';
 import AppNavbar from './components/AppNavbar.vue';
 import AppFooter from './components/AppFooter.vue';
+import { observeElements } from '@/utils/observerUtils';
+
+onMounted(() => {
+  // Observe elements for animations
+  observeElements();
+});
 </script>
 
 <template>

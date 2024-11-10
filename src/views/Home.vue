@@ -1,30 +1,8 @@
 <script setup>
-import { onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import confetti from 'canvas-confetti';
 
 const { t, locale } = useI18n();
-
-onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      handleIntersection(entry, observer);
-    });
-  });
-
-  const hiddenElements = document.querySelectorAll('.hidden-element');
-  hiddenElements.forEach((element) => {
-    observer.observe(element);
-  });
-
-  function handleIntersection(entry, observer) {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show-element');
-      entry.target.classList.remove('hidden-element');
-      observer.unobserve(entry.target);
-    }
-  }
-});
 
 function switchImage(event, newSrc) {
   event.target.src = newSrc;
