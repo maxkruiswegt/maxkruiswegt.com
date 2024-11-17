@@ -94,7 +94,7 @@ const year = new Date().getFullYear();
             <span class="sr-only">Discord account</span>
           </a>
           <a
-            href="https://github.com/ItsMaxDev"
+            href="https://github.com/maxkruiswegt"
             target="_blank"
             class="footer-social-link"
           >

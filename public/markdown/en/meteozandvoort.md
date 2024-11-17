@@ -34,4 +34,4 @@ These endpoints allow the frontend to display up-to-date and historical weather 
 
 #### 📂 GitHub Repository
 
-Interested in the code? Check out the source on GitHub: [ItsMaxDev/meteozandvoort.nl](https://github.com/ItsMaxDev/meteozandvoort.nl).
+Interested in the code? Check out the source on GitHub: [maxkruiswegt/meteozandvoort.nl](https://github.com/maxkruiswegt/meteozandvoort.nl).

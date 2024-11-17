@@ -34,4 +34,4 @@ Deze endpoints stellen de frontend in staat om naadloos actuele en historische w
 
 #### 📂 GitHub Repository
 
-Geïnteresseerd in de code? Bekijk de bron op GitHub: [ItsMaxDev/meteozandvoort.nl](https://github.com/ItsMaxDev/meteozandvoort.nl).
+Geïnteresseerd in de code? Bekijk de bron op GitHub: [maxkruiswegt/meteozandvoort.nl](https://github.com/maxkruiswegt/meteozandvoort.nl).

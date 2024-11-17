@@ -1,6 +1,6 @@
 #### 📜 Projectoverzicht
 
-Welkom op mijn persoonlijke website! Deze site is gebouwd met Vue 3 en Vite, en toont mijn werk als ontwikkelaar. Geïnteresseerd in de code? Bekijk de [GitHub repository](https://github.com/ItsMaxDev/maxkruiswegt.com).
+Welkom op mijn persoonlijke website! Deze site is gebouwd met Vue 3 en Vite, en toont mijn werk als ontwikkelaar. Geïnteresseerd in de code? Bekijk de [GitHub repository](https://github.com/maxkruiswegt/maxkruiswegt.com).
 
 &nbsp;
 
@@ -38,4 +38,4 @@ Dit project gebruikt verschillende technologieën:
 
 #### 🚀 Implementatie
 
-De website wordt automatisch geïmplementeerd met behulp van een GitHub Actions workflow, die je [`hier`](https://github.com/ItsMaxDev/maxkruiswegt.com/blob/main/.github/workflows/deployment.yml) kunt vinden.
+De website wordt automatisch geïmplementeerd met behulp van een GitHub Actions workflow, die je [`hier`](https://github.com/maxkruiswegt/maxkruiswegt.com/blob/main/.github/workflows/deployment.yml) kunt vinden.

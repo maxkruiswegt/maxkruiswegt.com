@@ -1,6 +1,6 @@
 #### 📜 Project Overview
 
-Welcome to my personal website! This site is built with Vue 3 and Vite, showcasing my work as a developer. Interested in the code? Check out the [GitHub repository](https://github.com/ItsMaxDev/maxkruiswegt.com).
+Welcome to my personal website! This site is built with Vue 3 and Vite, showcasing my work as a developer. Interested in the code? Check out the [GitHub repository](https://github.com/maxkruiswegt/maxkruiswegt.com).
 
 &nbsp;
 
@@ -38,4 +38,4 @@ This project uses several technologies:
 
 #### 🚀 Deployment
 
-The website is automatically deployed using a GitHub Actions workflow, which can be found on [`here`](https://github.com/ItsMaxDev/maxkruiswegt.com/blob/main/.github/workflows/deployment.yml).
+The website is automatically deployed using a GitHub Actions workflow, which can be found on [`here`](https://github.com/maxkruiswegt/maxkruiswegt.com/blob/main/.github/workflows/deployment.yml).
