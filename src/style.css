@@ -13,6 +13,7 @@
   --text-80: #312f2f;
   --text-90: #181717;
   --background: #171717;
+  --background-pattern: 251, 244, 244;
   --background-10: #2e2e2e;
   --background-20: #454545;
   --background-30: #5d5d5d;
@@ -67,6 +68,7 @@
   --text-80: #d0cece;
   --text-90: #e8e7e7;
   --background: #fbf4f4;
+  --background-pattern: 23, 23, 23;
   --background-10: #e2dcdc;
   --background-20: #c9c3c3;
   --background-30: #b0abab;
@@ -123,6 +125,19 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   margin: 0;
+
+  /* Background Pattern */
+  background-image: linear-gradient(
+    -45deg,
+    rgba(var(--background-pattern), 0.03) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(var(--background-pattern), 0.03) 50%,
+    rgba(var(--background-pattern), 0.03) 75%,
+    transparent 75%,
+    transparent 100%
+  );
+  background-size: 6px 6px;
 }
 
 p {
