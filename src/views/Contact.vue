@@ -62,7 +62,7 @@ const submitContactForm = async () => {
       :type="alertType"
     />
     <form @submit.prevent="submitContactForm">
-      <div class="contact-card">
+      <div class="contact-card background-pattern-1">
         <h2 class="card-title">{{ t('contact.title') }}</h2>
         <p class="card-text">{{ t('contact.description') }}</p>
         <div class="form-group">

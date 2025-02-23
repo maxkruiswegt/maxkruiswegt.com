@@ -137,6 +137,7 @@ function goBack() {
 .project-page {
   width: 100%;
   max-width: 60ch;
+  align-self: center;
 }
 
 .back-button-wrapper {
