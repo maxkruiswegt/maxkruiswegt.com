@@ -125,6 +125,10 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   margin: 0;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   /* Background Pattern */
   background-image: linear-gradient(
@@ -138,6 +142,11 @@ body {
     transparent 100%
   );
   background-size: 6px 6px;
+
+  /* Background Pattern 2 */
+  /* background-image: radial-gradient(rgba(var(--background-pattern), 0.1) 1px, transparent 1px);
+  background-position: 50%;
+  background-size: 2rem 2rem; */
 }
 
 p {
