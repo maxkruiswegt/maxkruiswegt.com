@@ -12,25 +12,36 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="main-app">
-    <header>
-      <AppNavbar />
-    </header>
-    <main class="main-content">
-      <RouterView class="main-router" />
-    </main>
-    <footer>
-      <AppFooter />
-    </footer>
+  <div class="app-wrapper">
+    <div class="main-app">
+      <header>
+        <AppNavbar />
+      </header>
+      <main class="main-content">
+        <RouterView />
+      </main>
+      <footer>
+        <AppFooter />
+      </footer>
+    </div>
   </div>
 </template>
 
 <style scoped>
 /* Extra Small Devices (Less than 576px) */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
 .main-app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  max-width: 1280px;
 }
 
 .main-content {
@@ -41,16 +52,14 @@ onMounted(() => {
   margin: 2.5rem 0;
 }
 
-.main-router {
-  max-width: 1280px;
-}
-
 header {
   animation: fade-down 1s;
+  padding: 1rem;
 }
 
 footer {
   animation: fade-up 1s;
+  padding: 1rem;
 }
 
 /* Small Devices */
@@ -63,7 +72,15 @@ footer {
 
 /* Large Devices*/
 @media screen and (min-width: 992px) {
-  .main-router {
+  .main-content {
+    padding: 2rem;
+  }
+
+  header {
+    padding: 2rem;
+  }
+
+  footer {
     padding: 2rem;
   }
 }
