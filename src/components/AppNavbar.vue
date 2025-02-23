@@ -208,8 +208,6 @@ const closeDropdown = () => {
 
 .navbar {
   width: 100%;
-  max-width: 1280px;
-  padding: 1rem;
 }
 
 .navbar-content {
@@ -353,10 +351,6 @@ const closeDropdown = () => {
 
 /* Large Devices*/
 @media screen and (min-width: 992px) {
-  .navbar {
-    padding: 2rem;
-  }
-
   .mobile-menu {
     display: none;
   }
