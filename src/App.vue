@@ -12,15 +12,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="app-wrapper">
+  <div class="app-wrapper background-pattern-2">
     <div class="main-app">
-      <header>
+      <header class="background-pattern-1">
         <AppNavbar />
       </header>
       <main class="main-content">
         <RouterView />
       </main>
-      <footer>
+      <footer class="background-pattern-1">
         <AppFooter />
       </footer>
     </div>
@@ -53,11 +53,25 @@ footer {
 header {
   animation: fade-down 1s;
   padding: 1rem;
+  background-color: var(--background);
+  border-radius: 0 0 0.5rem 0.5rem;
+
+  /* Border thats on the left bottom and right */
+  border-bottom: 1px solid var(--background-10);
+  border-left: 1px solid var(--background-10);
+  border-right: 1px solid var(--background-10);
 }
 
 footer {
   animation: fade-up 1s;
   padding: 1rem;
+  background-color: var(--background);
+  border-radius: 0.5rem 0.5rem 0 0;
+
+  /* Border thats on the left top and right */
+  border-top: 1px solid var(--background-10);
+  border-left: 1px solid var(--background-10);
+  border-right: 1px solid var(--background-10);
 }
 
 /* Small Devices */
