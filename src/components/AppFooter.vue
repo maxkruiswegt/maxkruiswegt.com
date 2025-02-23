@@ -157,7 +157,6 @@ const year = new Date().getFullYear();
 <style>
 .footer-container {
   width: 100%;
-  max-width: 1280px;
 }
 
 .footer-logo {

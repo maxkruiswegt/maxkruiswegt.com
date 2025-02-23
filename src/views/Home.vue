@@ -59,6 +59,7 @@ function triggerConfetti() {
   gap: 2rem;
   margin-top: 5vh;
   margin-bottom: 10vh;
+  align-self: center;
 }
 
 .max-image {

@@ -33,9 +33,6 @@ onMounted(() => {
   height: 100vh;
   width: 100%;
   overflow-x: hidden;
-}
-
-.main-app {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,14 +41,12 @@ onMounted(() => {
 .main-content,
 header,
 footer {
-  width: 100%;
   max-width: 1280px;
 }
 
 .main-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 3.5rem 1rem;
 }
 
