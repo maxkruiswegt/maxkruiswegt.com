@@ -2,29 +2,54 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/favicon.ico"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Max Kruiswegt</title>
-    <meta name="description" content="Max Kruiswegt is a Dutch full-stack developer." />
+    <meta
+      name="description"
+      content="Max Kruiswegt is a Dutch full-stack developer."
+    />
 
     <!-- Default favicon (for browsers that don't support media queries in link tags) -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link
+      rel="icon"
+      href="/favicon.ico"
+      type="image/x-icon"
+    />
 
     <!-- Light mode favicon -->
-    <link rel="icon" href="/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: light)" />
+    <link
+      rel="icon"
+      href="/favicon-dark.ico"
+      type="image/x-icon"
+      media="(prefers-color-scheme: light)"
+    />
 
     <!-- Dark mode favicon -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" media="(prefers-color-scheme: dark)" />
+    <link
+      rel="icon"
+      href="/favicon.ico"
+      type="image/x-icon"
+      media="(prefers-color-scheme: dark)"
+    />
 
-    <style>
-      /* Prevent white flash */
-      body {
-        background-color: #171717;
-      }
-      .light body {
-        background-color: #fbf4f4;
-      }
-    </style>
+    <!-- Preload CSS -->
+    <link
+      rel="preload"
+      href="/src/assets/css/main.css"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="/src/assets/css/main.css"
+    />
+
     <script>
       // Apply saved theme before Vue app is mounted
       const savedTheme = localStorage.getItem('theme');
@@ -35,6 +60,9 @@
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <script
+      type="module"
+      src="/src/main.js"
+    ></script>
   </body>
 </html>
