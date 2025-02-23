@@ -133,7 +133,7 @@ function goBack() {
 </template>
 
 <style scoped>
-/* Extra Small Devices (Less than 576px) */
+/* Default styles: Mobile first */
 .project-page {
   width: 100%;
   max-width: 60ch;
@@ -171,33 +171,29 @@ function goBack() {
 .carousel-image {
   border-radius: 0.5rem;
   border: 2px solid var(--text);
-  height: 13rem;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
 }
 
-/* Small Devices */
-@media screen and (min-width: 576px) {
+/* Smaller phone viewpoints (380px and up) */
+@media screen and (min-width: 380px) {
 }
 
-/* Medium Devices */
-@media screen and (min-width: 768px) {
-  .carousel-image {
-    height: 20rem;
-  }
+/* Small devices and most phones (480px and up) */
+@media only screen and (min-width: 480px) {
 }
 
-/* Large Devices*/
-@media screen and (min-width: 992px) {
+/* Most tablets (768px and up) */
+@media only screen and (min-width: 768px) {
 }
 
-/* Extra Large Devices */
-@media screen and (min-width: 1200px) {
+/* Smaller desktop viewpoints (992px and up) */
+@media only screen and (min-width: 992px) {
 }
 
-/* Extra Extra Large Devices */
-@media screen and (min-width: 1600px) {
-}
-
-/* Very Large Devices */
-@media screen and (min-width: 2560px) {
+/* Large devices and wide screens (1200px and up) */
+@media only screen and (min-width: 1200px) {
 }
 </style>
