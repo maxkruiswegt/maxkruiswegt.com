@@ -30,14 +30,27 @@ onMounted(() => {
 <style scoped>
 /* Extra Small Devices (Less than 576px) */
 .app-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .main-app {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.main-content,
+header,
+footer {
+  width: 100%;
   max-width: 1280px;
 }
 
@@ -45,8 +58,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
-  margin: 2.5rem 0;
+  padding: 3.5rem 1rem;
 }
 
 header {
@@ -70,7 +82,7 @@ footer {
 /* Large Devices*/
 @media screen and (min-width: 992px) {
   .main-content {
-    padding: 2rem;
+    padding: 4.5rem 2rem;
   }
 
   header {

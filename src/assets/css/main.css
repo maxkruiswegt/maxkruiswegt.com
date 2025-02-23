@@ -113,10 +113,6 @@
 }
 
 /* Extra Small Devices (Less than 576px) */
-html {
-  overflow-y: scroll;
-}
-
 body {
   color: var(--text, #f5eaea);
   background-color: var(--background);
@@ -125,10 +121,6 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   margin: 0;
-  width: 100vw;
-  min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
 
   /* Background Pattern */
   background-image: linear-gradient(
@@ -290,8 +282,8 @@ small {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 20px;
-  height: 20px;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
@@ -300,8 +292,8 @@ small {
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--text);
-  border-radius: 20px;
-  border: 6px solid transparent;
+  border-radius: 6px;
+  border: 3px solid transparent;
   background-clip: content-box;
 }
 
