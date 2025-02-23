@@ -30,8 +30,9 @@ onMounted(() => {
 <style scoped>
 /* Extra Small Devices (Less than 576px) */
 .app-wrapper {
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .main-app {

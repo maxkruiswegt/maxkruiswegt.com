@@ -121,6 +121,7 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   margin: 0;
+  overflow: hidden;
 
   /* Background Pattern */
   background-image: linear-gradient(
