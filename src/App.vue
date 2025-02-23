@@ -30,21 +30,14 @@ onMounted(() => {
 <style scoped>
 /* Extra Small Devices (Less than 576px) */
 .app-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
+  min-height: 100vh;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
 }
 
 .main-app {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
 }
 
 .main-content,
