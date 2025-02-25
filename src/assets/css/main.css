@@ -113,6 +113,11 @@
 }
 
 /* Extra Small Devices (Less than 576px) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--background-10) transparent;
+}
+
 body {
   color: var(--text, #f5eaea);
   background-color: var(--background);
@@ -263,7 +268,7 @@ small {
   }
 }
 
-/* Scrollbar */
+/* Scrollbar (for browsers that don't support scrollbar-width: thin) */
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
