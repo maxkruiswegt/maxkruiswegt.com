@@ -1,9 +1,9 @@
 #### 📜 Project Overview
-Cody is a versatile Discord bot crafted in **C#** using **DSharpPlus**. It was created for Cajun Koi's [Discord server](https://discord.gg/cajunkoi), where I serve as the Community Manager.
+Cody is a versatile Discord bot crafted in **C#** using **DSharpPlus**. It was created for Kaizen's [Discord server](https://discord.gg/improve), where I serve as the Community Manager.
 
 &nbsp;
 
-[Cajun Koi Academy](https://cajunkoi.com) is an academy dedicated to helping educational creators and entrepreneurs build a career online. We combine science and gamification to create a fun and unforgettable learning experience, equipping you with the skills needed to navigate the digital future.
+Kaizen is a community for students and life-long learners aiming to achieve freedom doing work they love. It's a place to collaborate, motivate, and work together to achieve that goal.
 
 &nbsp;
 

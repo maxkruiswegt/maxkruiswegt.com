@@ -1,9 +1,9 @@
 #### 📜 Projectoverzicht
-Cody is een veelzijdige Discord bot gemaakt in **C#** met behulp van **DSharpPlus**. Het is gemaakt voor de [Discord server](https://discord.gg/cajunkoi) van Cajun Koi, waar ik dien als Community Manager.
+Cody is een veelzijdige Discord bot gemaakt in **C#** met behulp van **DSharpPlus**. Het is gemaakt voor de [Discord server](https://discord.gg/improve) van Kaizen, waar ik dien als Community Manager.
 
 &nbsp;
 
-[Cajun Koi Academy](https://cajunkoi.com) is een academie die zich inzet om educatieve makers en ondernemers te helpen een carrière op te bouwen op het internet. We combineren wetenschap en gamification om een leuke en onvergetelijke leerervaring te creëren, en je uit te rusten met de vaardigheden die nodig zijn om de digitale toekomst te navigeren.
+Kaizen is een gemeenschap voor studenten en levenslange leerders die ernaar streven vrijheid te vinden in werk waar ze van houden. Het is een plek om samen te werken, elkaar te motiveren en gezamenlijk doelen te bereiken.
 
 &nbsp;
 
