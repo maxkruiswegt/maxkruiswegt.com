@@ -182,7 +182,6 @@ function triggerConfetti() {
 @media screen and (min-width: 992px) {
   .home-page {
     flex-direction: row;
-    gap: 5rem;
     margin-top: 12.5vh;
   }
 
