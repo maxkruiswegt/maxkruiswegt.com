@@ -2,7 +2,8 @@
   "navigation": {
     "home": "Home",
     "portfolio": "Portfolio",
-    "contact": "Contact"
+    "contact": "Contact",
+    "business": "MK Development"
   },
   "languages": {
     "en": "Engels",
@@ -14,7 +15,12 @@
   "home": {
     "title": "Hoi, ik ben Max&#x1F44B;",
     "buttonWork": "Bekijk mijn werk",
-    "buttonContact": "Contacteer mij"
+    "buttonContact": "Contacteer mij",
+    "business": {
+      "title": "Een Website of Webapplicatie Nodig?",
+      "description": "Ik help bedrijven uitzonderlijke digitale ervaringen te creëren via <strong>MK Development</strong>. Van ontwerp tot implementatie, ik lever op maat gemaakte weboplossingen die resultaten opleveren.",
+      "button": "Bezoek MK Development"
+    }
   },
   "footer": {
     "description": "Max Kruiswegt is een full-stack ontwikkelaar gevestigd in Nederland. Hij is gespecialiseerd in het maken van websites en webapplicaties.",
@@ -109,7 +115,7 @@
   },
   "contact": {
     "title": "Contact",
-    "description": "Voel je vrij om contact met me op te nemen als je vragen hebt of samen wilt werken.",
+    "description": "Op zoek naar professionele webontwikkelingsdiensten? Neem gerust contact met mij op of bezoek <a href=\"https://mkdevelopment.nl\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: var(--primary); text-decoration: underline;\">MK Development</a> voor zakelijke vragen.",
     "form": {
       "name": "Naam",
       "email": "E-mail",

@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue';
 import { useThemeStore } from '@/stores/ThemeStore';
 import { useI18n } from 'vue-i18n';
 
@@ -6,6 +7,10 @@ const { t, locale } = useI18n();
 const themeStore = useThemeStore();
 
 const year = new Date().getFullYear();
+
+const mkDevelopmentUrl = computed(() => {
+  return locale.value === 'nl' ? 'https://mkdevelopment.nl' : 'https://mkdevelopment.nl/en';
+});
 </script>
 
 <template>
@@ -48,6 +53,16 @@ const year = new Date().getFullYear();
                 class="footer-link"
                 >Contact</RouterLink
               >
+            </li>
+            <li class="footer-list-item">
+              <a
+                :href="mkDevelopmentUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link external-footer-link"
+                >{{ t('navigation.business') }}
+                <span class="material-symbols-outlined external-link-icon">open_in_new</span>
+              </a>
             </li>
           </ul>
         </div>
@@ -176,8 +191,8 @@ const year = new Date().getFullYear();
 }
 
 .footer-links {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 
@@ -242,14 +257,21 @@ const year = new Date().getFullYear();
   height: 1rem;
 }
 
+.external-footer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.external-link-icon {
+  font-size: 0.875rem;
+  opacity: 0.6;
+}
+
 /* Small Devices */
 @media screen and (min-width: 576px) {
   .footer-links {
     gap: 1.5rem;
-  }
-
-  .footer-divider {
-    margin: auto 0;
   }
 
   .footer-bottom {
@@ -278,12 +300,18 @@ const year = new Date().getFullYear();
     margin-bottom: 0;
     width: 33.3%;
   }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
 }
 
 /* Large Devices */
 @media screen and (min-width: 992px) {
-  .footer-divider {
-    margin: 2rem 0;
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-bottom: 0;
   }
 }
 

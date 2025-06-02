@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useThemeStore } from '@/stores/ThemeStore';
 import { useI18n } from 'vue-i18n';
 
@@ -20,6 +20,11 @@ const isDropdownOpen = ref(false);
 const toggleDropdown = () => {
   isDropdownOpen.value = !isDropdownOpen.value;
 };
+
+const mkDevelopmentUrl = computed(() => {
+  return locale.value === 'nl' ? 'https://mkdevelopment.nl' : 'https://mkdevelopment.nl/en';
+});
+
 const changeLanguage = (lang) => {
   const currentPath = window.location.pathname;
   const newPath =
@@ -122,6 +127,16 @@ const closeDropdown = () => {
             <span class="material-symbols-outlined">help</span>
             <p>{{ t('navigation.contact') }}</p>
           </RouterLink>
+          <a
+            :href="mkDevelopmentUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="navlink"
+          >
+            <span class="material-symbols-outlined">business</span>
+            <p>{{ t('navigation.business') }}</p>
+            <span class="material-symbols-outlined external-link-icon">open_in_new</span>
+          </a>
           <span
             class="material-symbols-outlined theme-icon"
             @click="themeStore.toggleTheme()"
@@ -188,6 +203,16 @@ const closeDropdown = () => {
             <span class="material-symbols-outlined">help</span>
             <p>{{ t('navigation.contact') }}</p>
           </RouterLink>
+          <a
+            :href="mkDevelopmentUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="navlink-mobile"
+          >
+            <span class="material-symbols-outlined">business</span>
+            <p>{{ t('navigation.business') }}</p>
+            <span class="material-symbols-outlined external-link-icon">open_in_new</span>
+          </a>
         </div>
       </div>
       <div
@@ -266,6 +291,12 @@ const closeDropdown = () => {
 .navlink:hover {
   color: var(--primary);
   transform: scale(1.05);
+}
+
+.external-link-icon {
+  font-size: 1rem;
+  opacity: 0.6;
+  margin-left: 0.25rem;
 }
 
 .navlink-mobile {
