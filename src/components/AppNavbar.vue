@@ -294,9 +294,8 @@ const closeDropdown = () => {
 }
 
 .external-link-icon {
-  font-size: 1rem;
+  font-size: 0.875rem !important;
   opacity: 0.6;
-  margin-left: 0.25rem;
 }
 
 .navlink-mobile {
