@@ -247,7 +247,7 @@ const closeDropdown = () => {
 }
 
 .navbar-logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.025);
 }
 
 .logo {
@@ -290,7 +290,7 @@ const closeDropdown = () => {
 
 .navlink:hover {
   color: var(--primary);
-  transform: scale(1.05);
+  transform: scale(1.025);
 }
 
 .external-link-icon {

@@ -100,11 +100,12 @@ const fetchUsers = async () => {
   display: flex;
   gap: 0.25rem;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .back-button:hover {
   color: var(--primary);
-  transform: scale(1.05);
+  transform: scale(1.025);
 }
 
 .alert {

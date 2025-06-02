@@ -318,7 +318,7 @@ small {
 
 .btn-primary:hover:not([disabled]) {
   background-color: var(--primary-20);
-  transform: scale(1.05);
+  transform: scale(1.025);
 }
 
 .btn-secondary {
@@ -333,7 +333,7 @@ small {
 
 .btn-secondary:hover:not([disabled]) {
   background-color: var(--secondary-20);
-  transform: scale(1.05);
+  transform: scale(1.025);
 }
 
 input,
