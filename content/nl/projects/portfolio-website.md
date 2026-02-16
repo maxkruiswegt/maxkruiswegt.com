@@ -33,7 +33,3 @@ Dit project gebruikt verschillende technologieën:
 - 🌐 **Vue I18n**: Biedt ondersteuning voor internationalisatie voor de website.
 - 🔧 **Pinia**: Gebruikt voor state management in de applicatie.
 - 🎨 **CSS Variables**: Eigen thema's met ondersteuning voor donkere/lichte modus.
-
-## 🚀 Implementatie
-
-De website wordt automatisch geïmplementeerd met behulp van een GitHub Actions workflow, die je [hier](https://github.com/maxkruiswegt/maxkruiswegt.com/blob/main/.github/workflows/deployment.yml) kunt vinden.

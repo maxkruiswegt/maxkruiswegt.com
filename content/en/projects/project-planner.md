@@ -21,5 +21,3 @@ Project Planner allows you to manage your projects effectively. Here's what you 
 - 🗑️ **Delete a Project**: Finished with a project or made a mistake? You can remove projects from your list whenever you need to.
 - 🔄 **Change the Status of a Project**: Keep your project list up-to-date by changing the status of your projects as they progress.
 - 📅 **Set Due Dates**: Never miss a deadline again! Set due dates for your projects and get reminders when they're due.
-
-[🚀 Try it out!](https://projects.maxkruiswegt.com/)

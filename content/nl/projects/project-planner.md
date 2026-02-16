@@ -21,5 +21,3 @@ Project Planner stelt je in staat om je projecten effectief te beheren. Hier is 
 - 🗑️ **Verwijder een Project**: Klaar met een project of een fout gemaakt? Je kunt projecten uit je lijst verwijderen wanneer nodig.
 - 🔄 **Verander de Status van een Project**: Houd je projectlijst up-to-date door de status van je projecten te veranderen naarmate ze vorderen.
 - 📅 **Stel Vervaldatums in**: Mis nooit meer een deadline! Stel vervaldatums in voor je projecten en krijg herinneringen wanneer ze vervallen.
-
-[🚀 Probeer het uit!](https://projects.maxkruiswegt.com/)
