@@ -1,3 +1,12 @@
+# Nuxt
+.nuxt/
+.output/
+.data/
+.nitro/
+
+# Dependencies
+node_modules
+
 # Logs
 logs
 *.log
@@ -7,15 +16,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# Misc
 .DS_Store
-dist
-dist-ssr
 coverage
 *.local
-
-/cypress/videos/
-/cypress/screenshots/
 
 # Editor directories and files
 .vscode/*
@@ -26,7 +30,9 @@ coverage
 *.njsproj
 *.sln
 *.sw?
-
 *.tsbuildinfo
 
+# Environment
 .env
+.env.*
+!.env.example

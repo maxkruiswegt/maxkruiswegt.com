@@ -1,6 +1,6 @@
 # 🚀 Max Kruiswegt's Portfolio Website
 
-Welcome to the repository for my portfolio website. This site is built with Vue 3 and Vite, and it showcases my work as a developer.
+Welcome to the repository for my portfolio website. This site is built with Nuxt 4 and statically generated for fast performance and SEO.
 
 ### 🌐 [Go to the website](https://maxkruiswegt.com/)
 
@@ -13,7 +13,7 @@ Welcome to the repository for my portfolio website. This site is built with Vue 
 
 ## 💻 Development
 
-This project uses Vue 3, Vite, HTML, CSS, JavaScript, I18n for language support, and Pinia for stores.
+This project uses Nuxt 4 (Vue 3), TypeScript, @nuxt/content for portfolio project data, @nuxtjs/i18n for language support, and Pinia for state management. Styled with custom CSS variables — no UI framework.
 
 ### Prerequisites
 
@@ -28,7 +28,7 @@ This project uses Vue 3, Vite, HTML, CSS, JavaScript, I18n for language support,
 
 ## 🚀 Deployment
 
-To build the project for production, run `npm run build`.
+To build the project for production, run `npx nuxt generate`. The static output is in `.output/public/`.
 
 ## 🤝 Contributing
 

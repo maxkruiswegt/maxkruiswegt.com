@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "description": "Max Kruiswegt is een Nederlandse full-stack ontwikkelaar."
+  },
+  "navigation": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "business": "MK Development"
+  },
+  "languages": {
+    "en": "Engels",
+    "nl": "Nederlands"
+  },
+  "buttons": {
+    "back": "Ga terug"
+  },
+  "home": {
+    "title": "Hoi, ik ben Max&#x1F44B;",
+    "buttonWork": "Bekijk mijn werk",
+    "buttonContact": "Contacteer mij",
+    "business": {
+      "title": "Een Website of Webapplicatie Nodig?",
+      "description": "Ik help bedrijven uitzonderlijke digitale ervaringen te creëren via <strong>MK Development</strong>. Van ontwerp tot implementatie, ik lever op maat gemaakte weboplossingen die resultaten opleveren.",
+      "button": "Bezoek MK Development"
+    }
+  },
+  "footer": {
+    "description": "Max Kruiswegt is een full-stack ontwikkelaar gevestigd in Nederland. Hij is gespecialiseerd in het maken van websites en webapplicaties.",
+    "pages": "Pagina's",
+    "information": "Informatie",
+    "vat": "BTW Nr: NL004755047B80"
+  },
+  "construction": {
+    "title": "In aanbouw",
+    "description": "Ik ben momenteel bezig met deze pagina. Kom later nog eens terug.",
+    "button": "Terug naar de homepagina"
+  },
+  "404": {
+    "title": "404",
+    "description": "De pagina die je zoekt bestaat niet.",
+    "button": "Terug naar de homepagina"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "description": "Hier zijn enkele van de projecten waar ik aan heb gewerkt.",
+    "viewButton": "Bekijk project"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Op zoek naar professionele webontwikkelingsdiensten? Neem gerust contact met mij op of bezoek <a href=\"https://mkdevelopment.nl\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: var(--primary); text-decoration: underline;\">MK Development</a> voor zakelijke vragen.",
+    "form": {
+      "name": "Naam",
+      "email": "E-mail",
+      "subject": "Onderwerp",
+      "message": "Bericht",
+      "submit": "Versturen"
+    },
+    "error": "Er is iets misgegaan. Probeer het opnieuw."
+  }
+}
