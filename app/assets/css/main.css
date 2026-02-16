@@ -434,22 +434,30 @@ small {
 
 /* Custom Classes */
 .btn {
-  padding: 1rem 2rem;
-  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
   border-radius: 0.5rem;
+  cursor: pointer;
   transition:
-    background-color 0.3s,
-    transform 0.3s;
+    background-color 150ms ease,
+    box-shadow 150ms ease;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 .btn-primary {
   background-color: var(--primary);
   color: var(--button-primary-text);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .btn-primary:disabled {
@@ -459,12 +467,15 @@ small {
 
 .btn-primary:hover:not([disabled]) {
   background-color: var(--primary-20);
-  transform: scale(1.025);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn-secondary {
-  background-color: var(--secondary);
-  color: var(--button-secondary-text);
+  background-color: transparent;
+  color: var(--text-10);
+  border: 1px solid var(--background-20);
 }
 
 .btn-secondary:disabled {
@@ -473,8 +484,14 @@ small {
 }
 
 .btn-secondary:hover:not([disabled]) {
-  background-color: var(--secondary-20);
-  transform: scale(1.025);
+  background-color: var(--background-10);
+  border-color: var(--background-30);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
 }
 
 input,
