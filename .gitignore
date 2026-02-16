@@ -33,6 +33,4 @@ coverage
 *.tsbuildinfo
 
 # Environment
-.env
 .env.*
-!.env.example
