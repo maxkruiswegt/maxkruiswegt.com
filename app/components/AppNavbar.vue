@@ -264,7 +264,7 @@ watch(
 
 .navbar-logo {
   display: flex;
-  transition: transform 0.3s;
+  transition: transform 150ms ease;
 }
 
 .navbar-logo:hover {
@@ -296,7 +296,7 @@ watch(
 .menu-icon {
   cursor: pointer;
   height: 24px;
-  transition: color 0.3s;
+  transition: color 150ms ease;
 }
 
 .navbar-links {
@@ -314,8 +314,8 @@ watch(
   align-items: center;
   gap: 0.375rem;
   transition:
-    color 0.3s,
-    transform 0.3s;
+    color 150ms ease,
+    transform 150ms ease;
 
   span {
     font-size: 1.333rem;
@@ -384,6 +384,10 @@ watch(
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
   }
+}
+
+.dropdown-item {
+  transition: background-color 150ms ease;
 }
 
 .dropdown-item:hover {

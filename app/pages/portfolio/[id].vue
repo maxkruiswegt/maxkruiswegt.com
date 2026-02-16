@@ -118,8 +118,8 @@ function goBack() {
   display: flex;
   gap: 0.25rem;
   transition:
-    color 0.3s,
-    transform 0.3s;
+    color 150ms ease,
+    transform 150ms ease;
   cursor: pointer;
 }
 

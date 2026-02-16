@@ -242,6 +242,7 @@ const mkDevelopmentUrl = useMkDevelopmentUrl();
 
 .footer-social-link {
   color: var(--text-40);
+  transition: color 150ms ease;
 }
 
 .footer-social-link:hover {

@@ -12,71 +12,77 @@ defineProps<{
 <template>
   <NuxtLink
     :to="localePath(`/portfolio/${id}`)"
-    class="project-preview"
-    :style="{ backgroundImage: `url(${image})` }"
+    class="project-card"
   >
-    <div class="overlay">
-      <div class="content">
-        <h2>{{ title }}</h2>
-        <p class="description">{{ description }}</p>
-      </div>
+    <div class="project-image">
+      <img
+        :src="image"
+        :alt="title"
+        loading="lazy"
+      />
+    </div>
+    <div class="project-content">
+      <h2>{{ title }}</h2>
+      <p class="description">{{ description }}</p>
     </div>
   </NuxtLink>
 </template>
 
 <style scoped>
-/* Default styles: Mobile first */
-.project-preview {
-  position: relative;
-  border-radius: 0.5rem;
+.project-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--background-20);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 150ms ease,
+    transform 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.project-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+  overflow: hidden;
+}
+
+.project-image img {
   width: 100%;
   aspect-ratio: 16/9;
-  background-size: cover;
-  background-position: center;
-  text-decoration: none;
-  color: white;
+  object-fit: cover;
   display: block;
-  overflow: hidden;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: flex-end;
-  transition:
-    background-color 0.2s ease-out,
-    transform 0.2s ease-out;
+.project-content {
+  padding: 1.25rem;
 }
 
-.overlay:hover {
-  background-color: rgba(0, 0, 0, 0.3);
-  transform: scale(1.02);
-}
-
-.content {
-  padding: 1.5rem;
-}
-
-.content h2 {
+.project-content h2 {
   font-size: 1.333rem;
   line-height: 1.3;
 }
 
-@media screen and (min-width: 992px) {
-  .content h2 {
-    font-size: 1.777rem;
-  }
+.description {
+  margin-top: 0.375rem;
+  color: var(--text-20);
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
-.description {
-  margin-top: 0.5rem;
-  word-break: break-word;
-  opacity: 0.9;
+@media (prefers-reduced-motion: reduce) {
+  .project-card {
+    transition: border-color 150ms ease;
+  }
+
+  .project-card:hover {
+    transform: none;
+  }
 }
 </style>

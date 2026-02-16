@@ -14,17 +14,18 @@ const { data: projects } = await useAsyncData(
 
 <template>
   <div class="portfolio">
-    <h1 class="hidden-element">{{ t('portfolio.title') }}</h1>
-    <p class="hidden-element">{{ t('portfolio.description') }}</p>
+    <div class="portfolio-header hidden-element">
+      <h1>{{ t('portfolio.title') }}</h1>
+      <p>{{ t('portfolio.description') }}</p>
+    </div>
     <div class="portfolio-projects">
       <ProjectPreview
-        v-for="(project, index) in projects"
+        v-for="project in projects"
         :key="project.path"
         :id="project.stem.split('/').at(-1) ?? project.stem"
         :title="project.title"
         :description="project.description"
         :image="project.images[0] ?? ''"
-        :style="{ 'transition-delay': `${index * 0.2}s` }"
         class="hidden-element"
       />
     </div>
@@ -32,38 +33,32 @@ const { data: projects } = await useAsyncData(
 </template>
 
 <style scoped>
-/* Default styles: Mobile first */
 .portfolio {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
+}
 
-  h1,
-  p {
-    text-align: center;
-  }
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.portfolio-header p {
+  color: var(--text-20);
+  margin-top: 0.5rem;
 }
 
 .portfolio-projects {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   width: 100%;
 }
 
-/* Most tablets (768px and up) */
-@media only screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .portfolio-projects {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* Large devices and wide screens (1200px and up) */
-@media only screen and (min-width: 1200px) {
-  .portfolio-projects {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>

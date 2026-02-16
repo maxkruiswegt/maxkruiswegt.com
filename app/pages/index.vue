@@ -58,20 +58,14 @@ async function triggerConfetti() {
       </div>
     </div>
 
-    <NuxtLink
-      :to="localePath('/portfolio/kaizen')"
-      class="kaizen-section hidden-element"
-    >
-      <img
-        src="/images/kaizen/Banner.webp"
-        alt="Kaizen"
-        class="kaizen-image"
+    <div class="kaizen-section hidden-element">
+      <ProjectPreview
+        id="kaizen"
+        title="Kaizen"
+        :description="t('home.kaizen.description')"
+        image="/images/kaizen/Banner.webp"
       />
-      <div class="kaizen-content">
-        <h2>Kaizen</h2>
-        <p>{{ t('home.kaizen.description') }}</p>
-      </div>
-    </NuxtLink>
+    </div>
   </div>
 </template>
 
@@ -125,47 +119,9 @@ async function triggerConfetti() {
 }
 
 .kaizen-section {
-  display: flex;
-  flex-direction: column;
-  max-width: 60ch;
   margin-top: 3rem;
-  border-radius: 0.75rem;
-  overflow: hidden;
-  border: 1px solid var(--background-20);
-  text-decoration: none;
-  color: inherit;
-  transition:
-    border-color 0.2s,
-    transform 0.2s;
-}
-
-.kaizen-section:hover {
-  border-color: var(--primary);
-  transform: translateY(-2px);
-}
-
-.kaizen-image {
   width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-}
-
-.kaizen-content {
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-
-  h2 {
-    font-size: 1.333rem;
-    color: var(--primary);
-  }
-
-  p {
-    color: var(--text-20);
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
+  max-width: 30rem;
 }
 
 /* Small Devices */

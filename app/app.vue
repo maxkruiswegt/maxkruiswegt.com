@@ -62,7 +62,7 @@ footer {
 }
 
 header {
-  animation: fade-down 1s;
+  animation: fade-down 400ms cubic-bezier(0, 0, 0.2, 1);
   padding: 1rem;
   background-color: var(--background);
   border-radius: 0 0 0.5rem 0.5rem;
@@ -74,7 +74,7 @@ header {
 }
 
 footer {
-  animation: fade-up 1s;
+  animation: fade-up 400ms cubic-bezier(0, 0, 0.2, 1);
   padding: 1rem;
   background-color: var(--background);
   border-radius: 0.5rem 0.5rem 0 0;
