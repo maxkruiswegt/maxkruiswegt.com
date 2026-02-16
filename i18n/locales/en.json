@@ -18,12 +18,7 @@
   "home": {
     "title": "Hey, I'm Max&#x1F44B;",
     "buttonWork": "Check out my work",
-    "buttonContact": "Contact me",
-    "business": {
-      "title": "Need a Website or Web Application?",
-      "description": "I help businesses create exceptional digital experiences through <strong>MK Development</strong>. From design to deployment, I deliver custom web solutions that drive results.",
-      "button": "Visit MK Development"
-    }
+    "buttonContact": "Contact me"
   },
   "footer": {
     "description": "Max Kruiswegt is a full-stack developer based in the Netherlands. He specializes in creating websites and web applications.",

@@ -1,8 +1,6 @@
 <script setup lang="ts">
-const { t, locale } = useI18n();
+const { t } = useI18n();
 const localePath = useLocalePath();
-
-const mkDevelopmentUrl = useMkDevelopmentUrl();
 
 useSeoMeta({
   description: () => t('footer.description'),
@@ -57,22 +55,6 @@ async function triggerConfetti() {
         </div>
       </div>
     </div>
-
-    <!-- Business Section -->
-    <div class="business-section hidden-element">
-      <div class="business-content">
-        <h2 v-html="t('home.business.title')"></h2>
-        <p v-html="t('home.business.description')"></p>
-        <a
-          :href="mkDevelopmentUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary"
-        >
-          {{ t('home.business.button') }}
-        </a>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -120,65 +102,10 @@ async function triggerConfetti() {
   transition-delay: 0.4s;
 }
 
-.business-section {
-  display: flex;
-  max-width: 60ch;
-  padding: 1.5rem;
-  margin-top: 2rem;
-  background: var(--background);
-  border-radius: 1rem;
-  border: 2px solid var(--text-10);
-  text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-
-  .business-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-
-    h2 {
-      color: var(--primary);
-      font-size: 1.5rem;
-      line-height: 1.3;
-      overflow-wrap: break-word;
-    }
-
-    p {
-      color: var(--text-20);
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
-
-    .btn {
-      width: 100%;
-      box-sizing: border-box;
-    }
-  }
-}
-
 /* Small Devices */
 @media screen and (min-width: 576px) {
   .home-buttons {
     flex-direction: row;
-  }
-}
-
-/* Medium Devices */
-@media screen and (min-width: 768px) {
-  .business-section {
-    padding: 2rem;
-    margin-top: 5rem;
-
-    .business-content {
-      h2 {
-        font-size: 1.75rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-    }
   }
 }
 
@@ -199,14 +126,6 @@ async function triggerConfetti() {
 
   .home-buttons {
     justify-content: normal;
-  }
-
-  .business-section {
-    .business-content {
-      h2 {
-        font-size: 2rem;
-      }
-    }
   }
 }
 </style>
