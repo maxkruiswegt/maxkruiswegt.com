@@ -17,8 +17,13 @@
   },
   "home": {
     "title": "Hoi, ik ben Max&#x1F44B;",
+    "subtitle": "Mobiel & Web Ontwikkelaar",
+    "bio": "HBO Informatica student aan Inholland Haarlem, momenteel werkzaam als frontend ontwikkelaar bij DTT Multimedia. Ik bouw cross-platform mobiele apps en moderne webapplicaties met React Native, Vue en TypeScript.",
     "buttonWork": "Bekijk mijn werk",
-    "buttonContact": "Contacteer mij"
+    "buttonContact": "Contacteer mij",
+    "kaizen": {
+      "description": "Pomodoro timer app met Focus Rooms om samen te studeren. Virtueel body doubling, zonder de videogesprekken."
+    }
   },
   "footer": {
     "description": "Max Kruiswegt is een full-stack ontwikkelaar gevestigd in Nederland. Hij is gespecialiseerd in het maken van websites en webapplicaties.",

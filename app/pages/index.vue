@@ -38,6 +38,8 @@ async function triggerConfetti() {
       <div class="hidden-element">
         <div class="home-title">
           <h1 v-html="t('home.title')"></h1>
+          <p class="home-subtitle">{{ t('home.subtitle') }}</p>
+          <p class="home-bio">{{ t('home.bio') }}</p>
         </div>
         <div class="home-buttons">
           <NuxtLink
@@ -55,6 +57,21 @@ async function triggerConfetti() {
         </div>
       </div>
     </div>
+
+    <NuxtLink
+      :to="localePath('/portfolio/kaizen')"
+      class="kaizen-section hidden-element"
+    >
+      <img
+        src="/images/kaizen/Banner.webp"
+        alt="Kaizen"
+        class="kaizen-image"
+      />
+      <div class="kaizen-content">
+        <h2>Kaizen</h2>
+        <p>{{ t('home.kaizen.description') }}</p>
+      </div>
+    </NuxtLink>
   </div>
 </template>
 
@@ -73,7 +90,6 @@ async function triggerConfetti() {
   align-items: center;
   gap: 2rem;
   margin-top: 5vh;
-  margin-bottom: 5vh;
   align-self: center;
 }
 
@@ -86,6 +102,20 @@ async function triggerConfetti() {
   text-align: center;
 }
 
+.home-subtitle {
+  color: var(--text-20);
+  margin-top: 0.5rem;
+  font-size: 1.125rem;
+}
+
+.home-bio {
+  color: var(--text-30);
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 45ch;
+}
+
 .home-buttons {
   display: flex;
   flex-direction: column;
@@ -94,12 +124,48 @@ async function triggerConfetti() {
   margin-top: 1rem;
 }
 
-.home-page:nth-child(1) {
-  transition-delay: 0.2s;
+.kaizen-section {
+  display: flex;
+  flex-direction: column;
+  max-width: 60ch;
+  margin-top: 3rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--background-20);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
 }
 
-.home-page:nth-child(2) {
-  transition-delay: 0.4s;
+.kaizen-section:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.kaizen-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.kaizen-content {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  h2 {
+    font-size: 1.333rem;
+    color: var(--primary);
+  }
+
+  p {
+    color: var(--text-20);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
 }
 
 /* Small Devices */
@@ -124,8 +190,16 @@ async function triggerConfetti() {
     text-align: left;
   }
 
+  .home-subtitle {
+    font-size: 1.25rem;
+  }
+
   .home-buttons {
     justify-content: normal;
+  }
+
+  .kaizen-section {
+    margin-top: 5rem;
   }
 }
 </style>
