@@ -64,7 +64,7 @@ footer {
 header {
   animation: fade-down 400ms cubic-bezier(0, 0, 0.2, 1);
   padding: 1rem;
-  background-color: var(--background);
+  background-color: var(--surface);
   border-radius: 0 0 0.5rem 0.5rem;
 
   /* Border thats on the left bottom and right */
@@ -76,7 +76,7 @@ header {
 footer {
   animation: fade-up 400ms cubic-bezier(0, 0, 0.2, 1);
   padding: 1rem;
-  background-color: var(--background);
+  background-color: var(--surface);
   border-radius: 0.5rem 0.5rem 0 0;
 
   /* Border thats on the left top and right */
