@@ -25,14 +25,6 @@ MK Development volgt een Design-Create-Deliver aanpak:
 - 📞 **Contact** - Contactformulier met validatie en meerdere contactmethoden
 - 🌐 **Meertalig** - Beschikbaar in zowel Engels als Nederlands
 
-## 🧩 Componentbibliotheek
-
-Het project bevat een productieklare componentbibliotheek die helemaal vanaf nul is gebouwd:
-
-- 📝 **Formuliercomponenten** - Tekstvelden, tekstvakken, selectievelden, datumkiezers, schuifregelaars, checkboxen, schakelaars en keuzerondjes
-- 🖼️ **UI-componenten** - Knoppen, modals, toasts, laadspinners en meer
-- ✅ **Validatie** - Zod schema-gebaseerde validatie met realtime feedback via Vee-validate
-
 ## 💻 Technologieën
 
 - ⚡ **Vue 3** met **TypeScript** voor een moderne, type-veilige codebase

@@ -25,14 +25,6 @@ MK Development follows a Design-Create-Deliver approach:
 - 📞 **Contact** - Contact form with validation and multiple contact methods
 - 🌐 **Multilingual** - Available in both English and Dutch
 
-## 🧩 Component Library
-
-The project includes a production-ready component library built from scratch:
-
-- 📝 **Form components** - Text fields, text areas, select fields, date pickers, range sliders, checkboxes, switches, and radio buttons
-- 🖼️ **UI components** - Buttons, modals, toasts, loading spinners, and more
-- ✅ **Validation** - Zod schema-based validation with real-time feedback via Vee-validate
-
 ## 💻 Technologies
 
 - ⚡ **Vue 3** with **TypeScript** for a modern, type-safe codebase
