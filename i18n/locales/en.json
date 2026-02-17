@@ -44,7 +44,8 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "description": "Here are some of the projects I have worked on.",
+    "description": "A mix of mobile apps, web platforms, and everything in between. Built with curiosity and a lot of coffee.",
+    "projectLabel": "projects",
     "viewButton": "View project"
   },
   "contact": {

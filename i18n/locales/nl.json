@@ -44,7 +44,8 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "description": "Hier zijn enkele van de projecten waar ik aan heb gewerkt.",
+    "description": "Een mix van mobiele apps, webplatformen en alles daartussenin. Gebouwd met nieuwsgierigheid en veel koffie.",
+    "projectLabel": "projecten",
     "viewButton": "Bekijk project"
   },
   "contact": {

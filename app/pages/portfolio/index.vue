@@ -15,10 +15,11 @@ const { data: projects } = await useAsyncData(
 <template>
   <div class="portfolio">
     <div class="portfolio-header hidden-element">
+      <p class="project-count">{{ projects?.length }} {{ t('portfolio.projectLabel') }}</p>
       <h1>{{ t('portfolio.title') }}</h1>
-      <p>{{ t('portfolio.description') }}</p>
+      <p class="portfolio-description">{{ t('portfolio.description') }}</p>
     </div>
-    <div class="portfolio-projects">
+    <div class="portfolio-grid">
       <ProjectPreview
         v-for="project in projects"
         :key="project.path"
@@ -40,16 +41,26 @@ const { data: projects } = await useAsyncData(
 }
 
 .portfolio-header {
-  text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-.portfolio-header p {
+.project-count {
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-description {
   color: var(--text-20);
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
+  font-size: 1.125rem;
+  max-width: 45ch;
 }
 
-.portfolio-projects {
+.portfolio-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
@@ -57,7 +68,11 @@ const { data: projects } = await useAsyncData(
 }
 
 @media screen and (min-width: 768px) {
-  .portfolio-projects {
+  .portfolio-header {
+    margin-bottom: 2rem;
+  }
+
+  .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
