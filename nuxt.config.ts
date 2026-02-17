@@ -4,7 +4,6 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Max Kruiswegt',
       meta: [
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'Max Kruiswegt' },
