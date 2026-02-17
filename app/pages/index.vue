@@ -59,6 +59,7 @@ async function triggerConfetti() {
     </div>
 
     <div class="kaizen-section hidden-element">
+      <p class="featured-label">{{ t('home.featuredProject') }}</p>
       <ProjectPreview
         id="kaizen"
         title="Kaizen"
@@ -122,6 +123,16 @@ async function triggerConfetti() {
   margin-top: 3rem;
   width: 100%;
   max-width: 30rem;
+}
+
+.featured-label {
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  text-align: center;
 }
 
 /* Small Devices */
