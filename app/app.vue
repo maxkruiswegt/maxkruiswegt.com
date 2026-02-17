@@ -66,11 +66,6 @@ header {
   padding: 1rem;
   background-color: var(--surface);
   border-radius: 0 0 0.5rem 0.5rem;
-
-  /* Border thats on the left bottom and right */
-  border-bottom: 1px solid var(--background-10);
-  border-left: 1px solid var(--background-10);
-  border-right: 1px solid var(--background-10);
 }
 
 footer {
@@ -78,11 +73,6 @@ footer {
   padding: 1rem;
   background-color: var(--surface);
   border-radius: 0.5rem 0.5rem 0 0;
-
-  /* Border thats on the left top and right */
-  border-top: 1px solid var(--background-10);
-  border-left: 1px solid var(--background-10);
-  border-right: 1px solid var(--background-10);
 }
 
 /* Large Devices*/
