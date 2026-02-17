@@ -8,11 +8,7 @@ images:
   - /images/portfoliowebsite/Banner4.webp
 ---
 
-Welkom op mijn persoonlijke website! Deze site toont mijn werk als ontwikkelaar. Geïnteresseerd in de code? Bekijk de [GitHub repository](https://github.com/maxkruiswegt/maxkruiswegt.com).
-
-## 🌐 Website
-
-Je kunt de website bezoeken op [maxkruiswegt.com](https://maxkruiswegt.com/).
+Je kijkt ernaar! Dit is de website waar je nu op zit. Geïnteresseerd in de code? Bekijk de [GitHub repository](https://github.com/maxkruiswegt/maxkruiswegt.com).
 
 ## 📖 Pagina's
 
