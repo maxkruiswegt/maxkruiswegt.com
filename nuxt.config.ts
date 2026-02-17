@@ -44,7 +44,11 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/content'],
+  site: {
+    url: 'https://maxkruiswegt.com',
+  },
+
+  modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxtjs/sitemap', '@nuxt/content'],
 
   i18n: {
     locales: [
@@ -79,7 +83,7 @@ export default defineNuxtConfig({
     compressPublicAssets: true,
     prerender: {
       crawlLinks: true,
-      routes: ['/'],
+      routes: ['/', '/sitemap.xml'],
     },
   },
 });
