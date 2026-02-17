@@ -34,6 +34,7 @@ defineProps<{
   flex-direction: column;
   border-radius: 0.75rem;
   overflow: hidden;
+  background-color: var(--background);
   border: 1px solid var(--background-20);
   text-decoration: none;
   color: inherit;
