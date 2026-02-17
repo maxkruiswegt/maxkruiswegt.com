@@ -68,14 +68,25 @@
     "viewButton": "Bekijk project"
   },
   "contact": {
+    "label": "Neem contact op",
     "title": "Contact",
-    "description": "Op zoek naar professionele webontwikkelingsdiensten? Neem gerust contact met mij op of bezoek <a href=\"https://mkdevelopment.nl\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: var(--primary); text-decoration: underline;\">MK Development</a> voor zakelijke vragen.",
+    "subtitle": "Ik sta altijd open voor het bespreken van nieuwe projecten en ideeen.",
     "form": {
       "name": "Naam",
       "email": "E-mail",
       "subject": "Onderwerp",
       "message": "Bericht",
       "submit": "Versturen"
+    },
+    "methods": {
+      "email": {
+        "title": "E-mail",
+        "description": "Stuur me een e-mail en ik neem contact met je op."
+      },
+      "linkedin": {
+        "title": "LinkedIn",
+        "description": "Verbind met mij op LinkedIn."
+      }
     },
     "error": "Er is iets misgegaan. Probeer het opnieuw."
   }

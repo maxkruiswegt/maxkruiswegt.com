@@ -68,14 +68,25 @@
     "viewButton": "View project"
   },
   "contact": {
+    "label": "Get in touch",
     "title": "Contact",
-    "description": "Looking for professional web development services? Feel free to contact me or visit <a href=\"https://mkdevelopment.nl/en\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: var(--primary); text-decoration: underline;\">MK Development</a> for business inquiries.",
+    "subtitle": "I'm always open to discussing new projects and ideas.",
     "form": {
       "name": "Name",
       "email": "Email",
       "subject": "Subject",
       "message": "Message",
       "submit": "Send"
+    },
+    "methods": {
+      "email": {
+        "title": "Email",
+        "description": "Send me an email and I'll get back to you."
+      },
+      "linkedin": {
+        "title": "LinkedIn",
+        "description": "Connect with me on LinkedIn."
+      }
     },
     "error": "Something went wrong. Please try again."
   }

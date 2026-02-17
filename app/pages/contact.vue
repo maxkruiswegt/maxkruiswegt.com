@@ -49,18 +49,23 @@ const submitContactForm = async () => {
 
 <template>
   <div class="contact-container hidden-element">
+    <div class="contact-header">
+      <p class="contact-label">{{ t('contact.label') }}</p>
+      <h1>{{ t('contact.title') }}</h1>
+      <p class="contact-subtitle">{{ t('contact.subtitle') }}</p>
+    </div>
+
     <Alert
       v-if="alertMessage"
       :message="alertMessage"
       :type="alertType"
     />
-    <form @submit.prevent="submitContactForm">
-      <div class="contact-card noise-texture">
-        <h1 class="card-title">{{ t('contact.title') }}</h1>
-        <p
-          class="card-text"
-          v-html="t('contact.description')"
-        ></p>
+
+    <div class="contact-grid">
+      <form
+        class="contact-form"
+        @submit.prevent="submitContactForm"
+      >
         <div class="form-group">
           <label
             class="form-label"
@@ -130,49 +135,97 @@ const submitContactForm = async () => {
             {{ t('contact.form.submit') }}
           </button>
         </div>
+      </form>
+
+      <div class="contact-methods">
+        <div class="contact-method">
+          <span class="method-icon material-symbols-outlined">mail</span>
+          <h2 class="method-title">{{ t('contact.methods.email.title') }}</h2>
+          <p class="method-description">{{ t('contact.methods.email.description') }}</p>
+          <a
+            href="mailto:info@maxkruiswegt.com"
+            class="method-link"
+          >
+            info@maxkruiswegt.com
+          </a>
+        </div>
+
+        <div class="contact-method">
+          <span class="method-icon material-symbols-outlined">link</span>
+          <h2 class="method-title">{{ t('contact.methods.linkedin.title') }}</h2>
+          <p class="method-description">{{ t('contact.methods.linkedin.description') }}</p>
+          <a
+            href="https://www.linkedin.com/in/maxkruiswegt/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="method-link"
+          >
+            LinkedIn
+          </a>
+        </div>
       </div>
-    </form>
+    </div>
   </div>
 </template>
 
 <style scoped>
-/* Extra Small Devices (Less than 576px) */
 .contact-container {
-  max-width: 32rem;
   width: 100%;
 }
 
-.alert {
+.contact-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.contact-label {
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   margin-bottom: 0.5rem;
 }
 
-.contact-card {
-  background-color: var(--surface);
-  padding: 1.25rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-}
-
-.card-title {
-  font-size: 2.369rem;
-  line-height: 1.2;
-  text-align: center;
-}
-
-@media screen and (min-width: 992px) {
-  .card-title {
-    font-size: 3.158rem;
-  }
-}
-
-.card-text {
-  text-align: center;
+.contact-subtitle {
+  color: var(--text-20);
   margin-top: 0.5rem;
-  overflow-wrap: break-word;
+  font-size: 1.125rem;
+}
+
+.alert {
+  margin-bottom: 1rem;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.contact-form,
+.contact-method {
+  background-color: var(--surface);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E");
+  background-blend-mode: overlay;
+  background-size: 200px;
+  border: 1px solid var(--background-10);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  padding: 1.25rem;
+}
+
+:global(.light) .contact-form,
+:global(.light) .contact-method {
+  background-blend-mode: multiply;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .form-group {
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
 }
@@ -181,10 +234,70 @@ const submitContactForm = async () => {
   margin-bottom: 0.25rem;
 }
 
-/* Large Devices*/
-@media screen and (min-width: 992px) {
-  .contact-container {
-    margin: 15vh auto;
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-method {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.method-icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  font-size: 1.25rem;
+}
+
+.method-title {
+  color: var(--primary);
+  font-size: 1.333rem;
+}
+
+.method-description {
+  color: var(--text-20);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.method-link {
+  display: inline-block;
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 1.875rem;
+  background-color: rgb(from var(--primary) r g b / 0.1);
+  transition: background-color 150ms ease;
+}
+
+.method-link:hover {
+  background-color: rgb(from var(--primary) r g b / 0.2);
+}
+
+/* Medium Devices */
+@media screen and (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-form,
+  .contact-method {
+    padding: 1.5rem;
   }
 }
 </style>
