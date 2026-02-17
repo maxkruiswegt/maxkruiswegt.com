@@ -213,7 +213,7 @@ watch(
 }
 
 .logo {
-  height: 1.75rem;
+  height: 2rem;
 }
 
 .nav-right {
@@ -362,15 +362,12 @@ watch(
   transform: translateY(0);
 }
 
-/* Small Devices */
-@media screen and (min-width: 576px) {
+/* Large Devices */
+@media screen and (min-width: 992px) {
   .logo {
     height: 2.5rem;
   }
-}
 
-/* Large Devices */
-@media screen and (min-width: 992px) {
   .mobile-menu-button {
     display: none;
   }
