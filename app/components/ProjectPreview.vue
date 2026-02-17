@@ -35,19 +35,17 @@ defineProps<{
   border-radius: 0.75rem;
   overflow: hidden;
   background-color: var(--surface);
-  border: 1px solid transparent;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   text-decoration: none;
   color: inherit;
   transition:
-    border-color 150ms ease,
     transform 150ms ease,
     box-shadow 150ms ease;
 }
 
 .project-card:hover {
-  border-color: var(--primary);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 .project-image {
