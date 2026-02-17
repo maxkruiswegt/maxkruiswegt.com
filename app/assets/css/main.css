@@ -518,7 +518,7 @@ select {
 /* Background Pattern */
 .background-pattern {
   background-image: radial-gradient(rgba(var(--background-pattern), 0.1) 1px, transparent 1px);
-  background-position: 50%;
+  background-position: 0 0;
   background-size: 2rem 2rem;
 }
 
