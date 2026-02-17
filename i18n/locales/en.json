@@ -10,7 +10,8 @@
   },
   "languages": {
     "en": "English",
-    "nl": "Dutch"
+    "nl": "Nederlands",
+    "switchTo": "Nederlands"
   },
   "buttons": {
     "back": "Go back"

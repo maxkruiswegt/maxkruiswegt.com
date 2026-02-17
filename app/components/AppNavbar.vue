@@ -7,32 +7,23 @@ const localePath = useLocalePath();
 const themeStore = useThemeStore();
 const route = useRoute();
 
+const alternateFlag = computed(() => (locale.value === 'en' ? flag_nl : flag_en));
+
 const isMenuOpen = ref(false);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
 
-const isDropdownOpen = ref(false);
-const toggleDropdown = () => {
-  isDropdownOpen.value = !isDropdownOpen.value;
-};
-
 const mkDevelopmentUrl = useMkDevelopmentUrl();
 
-const changeLanguage = (lang: 'en' | 'nl') => {
-  isDropdownOpen.value = false;
-  setLocale(lang);
-};
-
-const closeDropdown = () => {
-  isDropdownOpen.value = false;
+const switchLanguage = () => {
+  setLocale(locale.value === 'en' ? 'nl' : 'en');
 };
 
 watch(
   () => route.fullPath,
   () => {
     isMenuOpen.value = false;
-    isDropdownOpen.value = false;
   }
 );
 </script>
@@ -52,52 +43,23 @@ watch(
           />
         </NuxtLink>
         <div class="navbar-actions">
-          <div class="language-dropdown">
-            <button
-              type="button"
-              class="language-icon-button"
-              :aria-expanded="isDropdownOpen"
-              aria-haspopup="true"
-              :aria-label="t('languages.' + locale)"
-              @click="toggleDropdown"
-            >
-              <img
-                :src="locale === 'nl' ? flag_nl : flag_en"
-                alt=""
-                class="language-icon"
-              />
-            </button>
-            <div
-              class="dropdown-menu"
-              v-if="isDropdownOpen"
-            >
-              <button
-                type="button"
-                class="dropdown-item"
-                @click="changeLanguage('nl')"
-              >
-                <img
-                  :src="flag_nl"
-                  alt=""
-                />
-                <span>{{ t('languages.nl') }}</span>
-              </button>
-              <button
-                type="button"
-                class="dropdown-item"
-                @click="changeLanguage('en')"
-              >
-                <img
-                  :src="flag_en"
-                  alt=""
-                />
-                <span>{{ t('languages.en') }}</span>
-              </button>
-            </div>
-          </div>
+          <button
+            type="button"
+            class="language-toggle-button"
+            :title="t('languages.switchTo')"
+            :aria-label="t('languages.switchTo')"
+            @click="switchLanguage"
+          >
+            <img
+              :src="alternateFlag"
+              :alt="t('languages.switchTo')"
+              class="language-flag"
+            />
+          </button>
           <button
             type="button"
             class="theme-icon-button"
+            :title="themeStore.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
             :aria-label="themeStore.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
             @click="themeStore.toggleTheme()"
           >
@@ -145,56 +107,29 @@ watch(
             <p>{{ t('navigation.business') }}</p>
             <span class="material-symbols-outlined external-link-icon">open_in_new</span>
           </a>
-          <button
-            type="button"
-            class="theme-icon-button"
-            :aria-label="themeStore.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
-            @click="themeStore.toggleTheme()"
-          >
-            <span class="material-symbols-outlined theme-icon">{{ themeStore.icon }}</span>
-          </button>
-          <div class="language-dropdown">
+          <div class="navbar-utility">
             <button
               type="button"
-              class="language-icon-button"
-              :aria-expanded="isDropdownOpen"
-              aria-haspopup="true"
-              :aria-label="t('languages.' + locale)"
-              @click="toggleDropdown"
+              class="theme-icon-button"
+              :title="themeStore.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+              :aria-label="themeStore.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+              @click="themeStore.toggleTheme()"
+            >
+              <span class="material-symbols-outlined theme-icon">{{ themeStore.icon }}</span>
+            </button>
+            <button
+              type="button"
+              class="language-toggle-button"
+              :title="t('languages.switchTo')"
+              :aria-label="t('languages.switchTo')"
+              @click="switchLanguage"
             >
               <img
-                :src="locale === 'nl' ? flag_nl : flag_en"
-                alt=""
-                class="language-icon"
+                :src="alternateFlag"
+                :alt="t('languages.switchTo')"
+                class="language-flag"
               />
             </button>
-            <div
-              class="dropdown-menu"
-              v-if="isDropdownOpen"
-            >
-              <button
-                type="button"
-                class="dropdown-item"
-                @click="changeLanguage('nl')"
-              >
-                <img
-                  :src="flag_nl"
-                  alt=""
-                />
-                <span>{{ t('languages.nl') }}</span>
-              </button>
-              <button
-                type="button"
-                class="dropdown-item"
-                @click="changeLanguage('en')"
-              >
-                <img
-                  :src="flag_en"
-                  alt=""
-                />
-                <span>{{ t('languages.en') }}</span>
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -236,11 +171,6 @@ watch(
           </a>
         </div>
       </div>
-      <div
-        v-if="isDropdownOpen"
-        class="mask"
-        @click="closeDropdown"
-      ></div>
     </div>
   </nav>
 </template>
@@ -283,12 +213,13 @@ watch(
 
 .theme-icon-button,
 .menu-icon-button,
-.language-icon-button {
+.language-toggle-button {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   display: flex;
+  align-items: center;
   color: inherit;
 }
 
@@ -343,71 +274,24 @@ watch(
   }
 }
 
-/* Language dropdown */
-.language-dropdown {
-  display: flex;
-  position: relative;
-}
-
-.language-icon {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: var(--text);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  border-radius: 0.5rem;
-}
-
-.dropdown-item {
+/* Utility group (theme + language) */
+.navbar-utility {
   display: flex;
   align-items: center;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  color: var(--background);
-  background: none;
-  border: none;
-  width: 100%;
-  font: inherit;
-
-  &:first-child {
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-  }
-  &:last-child {
-    border-bottom-left-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-  }
+  gap: 1.5rem;
 }
 
-.dropdown-item {
-  transition: background-color 150ms ease;
+.navbar-utility button {
+  transition: transform 150ms ease;
 }
 
-.dropdown-item:hover {
-  background-color: var(--text-30);
+.navbar-utility button:hover {
+  transform: scale(1.1);
 }
 
-.dropdown-item img {
-  width: 20px;
-  height: 20px;
-  margin-right: 0.5rem;
-}
-
-.mask {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  z-index: 999;
+.language-flag {
+  width: 24px;
+  height: 24px;
 }
 
 /* Small Devices */

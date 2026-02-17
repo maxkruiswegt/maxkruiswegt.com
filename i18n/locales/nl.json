@@ -9,8 +9,9 @@
     "business": "MK Development"
   },
   "languages": {
-    "en": "Engels",
-    "nl": "Nederlands"
+    "en": "English",
+    "nl": "Nederlands",
+    "switchTo": "English"
   },
   "buttons": {
     "back": "Ga terug"
