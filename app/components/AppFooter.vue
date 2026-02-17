@@ -4,8 +4,6 @@ const localePath = useLocalePath();
 const themeStore = useThemeStore();
 
 const year = new Date().getFullYear();
-
-const mkDevelopmentUrl = useMkDevelopmentUrl();
 </script>
 
 <template>
@@ -45,16 +43,6 @@ const mkDevelopmentUrl = useMkDevelopmentUrl();
                 class="footer-link"
                 >{{ t('navigation.contact') }}</NuxtLink
               >
-            </li>
-            <li class="footer-list-item">
-              <a
-                :href="mkDevelopmentUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="footer-link external-footer-link"
-                >{{ t('navigation.business') }}
-                <span class="material-symbols-outlined external-link-icon">open_in_new</span>
-              </a>
             </li>
           </ul>
         </div>

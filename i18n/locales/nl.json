@@ -6,7 +6,6 @@
     "home": "Home",
     "portfolio": "Portfolio",
     "contact": "Contact",
-    "business": "MK Development",
     "toggle": {
       "switchTo": "Schakel naar {value}",
       "languages": {
