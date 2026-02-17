@@ -6,12 +6,18 @@
     "home": "Home",
     "portfolio": "Portfolio",
     "contact": "Contact",
-    "business": "MK Development"
-  },
-  "languages": {
-    "en": "English",
-    "nl": "Nederlands",
-    "switchTo": "Nederlands"
+    "business": "MK Development",
+    "toggle": {
+      "switchTo": "Switch to {value}",
+      "languages": {
+        "en": "English",
+        "nl": "Dutch"
+      },
+      "theme": {
+        "light": "light mode",
+        "dark": "dark mode"
+      }
+    }
   },
   "buttons": {
     "back": "Go back"

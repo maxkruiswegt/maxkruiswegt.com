@@ -7,23 +7,39 @@ const localePath = useLocalePath();
 const themeStore = useThemeStore();
 const route = useRoute();
 
+const alternateLocale = computed(() => (locale.value === 'en' ? 'nl' : 'en'));
 const alternateFlag = computed(() => (locale.value === 'en' ? flag_nl : flag_en));
+const switchLanguageLabel = computed(() =>
+  t('navigation.toggle.switchTo', { value: t(`navigation.toggle.languages.${alternateLocale.value}`) })
+);
+const switchThemeLabel = computed(() =>
+  t('navigation.toggle.switchTo', {
+    value: t(`navigation.toggle.theme.${themeStore.theme === 'dark' ? 'light' : 'dark'}`),
+  })
+);
 
-const isMenuOpen = ref(false);
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value;
+const isMobileMenuOpen = ref(false);
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value;
 };
-
-const mkDevelopmentUrl = useMkDevelopmentUrl();
+const closeMobileMenu = () => {
+  isMobileMenuOpen.value = false;
+};
 
 const switchLanguage = () => {
   setLocale(locale.value === 'en' ? 'nl' : 'en');
 };
 
+watch(isMobileMenuOpen, (open) => {
+  if (import.meta.client) {
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+});
+
 watch(
   () => route.fullPath,
   () => {
-    isMenuOpen.value = false;
+    isMobileMenuOpen.value = false;
   }
 );
 </script>
@@ -31,7 +47,7 @@ watch(
 <template>
   <nav class="navbar-wrapper">
     <div class="navbar">
-      <div class="navbar-content">
+      <div class="nav-left">
         <NuxtLink
           :to="localePath('/')"
           class="navbar-logo"
@@ -42,75 +58,103 @@ watch(
             class="logo"
           />
         </NuxtLink>
-        <div class="navbar-actions">
+      </div>
+      <div class="nav-right">
+        <!-- Mobile menu button -->
+        <div
+          class="mobile-menu-button"
+          @click="toggleMobileMenu"
+          :aria-expanded="isMobileMenuOpen"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="material-symbols-outlined">{{ isMobileMenuOpen ? 'close' : 'menu' }}</span>
+        </div>
+
+        <!-- Desktop navigation -->
+        <div class="nav-items desktop-nav">
+          <NuxtLink
+            :to="localePath('/')"
+            class="nav-item"
+            active-class=""
+            exact-active-class="router-link-active"
+          >
+            {{ t('navigation.home') }}
+          </NuxtLink>
+          <NuxtLink
+            :to="localePath('/portfolio')"
+            class="nav-item"
+          >
+            {{ t('navigation.portfolio') }}
+          </NuxtLink>
+          <NuxtLink
+            :to="localePath('/contact')"
+            class="nav-item"
+          >
+            {{ t('navigation.contact') }}
+          </NuxtLink>
+        </div>
+        <div class="other-items desktop-nav">
           <button
             type="button"
-            class="language-toggle-button"
-            :title="t('languages.switchTo')"
-            :aria-label="t('languages.switchTo')"
+            class="pill-button"
+            :title="switchLanguageLabel"
+            :aria-label="switchLanguageLabel"
             @click="switchLanguage"
           >
             <img
               :src="alternateFlag"
-              :alt="t('languages.switchTo')"
+              :alt="t(`navigation.toggle.languages.${alternateLocale}`)"
               class="language-flag"
             />
           </button>
           <button
             type="button"
-            class="theme-icon-button"
-            :title="themeStore.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
-            :aria-label="themeStore.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+            class="pill-button"
+            :title="switchThemeLabel"
+            :aria-label="switchThemeLabel"
             @click="themeStore.toggleTheme()"
           >
             <span class="material-symbols-outlined theme-icon">{{ themeStore.icon }}</span>
           </button>
-          <button
-            type="button"
-            class="menu-icon-button"
-            :aria-expanded="isMenuOpen"
-            aria-label="Toggle navigation menu"
-            @click="toggleMenu"
-          >
-            <span class="material-symbols-outlined menu-icon">menu</span>
-          </button>
         </div>
-        <div class="navbar-links">
+      </div>
+    </div>
+
+    <!-- Mobile menu overlay -->
+    <Transition name="mobile-menu">
+      <div
+        class="mobile-menu"
+        v-if="isMobileMenuOpen"
+      >
+        <div class="mobile-nav-items">
           <NuxtLink
             :to="localePath('/')"
-            class="navlink"
+            class="nav-item"
+            active-class=""
+            exact-active-class="router-link-active"
+            @click="closeMobileMenu"
           >
-            <span class="material-symbols-outlined">home</span>
-            <p>{{ t('navigation.home') }}</p>
+            {{ t('navigation.home') }}
           </NuxtLink>
           <NuxtLink
             :to="localePath('/portfolio')"
-            class="navlink"
+            class="nav-item"
+            @click="closeMobileMenu"
           >
-            <span class="material-symbols-outlined">work</span>
-            <p>{{ t('navigation.portfolio') }}</p>
+            {{ t('navigation.portfolio') }}
           </NuxtLink>
           <NuxtLink
             :to="localePath('/contact')"
-            class="navlink"
+            class="nav-item"
+            @click="closeMobileMenu"
           >
-            <span class="material-symbols-outlined">help</span>
-            <p>{{ t('navigation.contact') }}</p>
+            {{ t('navigation.contact') }}
           </NuxtLink>
-          <a
-            :href="mkDevelopmentUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="navlink"
-          >
-            <span class="material-symbols-outlined">business</span>
-            <p>{{ t('navigation.business') }}</p>
-            <span class="material-symbols-outlined external-link-icon">open_in_new</span>
-          </a>
-          <div class="navbar-utility">
+
+          <div class="mobile-other-items">
             <button
               type="button"
-              class="theme-icon-button"
+              class="pill-button"
               :title="themeStore.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
               :aria-label="themeStore.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
               @click="themeStore.toggleTheme()"
@@ -119,76 +163,43 @@ watch(
             </button>
             <button
               type="button"
-              class="language-toggle-button"
-              :title="t('languages.switchTo')"
-              :aria-label="t('languages.switchTo')"
+              class="pill-button"
+              :title="switchLanguageLabel"
+              :aria-label="switchLanguageLabel"
               @click="switchLanguage"
             >
               <img
                 :src="alternateFlag"
-                :alt="t('languages.switchTo')"
+                :alt="t(`navigation.toggle.languages.${alternateLocale}`)"
                 class="language-flag"
               />
             </button>
           </div>
         </div>
       </div>
-      <div
-        class="mobile-menu"
-        v-if="isMenuOpen"
-      >
-        <div>
-          <NuxtLink
-            :to="localePath('/')"
-            class="navlink-mobile"
-          >
-            <span class="material-symbols-outlined">home</span>
-            <p>{{ t('navigation.home') }}</p>
-          </NuxtLink>
-          <NuxtLink
-            :to="localePath('/portfolio')"
-            class="navlink-mobile"
-          >
-            <span class="material-symbols-outlined">work</span>
-            <p>{{ t('navigation.portfolio') }}</p>
-          </NuxtLink>
-          <NuxtLink
-            :to="localePath('/contact')"
-            class="navlink-mobile"
-          >
-            <span class="material-symbols-outlined">help</span>
-            <p>{{ t('navigation.contact') }}</p>
-          </NuxtLink>
-          <a
-            :href="mkDevelopmentUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="navlink-mobile"
-          >
-            <span class="material-symbols-outlined">business</span>
-            <p>{{ t('navigation.business') }}</p>
-            <span class="material-symbols-outlined external-link-icon">open_in_new</span>
-          </a>
-        </div>
-      </div>
-    </div>
+    </Transition>
   </nav>
 </template>
 
 <style scoped>
-/* Extra Small Devices (Less than 576px) */
+/* Default styles: Mobile first */
 .navbar-wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
 }
 
 .navbar {
   width: 100%;
-}
-
-.navbar-content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left {
+  display: flex;
   align-items: center;
 }
 
@@ -205,90 +216,150 @@ watch(
   height: 1.75rem;
 }
 
-.navbar-actions {
+.nav-right {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.625rem;
 }
 
-.theme-icon-button,
-.menu-icon-button,
-.language-toggle-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+.mobile-menu-button {
   display: flex;
   align-items: center;
-  color: inherit;
-}
-
-.theme-icon,
-.menu-icon {
+  justify-content: center;
   cursor: pointer;
-  height: 24px;
-  transition: color 150ms ease;
+  z-index: 20;
 }
 
-.navbar-links {
+.mobile-menu-button span {
+  font-size: 2rem;
+}
+
+/* Desktop nav - hidden on mobile */
+.nav-items.desktop-nav,
+.other-items.desktop-nav {
   display: none;
 }
 
-.mobile-menu {
+/* Nav items pill container */
+.nav-items {
   display: flex;
+  gap: 0.3125rem;
+  padding: 0.3125rem;
+  border-radius: 1.875rem;
+  background-color: rgb(from var(--primary) r g b / 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  margin-top: 1.25rem;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 1.875rem;
+  color: var(--text);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
-.navlink {
+.nav-item:hover {
+  background-color: rgb(from var(--primary) r g b / 0.3);
+}
+
+.nav-item.router-link-active {
+  background-color: var(--primary);
+  color: var(--button-primary-text);
+}
+
+/* Other items (language + theme) */
+.other-items {
   display: flex;
   align-items: center;
-  gap: 0.375rem;
-  transition: color 150ms ease;
-
-  span {
-    font-size: 1.333rem;
-  }
+  gap: 0.625rem;
 }
 
-.navlink:hover {
-  color: var(--primary);
-}
-
-.external-link-icon {
-  font-size: 0.875rem !important;
-  opacity: 0.6;
-}
-
-.navlink-mobile {
+.pill-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  border-radius: 1.875rem;
+  background-color: rgb(from var(--primary) r g b / 0.2);
+  padding: 0.625rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 2rem;
-
-  span {
-    font-size: 1.333rem;
-  }
+  justify-content: center;
 }
 
-/* Utility group (theme + language) */
-.navbar-utility {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+.pill-button:hover {
+  background-color: rgb(from var(--primary) r g b / 0.3);
 }
 
-.navbar-utility button {
-  transition: transform 150ms ease;
-}
-
-.navbar-utility button:hover {
-  transform: scale(1.05);
+.theme-icon {
+  height: 24px;
+  transition: color 0.3s ease;
 }
 
 .language-flag {
   width: 24px;
   height: 24px;
+  border-radius: 50%;
+}
+
+/* Mobile menu overlay */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-nav-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9375rem;
+  align-items: center;
+}
+
+.mobile-nav-items .nav-item {
+  font-size: 1.2rem;
+  padding: 0.625rem 1.25rem;
+}
+
+.mobile-other-items {
+  margin-top: 0.9375rem;
+  display: flex;
+  gap: 0.625rem;
+}
+
+/* Mobile menu transition */
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.mobile-menu-enter-to,
+.mobile-menu-leave-from {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Small Devices */
@@ -298,20 +369,21 @@ watch(
   }
 }
 
-/* Large Devices*/
+/* Large Devices */
 @media screen and (min-width: 992px) {
-  .mobile-menu {
+  .mobile-menu-button {
     display: none;
   }
 
-  .navbar-actions {
-    display: none;
-  }
-
-  .navbar-links {
+  .nav-items.desktop-nav,
+  .other-items.desktop-nav {
     display: flex;
-    gap: 2.5rem;
     align-items: center;
+    gap: 0.625rem;
+  }
+
+  .mobile-menu {
+    display: none !important;
   }
 }
 </style>

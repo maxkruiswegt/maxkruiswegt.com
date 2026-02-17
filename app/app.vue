@@ -26,7 +26,7 @@ useSeoMeta({
 <template>
   <div class="app-wrapper background-pattern">
     <div class="main-app">
-      <header class="noise-texture">
+      <header>
         <AppNavbar />
       </header>
       <main class="main-content">
@@ -64,8 +64,6 @@ footer {
 header {
   animation: fade-down 400ms cubic-bezier(0, 0, 0.2, 1);
   padding: 1rem;
-  background-color: var(--surface);
-  border-radius: 0 0 0.5rem 0.5rem;
 }
 
 footer {
