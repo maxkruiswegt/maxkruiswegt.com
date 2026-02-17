@@ -1,5 +1,4 @@
 import { defineCollection, defineContentConfig } from '@nuxt/content';
-import { asSitemapCollection } from '@nuxtjs/sitemap/content';
 import { z } from 'zod';
 
 const projectSchema = z.object({
@@ -10,19 +9,15 @@ const projectSchema = z.object({
 
 export default defineContentConfig({
   collections: {
-    projects_en: defineCollection(
-      asSitemapCollection({
-        type: 'page',
-        source: 'en/projects/**/*.md',
-        schema: projectSchema,
-      })
-    ),
-    projects_nl: defineCollection(
-      asSitemapCollection({
-        type: 'page',
-        source: 'nl/projects/**/*.md',
-        schema: projectSchema,
-      })
-    ),
+    projects_en: defineCollection({
+      type: 'page',
+      source: 'en/projects/**/*.md',
+      schema: projectSchema,
+    }),
+    projects_nl: defineCollection({
+      type: 'page',
+      source: 'nl/projects/**/*.md',
+      schema: projectSchema,
+    }),
   },
 });
