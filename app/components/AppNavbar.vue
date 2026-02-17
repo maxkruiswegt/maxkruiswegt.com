@@ -155,8 +155,8 @@ watch(
             <button
               type="button"
               class="pill-button"
-              :title="themeStore.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
-              :aria-label="themeStore.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+              :title="switchThemeLabel"
+              :aria-label="switchThemeLabel"
               @click="themeStore.toggleTheme()"
             >
               <span class="material-symbols-outlined theme-icon">{{ themeStore.icon }}</span>
@@ -223,6 +223,7 @@ watch(
 }
 
 .mobile-menu-button {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;

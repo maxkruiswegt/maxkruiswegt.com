@@ -33,6 +33,11 @@
     }
   },
   "footer": {
+    "cta": {
+      "title": "Een project in gedachten?",
+      "description": "Ik sta altijd open voor het bespreken van nieuwe projecten en ideeën.",
+      "button": "Neem contact op"
+    },
     "description": "Max Kruiswegt is een full-stack ontwikkelaar gevestigd in Nederland. Hij is gespecialiseerd in het maken van websites en webapplicaties.",
     "pages": "Pagina's",
     "information": "Informatie",

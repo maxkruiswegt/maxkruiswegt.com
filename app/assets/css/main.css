@@ -1,3 +1,10 @@
+/* Modern CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* Generate shades and tints at https://maketintsandshades.com/ */
 
 :root {
@@ -167,6 +174,21 @@
   --danger: #9c1f22;
 }
 
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
 /* Global scrollbar */
 * {
   scrollbar-width: thin;
@@ -181,7 +203,7 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 p {
@@ -230,6 +252,7 @@ h6 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   margin: 0;
+  overflow-wrap: break-word;
 }
 
 h1 {
@@ -398,7 +421,9 @@ small {
 }
 
 .prose table {
+  display: block;
   width: 100%;
+  overflow-x: auto;
   border-collapse: collapse;
   font-size: 0.875em;
   line-height: 1.714;

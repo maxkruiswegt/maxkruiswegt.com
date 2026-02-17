@@ -32,7 +32,7 @@ useSeoMeta({
       <main class="main-content">
         <NuxtPage />
       </main>
-      <footer class="noise-texture">
+      <footer>
         <AppFooter />
       </footer>
     </div>
@@ -49,9 +49,16 @@ useSeoMeta({
   align-items: center;
 }
 
+.main-app {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .main-content,
-header,
-footer {
+header {
+  width: 100%;
   max-width: 1280px;
 }
 
@@ -68,9 +75,7 @@ header {
 
 footer {
   animation: fade-up 400ms cubic-bezier(0, 0, 0.2, 1);
-  padding: 1rem;
-  background-color: var(--surface);
-  border-radius: 0.5rem 0.5rem 0 0;
+  width: 100%;
 }
 
 /* Large Devices*/
@@ -80,10 +85,6 @@ footer {
   }
 
   header {
-    padding: 2rem;
-  }
-
-  footer {
     padding: 2rem;
   }
 }

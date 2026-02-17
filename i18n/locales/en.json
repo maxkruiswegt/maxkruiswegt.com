@@ -33,6 +33,11 @@
     }
   },
   "footer": {
+    "cta": {
+      "title": "Have a project in mind?",
+      "description": "I'm always open to discussing new projects and ideas.",
+      "button": "Get in touch"
+    },
     "description": "Max Kruiswegt is a full-stack developer based in the Netherlands. He specializes in creating websites and web applications.",
     "pages": "Pages",
     "information": "Information",

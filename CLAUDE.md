@@ -48,8 +48,7 @@ app/
 ├── stores/
 │   └── ThemeStore.ts           # Dark/light theme state with localStorage persistence
 ├── composables/
-│   ├── useObserver.ts          # Scroll animations (hidden-element → show-element)
-│   └── useMkDevelopmentUrl.ts  # MK Development URL helper
+│   └── useObserver.ts          # Scroll animations (hidden-element → show-element)
 └── plugins/
     └── theme.client.ts         # Apply saved theme on client init
 content/
