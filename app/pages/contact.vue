@@ -63,7 +63,7 @@ const submitContactForm = async () => {
 
     <div class="contact-grid">
       <form
-        class="contact-form"
+        class="contact-form noise-texture"
         @submit.prevent="submitContactForm"
       >
         <div class="form-group">
@@ -138,7 +138,7 @@ const submitContactForm = async () => {
       </form>
 
       <div class="contact-methods">
-        <div class="contact-method">
+        <div class="contact-method noise-texture">
           <span class="method-icon material-symbols-outlined">mail</span>
           <h2 class="method-title">{{ t('contact.methods.email.title') }}</h2>
           <p class="method-description">{{ t('contact.methods.email.description') }}</p>
@@ -150,7 +150,7 @@ const submitContactForm = async () => {
           </a>
         </div>
 
-        <div class="contact-method">
+        <div class="contact-method noise-texture">
           <span class="method-icon material-symbols-outlined">link</span>
           <h2 class="method-title">{{ t('contact.methods.linkedin.title') }}</h2>
           <p class="method-description">{{ t('contact.methods.linkedin.description') }}</p>
@@ -205,18 +205,10 @@ const submitContactForm = async () => {
 .contact-form,
 .contact-method {
   background-color: var(--surface);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E");
-  background-blend-mode: overlay;
-  background-size: 200px;
   border: 1px solid var(--background-10);
   border-radius: 0.75rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   padding: 1.25rem;
-}
-
-:global(.light) .contact-form,
-:global(.light) .contact-method {
-  background-blend-mode: multiply;
 }
 
 .contact-form {
