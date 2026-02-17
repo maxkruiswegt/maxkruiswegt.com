@@ -2,13 +2,21 @@
 const { t } = useI18n();
 const localePath = useLocalePath();
 const themeStore = useThemeStore();
+const route = useRoute();
 
 const year = new Date().getFullYear();
+const isContactPage = computed(() => String(route.name).startsWith('contact'));
 </script>
 
 <template>
-  <div class="footer-wrapper">
-    <div class="footer-cta">
+  <div
+    class="footer-wrapper"
+    :class="{ 'no-cta': isContactPage }"
+  >
+    <div
+      v-if="!isContactPage"
+      class="footer-cta"
+    >
       <h2 class="footer-cta-title">{{ t('footer.cta.title') }}</h2>
       <p class="footer-cta-description">{{ t('footer.cta.description') }}</p>
       <NuxtLink
@@ -181,6 +189,10 @@ const year = new Date().getFullYear();
 
 :global(.light) .footer-wrapper {
   background-blend-mode: multiply, normal;
+}
+
+.footer-wrapper.no-cta {
+  padding-top: 4rem;
 }
 
 /* CTA Section */
@@ -368,6 +380,10 @@ const year = new Date().getFullYear();
 
 /* Large Devices */
 @media screen and (min-width: 992px) {
+  .footer-wrapper.no-cta {
+    padding-top: 5rem;
+  }
+
   .footer-cta {
     padding: 5rem 2rem 3.5rem;
   }
