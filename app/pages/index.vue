@@ -58,14 +58,22 @@ async function triggerConfetti() {
       </div>
     </div>
 
-    <div class="kaizen-section hidden-element">
-      <p class="featured-label">{{ t('home.featuredProject') }}</p>
-      <ProjectPreview
-        id="kaizen"
-        title="Kaizen"
-        :description="t('home.kaizen.description')"
-        image="/images/kaizen/Banner.webp"
-      />
+    <div class="featured-section hidden-element">
+      <p class="featured-label">{{ t('home.featuredProjects') }}</p>
+      <div class="featured-grid">
+        <ProjectPreview
+          id="kaizen"
+          title="Kaizen"
+          :description="t('home.kaizen.description')"
+          image="/images/kaizen/Banner.webp"
+        />
+        <ProjectPreview
+          id="mkdevelopment"
+          title="MK Development"
+          :description="t('home.mkdevelopment.description')"
+          image="/images/mkdevelopment/Banner.webp"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -119,10 +127,15 @@ async function triggerConfetti() {
   margin-top: 1rem;
 }
 
-.kaizen-section {
+.featured-section {
   margin-top: 3rem;
   width: 100%;
-  max-width: 30rem;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
 .featured-label {
@@ -165,8 +178,12 @@ async function triggerConfetti() {
     justify-content: normal;
   }
 
-  .kaizen-section {
+  .featured-section {
     margin-top: 5rem;
+  }
+
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>

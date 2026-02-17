@@ -27,9 +27,12 @@
     "bio": "Information Technology student at Inholland Haarlem, currently working as a frontend developer at DTT Multimedia. I build cross-platform mobile apps and modern web experiences with React Native, Vue, and TypeScript.",
     "buttonWork": "Check out my work",
     "buttonContact": "Contact me",
-    "featuredProject": "Featured project",
+    "featuredProjects": "Featured projects",
     "kaizen": {
       "description": "Pomodoro timer app with Focus Rooms for studying together. Virtual body doubling, without the video calls."
+    },
+    "mkdevelopment": {
+      "description": "Business website for my web development agency. Showcasing services, team, and handling client inquiries."
     }
   },
   "footer": {
