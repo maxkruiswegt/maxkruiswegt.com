@@ -198,7 +198,7 @@ watch(
 }
 
 .navbar-logo:hover {
-  transform: scale(1.025);
+  transform: scale(1.05);
 }
 
 .logo {
@@ -244,9 +244,7 @@ watch(
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  transition:
-    color 150ms ease,
-    transform 150ms ease;
+  transition: color 150ms ease;
 
   span {
     font-size: 1.333rem;
@@ -255,7 +253,6 @@ watch(
 
 .navlink:hover {
   color: var(--primary);
-  transform: scale(1.025);
 }
 
 .external-link-icon {
@@ -286,7 +283,7 @@ watch(
 }
 
 .navbar-utility button:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .language-flag {
