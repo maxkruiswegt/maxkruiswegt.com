@@ -43,6 +43,7 @@ const { data: projects } = await useAsyncData(
 
 .portfolio-header {
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .project-count {
@@ -59,6 +60,7 @@ const { data: projects } = await useAsyncData(
   margin-top: 0.75rem;
   font-size: 1.125rem;
   max-width: 45ch;
+  margin-inline: auto;
 }
 
 .portfolio-grid {
