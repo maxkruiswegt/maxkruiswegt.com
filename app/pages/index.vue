@@ -59,7 +59,11 @@ async function triggerConfetti() {
     </div>
 
     <div class="featured-section hidden-element">
-      <p class="featured-label">{{ t('home.featuredProjects') }}</p>
+      <div class="featured-header">
+        <p class="featured-label">{{ t('home.featured.label') }}</p>
+        <h2>{{ t('home.featured.title') }}</h2>
+        <p class="featured-description">{{ t('home.featured.description') }}</p>
+      </div>
       <div class="featured-grid">
         <ProjectPreview
           id="kaizen"
@@ -74,6 +78,13 @@ async function triggerConfetti() {
           image="/images/mkdevelopment/Banner.webp"
         />
       </div>
+      <NuxtLink
+        :to="localePath('/portfolio')"
+        class="featured-cta"
+      >
+        {{ t('home.featured.viewAll') }}
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -128,14 +139,15 @@ async function triggerConfetti() {
 }
 
 .featured-section {
-  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
   width: 100%;
 }
 
-.featured-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+.featured-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .featured-label {
@@ -144,14 +156,46 @@ async function triggerConfetti() {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 0.75rem;
-  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.featured-description {
+  color: var(--text-20);
+  margin-top: 0.5rem;
+}
+
+.featured-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.featured-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 1.5rem;
+  margin-left: auto;
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.featured-cta:hover {
+  color: var(--primary-shade-20);
 }
 
 /* Small Devices */
 @media screen and (min-width: 576px) {
   .home-buttons {
     flex-direction: row;
+  }
+}
+
+/* Medium Devices */
+@media screen and (min-width: 768px) {
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -179,11 +223,7 @@ async function triggerConfetti() {
   }
 
   .featured-section {
-    margin-top: 5rem;
-  }
-
-  .featured-grid {
-    grid-template-columns: repeat(2, 1fr);
+    margin-top: 12.5vh;
   }
 }
 </style>

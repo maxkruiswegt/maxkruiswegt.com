@@ -27,6 +27,7 @@ const { data: projects } = await useAsyncData(
         :title="project.title"
         :description="project.description"
         :image="project.images[0] ?? ''"
+        heading-level="h2"
         class="hidden-element"
       />
     </div>

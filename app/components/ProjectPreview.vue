@@ -1,12 +1,16 @@
 <script setup lang="ts">
 const localePath = useLocalePath();
 
-defineProps<{
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-}>();
+withDefaults(
+  defineProps<{
+    id: string;
+    title: string;
+    description: string;
+    image: string;
+    headingLevel?: 'h2' | 'h3';
+  }>(),
+  { headingLevel: 'h3' }
+);
 </script>
 
 <template>
@@ -22,7 +26,7 @@ defineProps<{
       />
     </div>
     <div class="project-content">
-      <h2>{{ title }}</h2>
+      <component :is="headingLevel">{{ title }}</component>
       <p class="description">{{ description }}</p>
     </div>
   </NuxtLink>
@@ -63,7 +67,8 @@ defineProps<{
   padding: 1.25rem;
 }
 
-.project-content h2 {
+.project-content h2,
+.project-content h3 {
   font-size: 1.333rem;
   line-height: 1.3;
 }

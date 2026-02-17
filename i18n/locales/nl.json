@@ -27,7 +27,12 @@
     "bio": "HBO Informatica student aan Inholland Haarlem, momenteel werkzaam als frontend ontwikkelaar bij DTT Multimedia. Ik bouw cross-platform mobiele apps en moderne webapplicaties met React Native, Vue en TypeScript.",
     "buttonWork": "Bekijk mijn werk",
     "buttonContact": "Contacteer mij",
-    "featuredProjects": "Uitgelichte projecten",
+    "featured": {
+      "label": "Uitgelichte projecten",
+      "title": "Geselecteerd Werk",
+      "description": "Een selectie van mijn recente projecten.",
+      "viewAll": "Bekijk alle projecten"
+    },
     "kaizen": {
       "description": "Pomodoro timer app met Focus Rooms om samen te studeren. Virtueel body doubling, zonder de videogesprekken."
     },
