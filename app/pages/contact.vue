@@ -55,7 +55,7 @@ const submitContactForm = async () => {
       :type="alertType"
     />
     <form @submit.prevent="submitContactForm">
-      <div class="contact-card background-pattern-1">
+      <div class="contact-card">
         <h1 class="card-title">{{ t('contact.title') }}</h1>
         <p
           class="card-text"

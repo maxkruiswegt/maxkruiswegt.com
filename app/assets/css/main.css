@@ -515,22 +515,8 @@ select {
   border-width: 0;
 }
 
-/* Background Patterns */
-.background-pattern-1 {
-  background-image: linear-gradient(
-    -45deg,
-    rgba(var(--background-pattern), 0.03) 25%,
-    transparent 25%,
-    transparent 50%,
-    rgba(var(--background-pattern), 0.03) 50%,
-    rgba(var(--background-pattern), 0.03) 75%,
-    transparent 75%,
-    transparent 100%
-  );
-  background-size: 6px 6px;
-}
-
-.background-pattern-2 {
+/* Background Pattern */
+.background-pattern {
   background-image: radial-gradient(rgba(var(--background-pattern), 0.1) 1px, transparent 1px);
   background-position: 50%;
   background-size: 2rem 2rem;

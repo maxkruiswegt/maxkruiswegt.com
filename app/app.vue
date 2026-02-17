@@ -24,15 +24,15 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="app-wrapper background-pattern-2">
+  <div class="app-wrapper background-pattern">
     <div class="main-app">
-      <header class="background-pattern-1">
+      <header>
         <AppNavbar />
       </header>
       <main class="main-content">
         <NuxtPage />
       </main>
-      <footer class="background-pattern-1">
+      <footer>
         <AppFooter />
       </footer>
     </div>
