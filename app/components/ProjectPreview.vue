@@ -39,6 +39,7 @@ withDefaults(
   border-radius: 0.75rem;
   overflow: hidden;
   background-color: var(--surface);
+  border: 1px solid var(--background-10);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   text-decoration: none;
   color: inherit;
