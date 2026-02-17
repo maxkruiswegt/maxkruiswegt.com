@@ -26,13 +26,13 @@ useSeoMeta({
 <template>
   <div class="app-wrapper background-pattern">
     <div class="main-app">
-      <header>
+      <header class="noise-texture">
         <AppNavbar />
       </header>
       <main class="main-content">
         <NuxtPage />
       </main>
-      <footer>
+      <footer class="noise-texture">
         <AppFooter />
       </footer>
     </div>

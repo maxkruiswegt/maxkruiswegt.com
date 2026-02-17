@@ -12,7 +12,7 @@ defineProps<{
 <template>
   <NuxtLink
     :to="localePath(`/portfolio/${id}`)"
-    class="project-card"
+    class="project-card noise-texture"
   >
     <div class="project-image">
       <img
