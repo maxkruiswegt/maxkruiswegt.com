@@ -1,24 +1,25 @@
 ---
 title: 'Meteo Zandvoort'
-description: 'Een weerwebsite voor Zandvoort.'
+description: 'Een live weerdashboard voor Zandvoort.'
 images:
   - /images/meteozandvoort/Banner.webp
   - /images/meteozandvoort/Banner2.webp
 ---
 
-Welkom bij Meteo Zandvoort, een weer website voor Zandvoort! Dit project biedt real-time weergegevens, waaronder windsnelheden, temperatuur en andere meteorologische informatie, rechtstreeks opgehaald van het weerstation van Herman Kruiswegt. De applicatie is gebouwd met Vue 3 en Vite, wat zorgt voor een snelle en moderne gebruikerservaring.
+Welkom bij Meteo Zandvoort, een live weerdashboard voor Zandvoort! Dit project toont real-time metingen van het persoonlijke Davis-weerstation van Herman Kruiswegt, waaronder wind, temperatuur, neerslag en luchtdruk. De applicatie is gebouwd met Vue 3, TypeScript en Vite, met een op maat gemaakt donker ontwerp waarmee je het weer in één oogopslag afleest.
 
 Verken de live applicatie op [meteozandvoort.nl](https://meteozandvoort.nl).
 
 ## ✨ Functies
 
-- 🌬️ **Real-time Windgegevens**: Bekijk de huidige windsnelheid, richting en kracht.
-- 📊 **Historische Windgegevens**: Toegang tot gemiddelde en maximale windgegevens over verschillende tijdsperioden.
-- 🌡️ **Temperatuurgegevens**: Bekijk de huidige temperatuur, gevoelstemperatuur en dauwpunt.
-- ☔ **Regengegevens**: Monitor de huidige regenintensiteit en dagelijkse neerslag.
-- 💧 **Vochtigheidsgegevens**: Controleer de huidige luchtvochtigheid.
-- 📈 **Barometrische Druk**: Bekijk de huidige luchtdruk en de trend van de afgelopen 3 uur.
-- ⏱️ **Frequente Updates**: Ontvang elke minuut bijgewerkte weerinformatie.
+- 🌡️ **Huidige Omstandigheden**: Een grote temperatuurweergave met gevoelstemperatuur en het 24-uurs minimum en maximum.
+- 🧭 **Windkompas**: Live windrichting, -snelheid en -stoten, met de windkracht op de schaal van Beaufort (KNMI-conventie).
+- 📈 **24-uurs Meteogrammen**: Interactieve grafieken voor temperatuur, luchtvochtigheid, neerslag, luchtdruk en wind, inclusief markeringen voor zonsopkomst en zonsondergang.
+- 🌅 **Zontijden**: Zonsopkomst en zonsondergang voor Zandvoort, astronomisch berekend in de browser.
+- 🏖️ **Live Beachcam**: Een ingebedde livestream van het strand van Zandvoort.
+- 📅 **Historische Data**: Kies een dag, blader door de kwartierarchieven en exporteer naar CSV.
+- 🔍 **Ruwe Data**: Elk sensorveld, zowel ruw als geformatteerd.
+- ⏱️ **Automatisch Verversen**: Elke minuut nieuwe metingen, automatisch gepauzeerd zolang het tabblad verborgen is.
 - 📱 **Responsief Ontwerp**: Geoptimaliseerd voor zowel desktop- als mobiele apparaten.
 
 ## ⚙️ Backend

@@ -1,24 +1,25 @@
 ---
 title: 'Meteo Zandvoort'
-description: 'A weather website for Zandvoort.'
+description: 'A live weather dashboard for Zandvoort.'
 images:
   - /images/meteozandvoort/Banner.webp
   - /images/meteozandvoort/Banner2.webp
 ---
 
-Welcome to Meteo Zandvoort, a weather monitoring web application for Zandvoort! This project provides real-time weather data, including wind speeds, temperature, and other meteorological information, fetched directly from Herman Kruiswegt's weather station. The application is built using Vue 3 and Vite, ensuring a fast and modern user experience.
+Welcome to Meteo Zandvoort, a live weather dashboard for Zandvoort! This project shows real-time measurements from Herman Kruiswegt's personal Davis weather station, including wind, temperature, rainfall and barometric pressure. The application is built with Vue 3, TypeScript and Vite, with a custom dark design tailored to reading weather data at a glance.
 
 Explore the live application at [meteozandvoort.nl](https://meteozandvoort.nl).
 
 ## ✨ Features
 
-- 🌬️ **Real-time Wind Data**: View current wind speed, direction, and force.
-- 📊 **Historical Wind Data**: Access average and maximum wind data over different time spans.
-- 🌡️ **Temperature Data**: View current temperature, feels-like temperature, and dew point.
-- ☔ **Rain Data**: Monitor current rain intensity and daily rainfall.
-- 💧 **Humidity Data**: Check the current humidity levels.
-- 📈 **Barometric Pressure**: View current barometric pressure and its trend over the last 3 hours.
-- ⏱️ **Frequent Updates**: Get updated weather information every minute.
+- 🌡️ **Current Conditions**: A large temperature readout with feels-like temperature and the 24-hour minimum and maximum.
+- 🧭 **Wind Compass**: Live wind direction, speed and gusts, with the wind force on the Beaufort scale (KNMI convention).
+- 📈 **24-hour Meteograms**: Interactive charts for temperature, humidity, rainfall, pressure and wind, including sunrise and sunset markers.
+- 🌅 **Sun Times**: Sunrise and sunset for Zandvoort, computed astronomically on the client.
+- 🏖️ **Live Beachcam**: An embedded livestream of the Zandvoort beach.
+- 📅 **Historic Browser**: Pick any day, browse the 15-minute archive records and export them to CSV.
+- 🔍 **Raw Data View**: Every sensor field, both raw and formatted.
+- ⏱️ **Auto-refresh**: New measurements every minute, paused automatically while the tab is hidden.
 - 📱 **Responsive Design**: Optimized for both desktop and mobile devices.
 
 ## ⚙️ Backend
