@@ -34,3 +34,6 @@ coverage
 
 # Environment
 .env.*
+
+# Build
+dist/
