@@ -11,7 +11,7 @@ images:
   - /images/cody/Banner7.webp
 ---
 
-Cody is een veelzijdige Discord bot gemaakt in **C#** met behulp van **DSharpPlus**. Het is gemaakt voor de [Discord server](https://discord.gg/improve) van Kaizen, waar ik dien als Community Manager.
+Cody was een veelzijdige Discord bot gemaakt in **C#** met behulp van **DSharpPlus**. Ik bouwde het voor de [Discord server](https://discord.gg/improve) van Kaizen, een studiecommunity die ik sinds 2022 help runnen en dezelfde community waar nu de Kaizen-app omheen is gegroeid. De Pomodoro timer en studietracking van Cody waren achteraf gezien het eerste prototype van die app, en in 2026 is Cody uitgefaseerd ten gunste van die app.
 
 Kaizen is een gemeenschap voor studenten en levenslange leerders die ernaar streven vrijheid te vinden in werk waar ze van houden. Het is een plek om samen te werken, elkaar te motiveren en gezamenlijk doelen te bereiken.
 

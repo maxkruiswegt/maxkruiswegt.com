@@ -35,7 +35,12 @@ useSeoMeta({
   ogTitle: computed(() => project.value?.title ?? ''),
   description: computed(() => project.value?.description ?? ''),
   ogDescription: computed(() => project.value?.description ?? ''),
-  ogImage: computed(() => project.value?.images?.[0] ?? ''),
+  // Scrapers (LinkedIn, Slack, X) need an absolute og:image URL.
+  ogImage: computed(() =>
+    project.value?.images?.[0]
+      ? `https://maxkruiswegt.com${project.value.images[0]}`
+      : 'https://maxkruiswegt.com/images/Max.webp'
+  ),
 });
 
 const adjustObjectFit = (event: Event) => {

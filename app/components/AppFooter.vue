@@ -62,6 +62,15 @@ const isContactPage = computed(() => String(route.name).startsWith('contact'));
                 >{{ t('navigation.contact') }}</NuxtLink
               >
             </li>
+            <li class="footer-list-item">
+              <a
+                href="https://my-kaizen.com"
+                target="_blank"
+                rel="noopener"
+                class="footer-link"
+                >Kaizen</a
+              >
+            </li>
           </ul>
         </div>
         <div>
@@ -69,7 +78,11 @@ const isContactPage = computed(() => String(route.name).startsWith('contact'));
           <ul class="footer-info-list">
             <li class="footer-info-item">
               <span class="material-symbols-outlined">mail</span>
-              <p>info@maxkruiswegt.com</p>
+              <a
+                href="mailto:info@maxkruiswegt.com"
+                class="footer-link"
+                >info@maxkruiswegt.com</a
+              >
             </li>
             <li class="footer-info-item">
               <span class="material-symbols-outlined">work</span>
@@ -110,7 +123,7 @@ const isContactPage = computed(() => String(route.name).startsWith('contact'));
           <a
             href="https://github.com/maxkruiswegt"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="me noopener"
             class="footer-social-link"
           >
             <svg
@@ -150,7 +163,7 @@ const isContactPage = computed(() => String(route.name).startsWith('contact'));
           <a
             href="https://www.linkedin.com/in/maxkruiswegt/"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="me noopener"
             class="footer-social-link"
           >
             <svg

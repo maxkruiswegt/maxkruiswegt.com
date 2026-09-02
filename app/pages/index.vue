@@ -2,6 +2,9 @@
 const { t } = useI18n();
 const localePath = useLocalePath();
 
+// The home page had no title of its own and rendered a bare "Max Kruiswegt".
+useHead({ title: () => t('home.metaTitle') });
+
 useSeoMeta({
   description: () => t('footer.description'),
   ogDescription: () => t('footer.description'),

@@ -1,6 +1,6 @@
 ---
 title: 'Kaizen'
-description: 'A cross-platform Pomodoro timer app with Focus Rooms.'
+description: 'A cross-platform Pomodoro timer app with camera-free Focus Rooms.'
 images:
   - /images/kaizen/Banner.webp
   - /images/kaizen/Banner2.webp
@@ -8,20 +8,20 @@ images:
   - /images/kaizen/Banner4.webp
 ---
 
-Kaizen is a cross-platform Pomodoro timer app that combines personal productivity with social accountability. Built with React Native and Expo, it helps you focus better through timed work sessions, beautiful themes, and collaborative Focus Rooms where you can study alongside others. Check it out at [my-kaizen.app](https://my-kaizen.app/), visit the [marketing website](https://my-kaizen.com/), or download it on [Google Play](https://play.google.com/store/apps/details?id=com.maxkruiswegt.kaizen).
+Kaizen is the Pomodoro timer app I have been building solo since September 2025. It combines personal productivity with social accountability through camera-free Focus Rooms, and runs on iOS, Android, Web and Windows from one codebase. More than 4,000 people have logged over 16,500 hours of focus with it. Read [the story behind it](https://my-kaizen.com/about), use it in the browser at [my-kaizen.app](https://my-kaizen.app/), or download it on [Google Play](https://play.google.com/store/apps/details?id=com.maxkruiswegt.kaizen), the [App Store](https://apps.apple.com/app/id6755314708), or the [Microsoft Store](https://apps.microsoft.com/detail/9MV8DVZ52JQS).
 
 ## ⏱️ Pomodoro Timer
 
-The foundation of Kaizen. A beautifully designed timer with customizable work sessions (5-90 min) and break durations. It keeps running accurately even when you switch apps or lock your phone, and notifies you when sessions end with sound and vibration options. Auto-start options let you seamlessly flow between sessions and breaks.
+Four presets out of the box (Classic 25/5/15, Quick 15/3/10, Extended 50/10/30, Long Focus 90/15/30) or anything from 5 to 180 minutes. Built on the system clock, so it stays accurate with the screen off or the app in the background, and it ends a session with sound, vibration and a notification you can control the timer from. Immersive mode hides everything but the dial, and after a full cycle the dial shows a recap of the sessions and minutes you just did.
 
 <picture>
   <source media="(max-width: 767px)" srcset="/images/kaizen/Banner2-mobile.webp" />
   <img src="/images/kaizen/Banner2.webp" alt="Kaizen Pomodoro timer interface showing a focus session with a LOFI illustrated theme and progress ring" />
 </picture>
 
-## 🎨 Beautiful Themes
+## 🎨 Themes
 
-From cozy LOFI illustrations like Sunset Cat, Lakeside Cabin, and Sakura Moonlight to stunning nature photography backgrounds. Over 15 themes to match your mood and keep you motivated.
+More than 60 timer backgrounds across six collections: lofi illustrations, nature photography, city, cozy, space and minimal, some of them looping video. They download when you pick them so the app installs small. Every still background is free; Premium adds the rest of the animated ones and lets you put your own photo behind the timer.
 
 <picture>
   <source media="(max-width: 767px)" srcset="/images/kaizen/Banner3-mobile.webp" />
@@ -30,7 +30,7 @@ From cozy LOFI illustrations like Sunset Cat, Lakeside Cabin, and Sakura Moonlig
 
 ## 🎵 Focus Music
 
-Built-in music library with lo-fi beats, ambient sounds, nature sounds, white noise, and classical music. Volume control, auto-mute on breaks, and seamless looping so you never have to leave the app.
+A built-in library of lo-fi, ambient, nature, white noise and classical tracks, cached after the first play so it keeps working offline. Volume control, auto-mute on breaks and seamless looping.
 
 <picture>
   <source media="(max-width: 767px)" srcset="/images/kaizen/Banner4-mobile.webp" />
@@ -39,20 +39,30 @@ Built-in music library with lo-fi beats, ambient sounds, nature sounds, white no
 
 ## 👥 Focus Rooms
 
-Study together, even when you're apart. Focus Rooms bring the body doubling technique to your pocket. Create public or private rooms for 2-50 members with real-time presence, live timer sync across all members, and automatic idle detection to ensure genuine engagement.
+Study together, even when you're apart. Focus Rooms bring body doubling to your pocket with no camera or microphone: rooms of 2 to 50 people where everyone runs their own timer and you see who is focusing, on a break or away, live, second by second. Joining a public room is free. Hosts can rename a room, change its visibility or capacity, remove a member or hand hosting on, and members can see each other's focus tag and current task.
 
-## ✅ Task Management
+## ✅ Tasks
 
-Tap a task, start focusing, and Kaizen tracks your time automatically. Create tasks with priorities, due dates, subtasks, and time estimates. No more guessing where your time went.
+A one-line Inbox catches a thought without breaking focus, and you plan it into To Do when you are actually planning. Pin a task, start the timer, and Kaizen logs the minutes against it automatically. Priorities, due dates with push reminders, up to 25 subtasks and a time estimate per task, bulk actions, and a searchable Logbook of everything you finished. Up to 7 active tasks free, unlimited on Premium.
+
+## 🔁 Habits
+
+Check-off habits and focus-time habits that complete themselves from your Pomodoro minutes. Daily, specific-weekday or times-per-week schedules, forgiving streaks that never break on a rest day or a skip, a consistency percentage with a trend chart, unlimited backdating, and reminders at any minute of the day. Five habits free, unlimited on Premium.
 
 ## 📊 Statistics & Streaks
 
-Track your focus time, session history, and daily streaks to build consistent habits. Heatmaps and charts show your focus patterns by hour, completion rates, and insights into your productivity. All synced to the cloud across your devices.
+Daily streaks with milestone colors, focus time by hour and by weekday, your session mix, a focus-by-tag breakdown (Work, Study, Personal and more), and a full session history you can re-tag. Thirty days of history free, all-time on Premium. Everything syncs offline-first across your devices.
+
+## 🌍 Everywhere
+
+One codebase on iOS, Android, the web (installable as a PWA, with keyboard shortcuts) and a native Windows app from the Microsoft Store, in seven languages: English, German, Spanish, French, Italian, Portuguese and Dutch.
 
 ## 💻 Technologies
 
-- 📱 **React Native** with **Expo SDK 54** for cross-platform mobile and web support
+- 📱 **React Native** with **Expo SDK 57** for cross-platform mobile and web support
 - ⚛️ **React 19** with **TypeScript** for a modern, type-safe codebase
-- 🗄️ **Supabase** for authentication, PostgreSQL database, and real-time functionality
+- 🗄️ **Supabase** for authentication, PostgreSQL database, and edge functions
+- 🪟 **Tauri** for the native Windows desktop app
 - 💳 **RevenueCat** for subscription management across platforms
-- 🌐 **VitePress** for the static marketing website at [my-kaizen.com](https://my-kaizen.com/)
+- 🛰️ **Sentry** for crash and error monitoring
+- 🌐 **Nuxt** for the static marketing website at [my-kaizen.com](https://my-kaizen.com/)

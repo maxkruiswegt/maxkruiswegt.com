@@ -16,6 +16,49 @@ useHead(() => ({
   meta: [...(i18nHead.value.meta || [])],
 }));
 
+// Identity home: one Person node, corroborated by every profile in `sameAs`
+// (each of which links back here). The Kaizen site's founder node points at
+// my-kaizen.com/about, listed here so the two entities resolve to one person.
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Person',
+            '@id': 'https://maxkruiswegt.com/#person',
+            name: 'Max Kruiswegt',
+            givenName: 'Max',
+            familyName: 'Kruiswegt',
+            url: 'https://maxkruiswegt.com',
+            image: 'https://maxkruiswegt.com/images/Max.webp',
+            email: 'mailto:info@maxkruiswegt.com',
+            jobTitle: 'Frontend & React Native Developer',
+            description:
+              'Frontend and React Native developer from Haarlem, the Netherlands, and the founder of Kaizen, a Pomodoro app with camera-free Focus Rooms.',
+            alumniOf: { '@type': 'CollegeOrUniversity', name: 'Hogeschool Inholland Haarlem' },
+            knowsAbout: ['React Native', 'Expo', 'TypeScript', 'Vue', 'Nuxt', 'Supabase', 'Tauri'],
+            sameAs: [
+              'https://www.linkedin.com/in/maxkruiswegt/',
+              'https://github.com/maxkruiswegt',
+              'https://my-kaizen.com/about',
+            ],
+          },
+          {
+            '@type': 'WebSite',
+            '@id': 'https://maxkruiswegt.com/#website',
+            url: 'https://maxkruiswegt.com',
+            name: 'Max Kruiswegt',
+            publisher: { '@id': 'https://maxkruiswegt.com/#person' },
+          },
+        ],
+      }),
+    },
+  ],
+});
+
 useSeoMeta({
   description: () => t('meta.description'),
   ogTitle: 'Max Kruiswegt',

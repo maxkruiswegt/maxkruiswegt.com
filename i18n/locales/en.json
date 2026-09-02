@@ -1,6 +1,6 @@
 {
   "meta": {
-    "description": "Max Kruiswegt is a Dutch full-stack developer."
+    "description": "Max Kruiswegt is a frontend and React Native developer from Haarlem, the Netherlands, and the founder of Kaizen, a Pomodoro app with camera-free Focus Rooms."
   },
   "navigation": {
     "home": "Home",
@@ -23,8 +23,9 @@
   },
   "home": {
     "title": "Hey, I'm Max&#x1F44B;",
-    "subtitle": "Mobile & Web Developer",
-    "bio": "Information Technology student at Inholland Haarlem, currently working as a frontend developer at DTT Multimedia. I build cross-platform mobile apps and modern web experiences with React Native, Vue, and TypeScript.",
+    "metaTitle": "Frontend & React Native Developer, founder of Kaizen",
+    "subtitle": "Founder of Kaizen · Frontend & React Native Developer",
+    "bio": "Frontend and React Native developer from Haarlem. I graduated with a BSc in Information Technology from Hogeschool Inholland Haarlem in 2026 and built apps at DTT before that. Today I run Kaizen, a Pomodoro app with camera-free Focus Rooms used by 4,000+ people.",
     "buttonWork": "Check out my work",
     "buttonContact": "Contact me",
     "featured": {
@@ -34,7 +35,7 @@
       "viewAll": "View all projects"
     },
     "kaizen": {
-      "description": "Pomodoro timer app with Focus Rooms for studying together. Virtual body doubling, without the video calls."
+      "description": "Pomodoro timer with camera-free Focus Rooms on iOS, Android, Web and Windows. 4,000+ users and 16,500+ hours of focus logged."
     },
     "mkdevelopment": {
       "description": "Business website for my web development agency. Showcasing services, team, and handling client inquiries."
@@ -43,10 +44,10 @@
   "footer": {
     "cta": {
       "title": "Have a project in mind?",
-      "description": "I'm always open to discussing new projects and ideas.",
+      "description": "I'm open to frontend and React Native roles around Haarlem and Amsterdam, and always up for a good project.",
       "button": "Get in touch"
     },
-    "description": "Max Kruiswegt is a full-stack developer based in the Netherlands. He specializes in creating websites and web applications.",
+    "description": "Max Kruiswegt is a frontend and React Native developer based in Haarlem, the Netherlands. He builds cross-platform apps and web experiences, and is the founder of Kaizen.",
     "pages": "Pages",
     "information": "Information",
     "vat": "VAT No: NL004755047B80"
@@ -70,7 +71,7 @@
   "contact": {
     "label": "Get in touch",
     "title": "Contact",
-    "subtitle": "I'm always open to discussing new projects and ideas.",
+    "subtitle": "I'm open to frontend and React Native roles around Haarlem and Amsterdam, and always up for a good project.",
     "form": {
       "name": "Name",
       "email": "Email",
