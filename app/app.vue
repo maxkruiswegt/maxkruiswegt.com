@@ -86,6 +86,7 @@ useSeoMeta({
 /* Extra Small Devices (Less than 576px) */
 .app-wrapper {
   min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -93,6 +94,7 @@ useSeoMeta({
 }
 
 .main-app {
+  flex: 1;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -106,6 +108,7 @@ header {
 }
 
 .main-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   padding: 3.5rem 1rem;

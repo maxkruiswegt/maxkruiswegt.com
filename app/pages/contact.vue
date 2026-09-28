@@ -45,11 +45,15 @@ useHead({ title: t('contact.title') });
 <style scoped>
 .contact-container {
   width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .contact-header {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .contact-label {
@@ -78,8 +82,8 @@ useHead({ title: t('contact.title') });
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  gap: 0.75rem;
-  padding: 1.5rem;
+  gap: 1rem;
+  padding: 2.5rem 1.5rem;
   background-color: var(--surface);
   border: 1px solid var(--background-10);
   border-radius: 0.75rem;
@@ -87,34 +91,35 @@ useHead({ title: t('contact.title') });
 }
 
 .method-icon {
-  width: 3rem;
-  height: 3rem;
+  width: 4.5rem;
+  height: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--primary);
   border: 2px solid var(--primary);
   border-radius: 50%;
-  font-size: 1.25rem;
+  font-size: 2rem;
 }
 
 .method-title {
   color: var(--primary);
-  font-size: 1.333rem;
+  font-size: 1.777rem;
 }
 
 .method-description {
   color: var(--text-20);
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
 .method-link {
   display: inline-block;
+  margin-top: 0.5rem;
   color: var(--primary);
   font-weight: 500;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 1.875rem;
   background-color: rgb(from var(--primary) r g b / 0.1);
   transition: background-color 150ms ease;
@@ -126,8 +131,16 @@ useHead({ title: t('contact.title') });
 
 /* Medium Devices */
 @media screen and (min-width: 768px) {
+  .contact-header {
+    margin-bottom: 3rem;
+  }
+
   .contact-methods {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-method {
+    padding: 4rem 2rem;
   }
 }
 </style>
