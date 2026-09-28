@@ -577,14 +577,6 @@ small {
   }
 }
 
-input,
-textarea,
-select {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  background-color: var(--background);
-}
-
 /* Screen Reader */
 .sr-only {
   position: absolute;

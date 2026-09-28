@@ -72,13 +72,6 @@
     "label": "Get in touch",
     "title": "Contact",
     "subtitle": "I'm open to frontend and React Native roles around Haarlem and Amsterdam, and always up for a good project.",
-    "form": {
-      "name": "Name",
-      "email": "Email",
-      "subject": "Subject",
-      "message": "Message",
-      "submit": "Send"
-    },
     "methods": {
       "email": {
         "title": "Email",
@@ -88,7 +81,6 @@
         "title": "LinkedIn",
         "description": "Connect with me on LinkedIn."
       }
-    },
-    "error": "Something went wrong. Please try again."
+    }
   }
 }

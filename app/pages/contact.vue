@@ -1,50 +1,7 @@
 <script setup lang="ts">
-const { t, locale } = useI18n();
+const { t } = useI18n();
 
 useHead({ title: t('contact.title') });
-const config = useRuntimeConfig();
-
-const alertMessage = ref<string | null>(null);
-const alertType = ref<'info' | 'success' | 'warning' | 'error' | undefined>(undefined);
-const buttonDisabled = ref(false);
-
-const name = ref('');
-const email = ref('');
-const subject = ref('');
-const message = ref('');
-
-const submitContactForm = async () => {
-  try {
-    buttonDisabled.value = true;
-
-    const data = await $fetch<{ message?: string; error?: string }>(config.public.apiBase + '/contact', {
-      method: 'POST',
-      body: {
-        locale: locale.value,
-        name: name.value,
-        email: email.value,
-        subject: subject.value,
-        message: message.value,
-      },
-    });
-
-    if (data.error) throw new Error(data.error);
-
-    alertType.value = 'success';
-    alertMessage.value = data.message || 'Message sent successfully';
-
-    name.value = '';
-    email.value = '';
-    subject.value = '';
-    message.value = '';
-  } catch (err: unknown) {
-    alertType.value = 'error';
-    const fetchErr = err as { data?: { error?: string }; message?: string };
-    alertMessage.value = fetchErr.data?.error || t('contact.error');
-  } finally {
-    buttonDisabled.value = false;
-  }
-};
 </script>
 
 <template>
@@ -55,114 +12,31 @@ const submitContactForm = async () => {
       <p class="contact-subtitle">{{ t('contact.subtitle') }}</p>
     </div>
 
-    <Alert
-      v-if="alertMessage"
-      :message="alertMessage"
-      :type="alertType"
-    />
+    <div class="contact-methods">
+      <div class="contact-method noise-texture">
+        <span class="method-icon material-symbols-outlined">mail</span>
+        <h2 class="method-title">{{ t('contact.methods.email.title') }}</h2>
+        <p class="method-description">{{ t('contact.methods.email.description') }}</p>
+        <a
+          href="mailto:info@maxkruiswegt.com"
+          class="method-link"
+        >
+          info@maxkruiswegt.com
+        </a>
+      </div>
 
-    <div class="contact-grid">
-      <form
-        class="contact-form noise-texture"
-        @submit.prevent="submitContactForm"
-      >
-        <div class="form-group">
-          <label
-            class="form-label"
-            for="contact-name"
-            >{{ t('contact.form.name') }}</label
-          >
-          <input
-            id="contact-name"
-            v-model="name"
-            type="text"
-            required
-            minlength="2"
-            maxlength="100"
-            autocomplete="name"
-          />
-        </div>
-        <div class="form-group">
-          <label
-            class="form-label"
-            for="contact-email"
-            >{{ t('contact.form.email') }}</label
-          >
-          <input
-            id="contact-email"
-            v-model="email"
-            type="email"
-            required
-            maxlength="254"
-            autocomplete="email"
-          />
-        </div>
-        <div class="form-group">
-          <label
-            class="form-label"
-            for="contact-subject"
-            >{{ t('contact.form.subject') }}</label
-          >
-          <input
-            id="contact-subject"
-            v-model="subject"
-            type="text"
-            required
-            minlength="2"
-            maxlength="200"
-          />
-        </div>
-        <div class="form-group">
-          <label
-            class="form-label"
-            for="contact-message"
-            >{{ t('contact.form.message') }}</label
-          >
-          <textarea
-            id="contact-message"
-            v-model="message"
-            rows="4"
-            required
-            minlength="10"
-            maxlength="5000"
-          ></textarea>
-        </div>
-        <div class="form-group">
-          <button
-            class="btn btn-primary"
-            :disabled="buttonDisabled"
-          >
-            {{ t('contact.form.submit') }}
-          </button>
-        </div>
-      </form>
-
-      <div class="contact-methods">
-        <div class="contact-method noise-texture">
-          <span class="method-icon material-symbols-outlined">mail</span>
-          <h2 class="method-title">{{ t('contact.methods.email.title') }}</h2>
-          <p class="method-description">{{ t('contact.methods.email.description') }}</p>
-          <a
-            href="mailto:info@maxkruiswegt.com"
-            class="method-link"
-          >
-            info@maxkruiswegt.com
-          </a>
-        </div>
-
-        <div class="contact-method noise-texture">
-          <span class="method-icon material-symbols-outlined">link</span>
-          <h2 class="method-title">{{ t('contact.methods.linkedin.title') }}</h2>
-          <p class="method-description">{{ t('contact.methods.linkedin.description') }}</p>
-          <a
-            href="https://www.linkedin.com/in/maxkruiswegt/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="method-link"
-          >
-            LinkedIn
-          </a>
-        </div>
+      <div class="contact-method noise-texture">
+        <span class="method-icon material-symbols-outlined">link</span>
+        <h2 class="method-title">{{ t('contact.methods.linkedin.title') }}</h2>
+        <p class="method-description">{{ t('contact.methods.linkedin.description') }}</p>
+        <a
+          href="https://www.linkedin.com/in/maxkruiswegt/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="method-link"
+        >
+          LinkedIn
+        </a>
       </div>
     </div>
   </div>
@@ -193,42 +67,8 @@ const submitContactForm = async () => {
   font-size: 1.125rem;
 }
 
-.alert {
-  margin-bottom: 1rem;
-}
-
-.contact-grid {
-  display: grid;
-  gap: 1.5rem;
-}
-
-.contact-form,
-.contact-method {
-  background-color: var(--surface);
-  border: 1px solid var(--background-10);
-  border-radius: 0.75rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-  padding: 1.25rem;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-label {
-  margin-bottom: 0.25rem;
-}
-
 .contact-methods {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1.5rem;
 }
 
@@ -240,7 +80,10 @@ const submitContactForm = async () => {
   text-align: center;
   gap: 0.75rem;
   padding: 1.5rem;
-  flex: 1;
+  background-color: var(--surface);
+  border: 1px solid var(--background-10);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
 .method-icon {
@@ -283,13 +126,8 @@ const submitContactForm = async () => {
 
 /* Medium Devices */
 @media screen and (min-width: 768px) {
-  .contact-grid {
+  .contact-methods {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .contact-form,
-  .contact-method {
-    padding: 1.5rem;
   }
 }
 </style>

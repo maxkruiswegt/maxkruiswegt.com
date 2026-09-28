@@ -67,12 +67,6 @@ export default defineNuxtConfig({
     },
   },
 
-  runtimeConfig: {
-    public: {
-      apiBase: '',
-    },
-  },
-
   content: {
     renderer: {
       anchorLinks: false,

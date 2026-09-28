@@ -72,13 +72,6 @@
     "label": "Neem contact op",
     "title": "Contact",
     "subtitle": "Ik sta open voor frontend- en React Native-rollen in de regio Haarlem en Amsterdam, en altijd voor een goed project.",
-    "form": {
-      "name": "Naam",
-      "email": "E-mail",
-      "subject": "Onderwerp",
-      "message": "Bericht",
-      "submit": "Versturen"
-    },
     "methods": {
       "email": {
         "title": "E-mail",
@@ -88,7 +81,6 @@
         "title": "LinkedIn",
         "description": "Verbind met mij op LinkedIn."
       }
-    },
-    "error": "Er is iets misgegaan. Probeer het opnieuw."
+    }
   }
 }

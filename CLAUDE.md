@@ -35,7 +35,6 @@ app/
 │   ├── AppNavbar.vue           # Navigation bar with theme toggle and language switcher
 │   ├── AppFooter.vue           # Footer with links and social icons
 │   ├── ProjectPreview.vue      # Portfolio project card (used in listing)
-│   ├── Alert.vue               # Alert banner for contact form feedback
 │   └── content/
 │       └── ProseA.vue          # Prose override: external links get target="_blank" + icon
 ├── pages/                      # File-based routes
@@ -119,21 +118,6 @@ Dark mode is the default. Light mode applies via `.light` class on `<html>`. The
 ## Scroll Animations
 
 Elements with class `hidden-element` get `show-element` added on viewport intersection via `useObserver` composable. The composable manages its own lifecycle (onMounted/onBeforeUnmount) and scopes the MutationObserver to `.main-content`.
-
-## API
-
-Backend at `https://api.maxkruiswegt.com` (prod) / `http://localhost:8069` (dev). API base URL configured via `runtimeConfig.public.apiBase` (env var: `NUXT_PUBLIC_API_BASE`).
-
-Use `$fetch()` for all API calls:
-
-```ts
-const config = useRuntimeConfig();
-await $fetch(config.public.apiBase + '/endpoint', { method: 'POST', body: { ... } });
-```
-
-Endpoints:
-
-- `POST /contact` — Submit contact form
 
 ## SSR Safety
 
