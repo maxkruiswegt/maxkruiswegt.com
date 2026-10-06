@@ -1,135 +1,89 @@
 # Project: maxkruiswegt.com
 
-Personal portfolio website for Max Kruiswegt / MK Development. Nuxt 4 SSG with dual-language support (EN/NL), dark/light theming, and TypeScript.
+Personal portfolio of Max Kruiswegt, frontend and React Native developer. One long home page plus a case study of Kaizen (his own app), in English (default) and Dutch. Nuxt 4 SSG, custom CSS, TypeScript.
 
 ## Commands
 
-- `npm run dev` — Start Nuxt dev server
-- `npm run generate` — Static site generation to `.output/public/`
-- `npm run preview` — Preview production build locally
-- `npm run build` — Production build (SSR mode)
-- `npm run lint` — Run ESLint
-- `npm run typecheck` — Run vue-tsc via `nuxt typecheck`
+- `npm run dev`: Start Nuxt dev server
+- `npm run generate`: Static site generation to `.output/public/`
+- `npm run preview`: Preview production build locally
+- `npm run lint`: Run ESLint
+- `npm run typecheck`: Run vue-tsc via `nuxt typecheck`
+- `npm run export:assets`: With the dev server running: render the OG images (`public/og/`) with headless Chrome. Cloudflare's build can't run Chrome, so the results are committed. Re-run after changing the OG layout or the copy it shows.
 
 There is no test suite configured.
 
 ## Dependencies
 
-`.npmrc` hardens installs: a 7-day `min-release-age` cooldown, `allow-git=none`, and `ignore-scripts=true` (the project has no lifecycle scripts, and its native deps ship prebuilt binaries). An urgent fix can bypass the cooldown once with `--min-release-age=0`; verify the tree with `npm audit signatures --min-release-age=0`. Nuxt Content uses Node's built-in `node:sqlite` (`content.experimental.nativeSqlite`), not better-sqlite3. TypeScript stays on 6.x: TS 7 drops the JS compiler API that vue-tsc and typescript-eslint need.
+`.npmrc` hardens installs: a 7-day `min-release-age` cooldown, `allow-git=none`, and `ignore-scripts=true` (the project has no lifecycle scripts, and its native deps ship prebuilt binaries). An urgent fix can bypass the cooldown once with `--min-release-age=0`; verify the tree with `npm audit signatures --min-release-age=0`. Nuxt Content uses Node's built-in `node:sqlite` (`content.experimental.nativeSqlite`), not better-sqlite3. TypeScript stays on 6.x: TS 7 drops the JS compiler API that vue-tsc and typescript-eslint need. No state library: there is no shared state that needs one.
 
 ## Tech Stack
 
-- **Framework:** Nuxt 4 (Vue 3 with Composition API, `<script setup lang="ts">`)
-- **Build:** Vite (via Nuxt)
-- **Routing:** File-based routing (auto-generated from `app/pages/`)
-- **State:** Pinia (`@pinia/nuxt` module, auto-imported)
-- **i18n:** `@nuxtjs/i18n` v9 (EN default, NL via `/nl` prefix routes, `prefix_except_default` strategy)
-- **Content:** `@nuxt/content` v3 (file-based CMS for portfolio projects)
-- **Styling:** Custom CSS with CSS variables (no Tailwind/Bootstrap)
-- **HTTP:** `$fetch` (built-in)
-- **TypeScript:** Enabled project-wide
+- **Framework:** Nuxt 4 (Vue 3, `<script setup lang="ts">`), SSG via `nuxt generate`
+- **i18n:** `@nuxtjs/i18n` v10, EN at `/`, NL at `/nl` (`prefix_except_default`), no browser-language redirect
+- **Content:** `@nuxt/content` v3, only for the Kaizen case study (`content/{en,nl}/kaizen.md`, collections `kaizen_en` / `kaizen_nl`)
+- **Fonts:** `@nuxt/fonts` self-hosts Newsreader (headings, opsz 24-72) and Schibsted Grotesk (text) from Google at build time, with metric-matched fallbacks
+- **Styling:** Custom CSS with tokens in `app/assets/css/main.css` (no Tailwind/UI library)
+- **Sitemap:** `@nuxtjs/sitemap`
 
 ## Architecture
 
 ```
 app/
-├── app.vue                     # Root layout (navbar, NuxtPage, footer)
-├── router.options.ts           # Custom scroll behavior
-├── assets/css/main.css         # Global styles, theme vars, prose, animations
-├── components/                 # Auto-imported components
-│   ├── AppNavbar.vue           # Navigation bar with theme toggle and language switcher
-│   ├── AppFooter.vue           # Footer with links and social icons
-│   ├── ProjectPreview.vue      # Portfolio project card (used in listing)
-│   └── content/
-│       └── ProseA.vue          # Prose override: external links get target="_blank" + icon
-├── pages/                      # File-based routes
-│   ├── index.vue               # Home page (/)
-│   ├── contact.vue             # Contact page (/contact)
-│   ├── [...slug].vue           # 404 catch-all
-│   └── portfolio/
-│       ├── index.vue           # Portfolio listing (/portfolio)
-│       └── [id].vue            # Project detail (/portfolio/:id)
-├── stores/
-│   └── ThemeStore.ts           # Dark/light theme state with localStorage persistence
-├── composables/
-│   └── useObserver.ts          # Scroll animations (hidden-element → show-element)
-└── plugins/
-    └── theme.client.ts         # Apply saved theme on client init
-content/
-├── en/projects/*.md            # English project content (6 files)
-└── nl/projects/*.md            # Dutch project content (6 files)
-content.config.ts               # Collection definitions with zod schema
-i18n/
-└── locales/                    # en.json, nl.json translation files
+├── app.vue                  # Skip link, SiteHeader, <main>, SiteFooter, Person JSON-LD, i18n head
+├── router.options.ts        # Hash scrolling below the sticky header, focus moves to the target, reduced-motion aware
+├── assets/css/main.css      # Tokens (light/dark), base, type scale, layout, buttons, prose, motion
+├── components/
+│   ├── SiteHeader.vue       # Name, section nav with scroll-spy aria-current, language link, theme, mobile menu
+│   ├── SiteFooter.vue       # Copyright, LinkedIn, GitHub, language link
+│   ├── ThemeSwitch.vue      # System / Light / Dark radio group
+│   ├── LangSwitch.vue       # Link to the other language, which opens at the same section
+│   ├── AppIcon.vue          # Inline SVG icons (paths in app/utils/icons.ts)
+│   ├── ClientMark.vue       # Logo in colour (light) or as a single-colour mask (dark), sized by area
+│   ├── CopyButton.vue       # Copy-to-clipboard with a live status
+│   ├── home/                # One component per home section (Hero, Kaizen, Education, Experience, Work, Projects, Contact)
+│   ├── kaizen/              # Case study summary list and sticky screenshot tour
+│   └── content/             # Prose overrides: ProseA (external links open in a new tab), ProseH2 (localised footnotes heading); StatRow (`::stat-row` headline figures)
+├── composables/             # useLocalized (pick {en,nl} + number/date formatting), useScrollSpy
+├── data/                    # site.ts (links, Kaizen figures, dates), clients.ts, experience.ts, projects.ts
+├── pages/
+│   ├── index.vue            # Home (/ and /nl)
+│   ├── kaizen.vue           # Case study (/kaizen)
+│   ├── og.vue               # 1200x630 Open Graph layout, export-only (not prerendered, noindex)
+│   └── [...slug].vue        # 404
+├── plugins/                 # View transitions: catch rejected promises of skipped ones, none on a language switch
+└── utils/                   # icons.ts, languageSwitchAnchor.ts (keeps the reading position across languages)
+content/{en,nl}/kaizen.md    # Case study prose, written separately per language
+i18n/locales/{en,nl}.json    # UI strings and home copy
 public/
-└── images/                     # Logos, profile photos, project screenshots (all WebP)
-nuxt.config.ts                  # Nuxt configuration
+├── _redirects               # Cloudflare Pages: old /portfolio and /contact URLs -> sections
+├── _headers                 # Cloudflare Pages: long cache for hashed /_nuxt and /_fonts files
+├── images/max, images/kaizen, images/clients, images/education, images/projects
+├── og/                     # Generated by `npm run export:assets`, committed
+scripts/export-assets.mjs
 ```
 
-## Code Style
+## Content rules
 
-- TypeScript throughout (`<script setup lang="ts">`)
-- Auto-imports: no manual imports needed for Vue APIs, Nuxt utilities, components, composables, or stores
-- `~/` path alias for `app/` directory
-- Prettier: single quotes, semicolons, trailing commas (es5), 2-space indent, 120 char width, single attribute per line
-- Components: PascalCase filenames and usage
-- CSS classes: kebab-case
-- All component styles use `<style scoped>`
-- Fonts: Inter (body), Poppins (headings), Material Symbols Outlined (icons) — loaded via `nuxt.config.ts` head links
-
-## Routing & i18n
-
-Routes are auto-generated from `app/pages/` directory. `@nuxtjs/i18n` with `prefix_except_default` strategy handles locale routing automatically:
-
-- English routes at root: `/`, `/portfolio`, `/contact`, `/portfolio/:id`
-- Dutch routes under `/nl`: `/nl`, `/nl/portfolio`, `/nl/contact`, `/nl/portfolio/:id`
-
-Use `useLocalePath()` for localized paths: `localePath('/portfolio')`.
-Use `setLocale()` for language switching.
-Use `<NuxtLink>` instead of `<RouterLink>`.
-
-## Portfolio Content (@nuxt/content v3)
-
-Portfolio project data lives in `content/{en,nl}/projects/*.md` as markdown files with frontmatter:
-
-```markdown
----
-title: 'Project Name'
-description: 'Short description.'
-images:
-  - /images/project/Banner.webp
----
-
-Markdown body content here...
-```
-
-Collections are defined in `content.config.ts` with a zod schema (`title`, `description`, `images`). Two collections: `projects_en` and `projects_nl`.
-
-**Querying:** Use `queryCollection()` with locale-based collection switching:
-
-```ts
-const collectionName = computed(() => `projects_${locale.value}` as 'projects_en' | 'projects_nl');
-const { data } = await useAsyncData(key, () => queryCollection(collectionName.value).all(), { watch: [locale] });
-```
-
-**Rendering:** Markdown body is rendered via `<ContentRenderer :value="project" />` wrapped in a `<div class="prose">`. Prose styles are defined in `main.css` following GitHub's markdown spacing pattern.
-
-**Prose component overrides** go in `app/components/content/` (e.g., `ProseA.vue` for custom link handling).
+- Structured content (clients, experience, side projects) lives in `app/data/*.ts` with `{ en, nl }` strings; UI and short copy in `i18n/locales`; long-form prose in `content/`.
+- Dutch is written natively, not translated. No em dashes anywhere. Round numbers in prose ("more than 5,800"); the figures and their date live in `data/site.ts` (`kaizenFigures`).
+- Work at DTT: per product a logo, the kind of work (app, web app, CMS, website) and one line on what the product is.
+- Update `site.updated` when content changes; it drives the copyright year and the case study's JSON-LD `dateModified`.
 
 ## Theming
 
-Dark mode is the default. Light mode applies via `.light` class on `<html>`. Theme persists to `localStorage` and uses `skipHydrate` to prevent SSR payload leaks. CSS variables define all colors — always use them, never hardcode colors. The `theme.client.ts` plugin calls `initTheme()` to apply saved theme before hydration.
+Follows the OS by default. An inline head script (in `nuxt.config.ts`) applies a stored `light`/`dark` choice as `data-theme` on `<html>` before first paint, so there is no flash and no hydration mismatch; `ThemeSwitch` writes or clears `localStorage.theme`. The same script sets `data-scrollbar="classic"` on Windows, where browsers draw the scrollbar in a gutter; only then does `main.css` style it with `::-webkit-scrollbar` (elsewhere that would turn overlay scrollbars into permanent ones), and other platforms get the standard `scrollbar-color`. Every colour is a token in `main.css` (light on `:root`, dark under `prefers-color-scheme` and `[data-theme='dark']`); never hardcode colours in components. Kaizen's coral appears only inside Kaizen sections (`--kaizen` for fills, `--kaizen-text` for text).
 
-## Scroll Animations
+## Motion
 
-Elements with class `hidden-element` get `show-element` added on viewport intersection via `useObserver` composable. The composable manages its own lifecycle (onMounted/onBeforeUnmount) and scopes the MutationObserver to `.main-content`.
+- Scroll reveals are CSS scroll-driven animations (`.reveal`, `animation-timeline: view()`) inside `@supports` and `prefers-reduced-motion: no-preference`. The base style is always the visible state, so nothing is hidden without support or JS. Never on the hero.
+- `experimental.viewTransition` morphs the two Kaizen screenshots (timer and Focus Room) from the home page into the case study hero (`view-transition-name: kaizen-phone` and `kaizen-room`, each used exactly once per page; on the home page only while the image is on screen).
+- Hover states only change colour or underline, never layout; UI transitions stay under ~250ms.
 
 ## SSR Safety
 
-- Guard browser APIs (`localStorage`, `document`, `window`) with `import.meta.client`
-- Wrap client-only components (carousel) in `<ClientOnly>`
-- Client-only plugins use `.client.ts` suffix
-- Use `skipHydrate` from pinia for refs that should not be serialized in SSR payload
+- Guard browser APIs (`localStorage`, `document`, `window`) or use them in `onMounted`.
+- Anything that depends on the stored theme must not change server-rendered markup; read it after mount.
 
 ## Deployment
 
@@ -137,10 +91,6 @@ Cloudflare Pages builds and deploys on push to `main` (`nuxt generate`, output `
 
 ## Important Notes
 
-- Images use WebP format throughout — keep this convention
-- Max content width is `1280px` (set on `.main-content`, `header`, `footer` in `app.vue`)
-- `nuxt generate` produces fully static HTML files (SSG) for SEO
-- Nitro compresses public assets via `compressPublicAssets: true`
-- i18n `compositionOnly: true` tree-shakes Options API from vue-i18n bundle
-- Heading hierarchy: every page has one `<h1>`, markdown content uses `##` (h2) as top-level headings
-- `content.renderer.anchorLinks: false` disables automatic anchor links on headings
+- Photos and screenshots are WebP; OG images are PNG (LinkedIn doesn't take WebP). Logos (clients, Inholland) are shown in colour on light pages: SVGs as they are, raster logos from a `color/` subfolder. Dark mode and forced colours draw the main file as a single-colour CSS mask in the text colour, so artwork that relies on a second colour needs a knockout version there. The switch is the `--logo-color` / `--logo-mask` tokens in `main.css`. Kaizen screenshots are plain captures with rounded corners, no device frames.
+- Heading hierarchy: one `<h1>` per page; markdown content uses `##` as top-level headings.
+- `content.renderer.anchorLinks: false` disables automatic anchor links on headings.

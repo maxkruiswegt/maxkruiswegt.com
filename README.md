@@ -1,35 +1,28 @@
-# 🚀 Max Kruiswegt's Portfolio Website
+# maxkruiswegt.com
 
-Welcome to the repository for my portfolio website. This site is built with Nuxt 4 and statically generated for fast performance and SEO.
+My portfolio: one page about my work and a longer case study of [Kaizen](https://my-kaizen.com), the focus app I build. In English and Dutch, live at [maxkruiswegt.com](https://maxkruiswegt.com).
 
-### 🌐 [Go to the website](https://maxkruiswegt.com/)
+## Stack
 
-## 📖 Pages
+Nuxt 4 with TypeScript, statically generated and hosted on Cloudflare Pages. `@nuxtjs/i18n` for the two languages, `@nuxt/content` for the case study, `@nuxt/fonts` to self-host Newsreader and Schibsted Grotesk. Plain CSS with design tokens, no UI framework and no state library.
 
-- **🏠 Home**: The landing page of my portfolio.
-- **💼 Portfolio**: A showcase of my projects and contributions.
-- **📞 Contact**: A page where you can find ways to get in touch with me.
-- **🌐 Multilingual**: The website is available in English and Dutch.
+A few things worth knowing:
 
-## 💻 Development
+- The theme follows the system setting, with a manual override applied by a small inline script before the first paint, so there is no flash.
+- Scroll animations are CSS scroll-driven animations used as progressive enhancement. Without support, or with reduced motion, the content is simply there.
+- Client logos are in colour on light pages and drawn as single-colour CSS masks on dark ones, where a lot of the original artwork would disappear.
+- The Open Graph images are rendered from the site itself with headless Chrome (`npm run export:assets`).
 
-This project uses Nuxt 4 (Vue 3), TypeScript, @nuxt/content for portfolio project data, @nuxtjs/i18n for language support, and Pinia for state management. Styled with custom CSS variables — no UI framework.
+## Development
 
-### Prerequisites
+Requires Node 24 (see `.node-version`).
 
-- **Node.js**
-- **npm**
+```bash
+npm install
+npm run dev
+npm run typecheck
+npm run lint
+npm run generate   # static output in .output/public
+```
 
-### Setup
-
-1. Clone the repository.
-2. Install the dependencies with `npm install`.
-3. Start the development server with `npm run dev`.
-
-## 🚀 Deployment
-
-To build the project for production, run `npx nuxt generate`. The static output is in `.output/public/`.
-
-## 🤝 Contributing
-
-While this is a personal project, if you find any bugs or issues, please feel free to open an issue or submit a pull request.
+Installs are hardened in `.npmrc`: a 7-day release cooldown, no git dependencies and no install scripts.
