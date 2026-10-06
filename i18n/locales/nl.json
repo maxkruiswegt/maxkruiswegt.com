@@ -1,86 +1,143 @@
 {
   "meta": {
-    "description": "Max Kruiswegt is een frontend- en React Native-ontwikkelaar uit Haarlem en oprichter van Kaizen, een Pomodoro-app met camera-vrije Focus Rooms."
+    "homeTitle": "Frontend- en React Native-developer",
+    "homeDescription": "Max Kruiswegt is frontend- en React Native-developer in Haarlem. Hij bouwde Kaizen, een focusapp voor iOS, Android, het web en Windows met meer dan {signups} aanmeldingen.",
+    "ogAlt": "Max Kruiswegt, frontend- en React Native-developer"
   },
-  "navigation": {
-    "home": "Home",
-    "portfolio": "Portfolio",
-    "contact": "Contact",
-    "toggle": {
-      "switchTo": "Schakel naar {value}",
-      "languages": {
-        "en": "Engels",
-        "nl": "Nederlands"
-      },
-      "theme": {
-        "light": "lichte modus",
-        "dark": "donkere modus"
-      }
-    }
+  "og": {
+    "maker": "Maker van Kaizen",
+    "signups": "{signups}+ aanmeldingen"
   },
-  "buttons": {
-    "back": "Ga terug"
+  "nav": {
+    "label": "Hoofdmenu",
+    "skip": "Naar de inhoud",
+    "menu": "Menu",
+    "kaizen": "Kaizen",
+    "education": "Opleiding",
+    "experience": "Ervaring",
+    "work": "Werk",
+    "contact": "Contact"
   },
-  "home": {
-    "title": "Hoi, ik ben Max&#x1F44B;",
-    "metaTitle": "Frontend & React Native Ontwikkelaar, oprichter van Kaizen",
-    "subtitle": "Oprichter van Kaizen · Frontend & React Native Ontwikkelaar",
-    "bio": "Frontend- en React Native-ontwikkelaar uit Haarlem. In 2026 studeerde ik af als Bachelor Informatica aan Hogeschool Inholland Haarlem en daarvoor bouwde ik apps bij DTT. Nu bouw ik Kaizen, een Pomodoro-app met camera-vrije Focus Rooms voor 4.000+ gebruikers.",
-    "buttonWork": "Bekijk mijn werk",
-    "buttonContact": "Contacteer mij",
-    "featured": {
-      "label": "Uitgelichte projecten",
-      "title": "Geselecteerd Werk",
-      "description": "Een selectie van mijn recente projecten.",
-      "viewAll": "Bekijk alle projecten"
-    },
-    "kaizen": {
-      "description": "Pomodoro timer met camera-vrije Focus Rooms op iOS, Android, Web en Windows. 4.000+ gebruikers en 16.500+ uur focus."
-    },
-    "mkdevelopment": {
-      "description": "Bedrijfswebsite voor mijn webontwikkelingsbureau. Presenteert diensten, team en verwerkt klantvragen."
-    }
+  "theme": {
+    "legend": "Thema",
+    "system": "Systeem volgen",
+    "light": "Licht",
+    "dark": "Donker"
   },
-  "footer": {
-    "cta": {
-      "title": "Een project in gedachten?",
-      "description": "Ik sta open voor frontend- en React Native-rollen in de regio Haarlem en Amsterdam, en altijd voor een goed project.",
-      "button": "Neem contact op"
-    },
-    "description": "Max Kruiswegt is een frontend- en React Native-ontwikkelaar uit Haarlem. Hij bouwt cross-platform apps en webervaringen en is oprichter van Kaizen.",
-    "pages": "Pagina's",
-    "information": "Informatie",
-    "vat": "BTW Nr: NL004755047B80"
+  "a11y": {
+    "newTab": "(opent in een nieuw tabblad)"
   },
-  "construction": {
-    "title": "In aanbouw",
-    "description": "Ik ben momenteel bezig met deze pagina. Kom later nog eens terug.",
-    "button": "Terug naar de homepagina"
+  "hero": {
+    "role": "Frontend- en React Native-developer in Haarlem.",
+    "intro": "Ik bouw apps en websites, en zorg ervoor dat ze ook echt afkomen. Kaizen, mijn eigen app, draait vanuit één codebase op iPhone, Android, het web en Windows en heeft meer dan {signups} aanmeldingen. In juli 2026 studeerde ik af, na bijna twee jaar bij DTT in Amsterdam, waar ik met Vue en React Native werkte.",
+    "status": "Ik zoek een baan als frontend- of React Native-developer in een klein productteam, in de regio Haarlem of Amsterdam.",
+    "caseStudy": "Lees hoe Kaizen gebouwd is",
+    "email": "of mail me",
+    "photoAlt": "Max Kruiswegt met zijn armen over elkaar, in avondlicht"
   },
-  "404": {
-    "title": "404",
-    "description": "De pagina die je zoekt bestaat niet.",
-    "button": "Terug naar de homepagina"
+  "kaizen": {
+    "heading": "Kaizen",
+    "lead": "Een Pomodoro-timer met Focus Rooms, waarin je in het bijzijn van anderen studeert, zonder camera.",
+    "story": "In september 2025 begon ik aan Kaizen. In de studiecommunity die ik op Discord beheer, zag ik steeds hetzelfde: mensen focussen beter als er iemand anders bij is. Die community telt inmiddels zo’n 30.000 leden. De app verscheen op 2 januari 2026 in Google Play, later die maand op het web, en in mei in de App Store en de Microsoft Store.",
+    "figures": "Inmiddels hebben zich meer dan {signups} mensen aangemeld, en samen hebben ze meer dan {hours} uur gefocust. De app scoort gemiddeld {rating} sterren in de App Store en Google Play.",
+    "figuresSource": "Aanmeldingen en uren uit het beheerpaneel van Kaizen, {date}.",
+    "insideHeading": "Wat erin zit",
+    "inside": [
+      "Eén Expo-codebase in TypeScript voor iOS, Android en het web, voor Windows verpakt in een Tauri-shell in Rust.",
+      "Apps blokkeren via native modules die ik in Kotlin en Swift schreef.",
+      "Offline-first synchronisatie met Supabase die meerdere apparaten gelijk houdt.",
+      "Property-based tests en mutation tests op de sync- en statistieklogica. De CI faalt onder een mutation score van 80 procent."
+    ],
+    "timerAlt": "Het timerscherm van Kaizen: een focussessie op een getekende zonsondergang",
+    "roomAlt": "Een Focus Room met zes leden, elk met hun status en resterende tijd",
+    "caseStudyLink": "Hoe het gebouwd is",
+    "visit": "my-kaizen.com"
   },
-  "portfolio": {
-    "title": "Portfolio",
-    "description": "Een mix van mobiele apps, webplatformen en alles daartussenin. Gebouwd met nieuwsgierigheid en veel koffie.",
-    "projectLabel": "projecten",
-    "viewButton": "Bekijk project"
+  "work": {
+    "heading": "Werk bij DTT",
+    "intro": "Een selectie van de projecten waaraan ik bij {dtt} in Amsterdam werkte, eerst als stagiair en daarna als frontend-developer."
+  },
+  "projects": {
+    "heading": "Persoonlijke projecten"
+  },
+  "experience": {
+    "heading": "Werkervaring",
+    "until": "tot",
+    "present": "heden"
+  },
+  "education": {
+    "heading": "Opleiding",
+    "transcriptTitle": "Uit mijn cijferlijst",
+    "average": "Gemiddeld cijfer over alle {credits} studiepunten",
+    "highest": "Hoogste cijfers"
   },
   "contact": {
-    "label": "Neem contact op",
-    "title": "Contact",
-    "subtitle": "Ik sta open voor frontend- en React Native-rollen in de regio Haarlem en Amsterdam, en altijd voor een goed project.",
-    "methods": {
-      "email": {
-        "title": "E-mail",
-        "description": "Stuur me een e-mail en ik neem contact met je op."
+    "heading": "Contact",
+    "body": "Zoek je een frontend- of React Native-developer, of ben je benieuwd naar Kaizen? Stuur me een mail.",
+    "copy": "Adres kopiëren",
+    "copied": "Gekopieerd",
+    "copyFailed": "Kopiëren lukte niet, selecteer het adres zelf"
+  },
+  "notFound": {
+    "title": "Pagina niet gevonden",
+    "body": "Deze pagina bestaat niet, of hij is verhuisd toen de site in oktober 2026 opnieuw werd gebouwd.",
+    "home": "Naar de homepage"
+  },
+  "caseStudy": {
+    "breadcrumb": "Kruimelpad",
+    "home": "Home",
+    "lede": "Kaizen is een Pomodoro-timer met Focus Rooms: je studeert naast andere mensen, zonder camera of microfoon. Ik bouw en beheer hem in mijn eentje. Op deze pagina lees je hoe hij in elkaar zit, inclusief een release die misging.",
+    "summary": {
+      "label": "Samenvatting",
+      "role": "Rol",
+      "roleValue": "Alles: ontwerp, code, backend, releases en support",
+      "timeline": "Periode",
+      "timelineValue": "Sinds september 2025, in Google Play sinds 2 januari 2026",
+      "platforms": "Platforms",
+      "platformsValue": "iOS, Android, het web en Windows",
+      "stack": "Stack",
+      "stackValue": "React Native, Expo, TypeScript, Supabase, Tauri, Rust, Kotlin en Swift",
+      "usage": "In gebruik",
+      "usageValue": "Meer dan {signups} aanmeldingen, meer dan {hours} uur focus, gemiddeld {rating} sterren",
+      "links": "Links",
+      "web": "Webapp"
+    },
+    "tourHeading": "Een korte rondleiding",
+    "tour": [
+      {
+        "title": "Timer",
+        "body": "Werk- en pauzesessies op een achtergrond naar keuze. Hij loopt door met het scherm uit, en op Android staat de countdown in een melding, met pauze en overslaan.",
+        "alt": "Het timerscherm: een focussessie op een getekende zonsondergang"
       },
-      "linkedin": {
-        "title": "LinkedIn",
-        "description": "Verbind met mij op LinkedIn."
+      {
+        "title": "Focus Rooms",
+        "body": "Rooms van 2 tot 50 mensen, elk met een eigen timer. De room laat zien wie er focust, wie pauze heeft en wie even weg is.",
+        "alt": "Een Focus Room met zes leden en hun timers"
+      },
+      {
+        "title": "Taken",
+        "body": "Een Inbox van één regel om snel iets vast te leggen, en een To Do-lijst voor wat je echt gaat doen. Minuten van de timer gaan naar de taak die je als focustaak hebt gekozen.",
+        "alt": "De takenlijst met een Inbox, To Do-taken en tijdschattingen"
+      },
+      {
+        "title": "Gewoontes",
+        "body": "Gewoontes met een schema, en streaks die een geplande rustdag overleven. Gewoontes die op focustijd draaien, vullen zich vanzelf vanuit de timer.",
+        "alt": "De lijst met gewoontes, een weekbalk en drie gewoontes"
+      },
+      {
+        "title": "Apps blokkeren",
+        "body": "Kies de apps die je afleiden en ze blijven geblokkeerd zolang er een werksessie loopt. Een pauze heft de blokkade op tot de volgende sessie.",
+        "alt": "Het blokscherm: Reddit is gepauzeerd tot blokkeren wordt uitgezet"
+      },
+      {
+        "title": "Statistieken",
+        "body": "Een dagelijkse streak, focustijd per uur en per weekdag, en een geschiedenis waarin je een eerdere sessie een ander label geeft of verwijdert.",
+        "alt": "Een profiel met een streak van 42 dagen en focusstatistieken"
       }
-    }
+    ],
+    "end": "Vragen over iets hiervan? Mail me op {email}.",
+    "ogTitle": "Hoe Kaizen gebouwd is",
+    "footnotes": "Voetnoten",
+    "footnoteBack": "Terug naar de tekst"
   }
 }

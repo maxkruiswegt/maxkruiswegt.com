@@ -1,86 +1,143 @@
 {
   "meta": {
-    "description": "Max Kruiswegt is a frontend and React Native developer from Haarlem, the Netherlands, and the founder of Kaizen, a Pomodoro app with camera-free Focus Rooms."
+    "homeTitle": "Frontend and React Native developer",
+    "homeDescription": "Max Kruiswegt is a frontend and React Native developer in Haarlem. He built Kaizen, a focus app for iOS, Android, the web and Windows with more than {signups} sign-ups.",
+    "ogAlt": "Max Kruiswegt, frontend and React Native developer"
   },
-  "navigation": {
-    "home": "Home",
-    "portfolio": "Portfolio",
-    "contact": "Contact",
-    "toggle": {
-      "switchTo": "Switch to {value}",
-      "languages": {
-        "en": "English",
-        "nl": "Dutch"
-      },
-      "theme": {
-        "light": "light mode",
-        "dark": "dark mode"
-      }
-    }
+  "og": {
+    "maker": "Maker of Kaizen",
+    "signups": "{signups}+ sign-ups"
   },
-  "buttons": {
-    "back": "Go back"
+  "nav": {
+    "label": "Main",
+    "skip": "Skip to content",
+    "menu": "Menu",
+    "kaizen": "Kaizen",
+    "education": "Education",
+    "experience": "Experience",
+    "work": "Work",
+    "contact": "Contact"
   },
-  "home": {
-    "title": "Hey, I'm Max&#x1F44B;",
-    "metaTitle": "Frontend & React Native Developer, founder of Kaizen",
-    "subtitle": "Founder of Kaizen · Frontend & React Native Developer",
-    "bio": "Frontend and React Native developer from Haarlem. I graduated with a BSc in Information Technology from Hogeschool Inholland Haarlem in 2026 and built apps at DTT before that. Today I run Kaizen, a Pomodoro app with camera-free Focus Rooms used by 4,000+ people.",
-    "buttonWork": "Check out my work",
-    "buttonContact": "Contact me",
-    "featured": {
-      "label": "Featured projects",
-      "title": "Selected Work",
-      "description": "A selection of my recent projects.",
-      "viewAll": "View all projects"
-    },
-    "kaizen": {
-      "description": "Pomodoro timer with camera-free Focus Rooms on iOS, Android, Web and Windows. 4,000+ users and 16,500+ hours of focus logged."
-    },
-    "mkdevelopment": {
-      "description": "Business website for my web development agency. Showcasing services, team, and handling client inquiries."
-    }
+  "theme": {
+    "legend": "Theme",
+    "system": "Match system",
+    "light": "Light",
+    "dark": "Dark"
   },
-  "footer": {
-    "cta": {
-      "title": "Have a project in mind?",
-      "description": "I'm open to frontend and React Native roles around Haarlem and Amsterdam, and always up for a good project.",
-      "button": "Get in touch"
-    },
-    "description": "Max Kruiswegt is a frontend and React Native developer based in Haarlem, the Netherlands. He builds cross-platform apps and web experiences, and is the founder of Kaizen.",
-    "pages": "Pages",
-    "information": "Information",
-    "vat": "VAT No: NL004755047B80"
+  "a11y": {
+    "newTab": "(opens in a new tab)"
   },
-  "construction": {
-    "title": "Under construction",
-    "description": "I'm currently working on this page. Please check back later.",
-    "button": "Go back to the homepage"
+  "hero": {
+    "role": "Frontend and React Native developer in Haarlem.",
+    "intro": "I build apps and websites, and I make sure they actually get finished. Kaizen, my own app, runs on iPhone, Android, the web and Windows from one codebase and has more than {signups} sign-ups. I graduated in July 2026, after almost two years of Vue and React Native work at DTT in Amsterdam.",
+    "status": "Open to a frontend or React Native role in a small product team, in or around Haarlem and Amsterdam.",
+    "caseStudy": "Read how Kaizen is built",
+    "email": "or email me",
+    "photoAlt": "Max Kruiswegt with his arms crossed, in evening light"
   },
-  "404": {
-    "title": "404",
-    "description": "The page you are looking for does not exist.",
-    "button": "Go back to the homepage"
+  "kaizen": {
+    "heading": "Kaizen",
+    "lead": "A Pomodoro timer with Focus Rooms, where you study next to other people without a camera.",
+    "story": "I started building Kaizen in September 2025, based on something I kept seeing in the study community I run on Discord: people focus better when someone else is there. That community now has about 30,000 members. It came out on Google Play on 2 January 2026, on the web later that month, and on the App Store and the Microsoft Store in May.",
+    "figures": "More than {signups} people have signed up so far, and together they have logged more than {hours} hours of focus. The app averages {rating} stars on the App Store and Google Play.",
+    "figuresSource": "Sign-ups and hours from Kaizen’s admin panel, {date}.",
+    "insideHeading": "What’s inside",
+    "inside": [
+      "One Expo codebase in TypeScript for iOS, Android and the web, wrapped for Windows in a Tauri shell written in Rust.",
+      "App blocking through native modules I wrote in Kotlin and Swift.",
+      "Offline-first sync on Supabase that keeps several devices in step.",
+      "Property-based and mutation tests on the sync and stats logic. CI fails below an 80 percent mutation score."
+    ],
+    "timerAlt": "Kaizen’s timer screen: a focus session over an illustrated sunset",
+    "roomAlt": "A Focus Room with six members, each showing their status and time left",
+    "caseStudyLink": "How it’s built",
+    "visit": "my-kaizen.com"
   },
-  "portfolio": {
-    "title": "Portfolio",
-    "description": "A mix of mobile apps, web platforms, and everything in between. Built with curiosity and a lot of coffee.",
-    "projectLabel": "projects",
-    "viewButton": "View project"
+  "work": {
+    "heading": "Work at DTT",
+    "intro": "Some of the projects I worked on at {dtt} in Amsterdam, first as an intern and then as a frontend developer."
+  },
+  "projects": {
+    "heading": "Side projects"
+  },
+  "experience": {
+    "heading": "Experience",
+    "until": "to",
+    "present": "present"
+  },
+  "education": {
+    "heading": "Education",
+    "transcriptTitle": "From my transcript",
+    "average": "Average grade over all {credits} credits",
+    "highest": "Highest grades"
   },
   "contact": {
-    "label": "Get in touch",
-    "title": "Contact",
-    "subtitle": "I'm open to frontend and React Native roles around Haarlem and Amsterdam, and always up for a good project.",
-    "methods": {
-      "email": {
-        "title": "Email",
-        "description": "Send me an email and I'll get back to you."
+    "heading": "Contact",
+    "body": "Hiring a frontend or React Native developer, or curious about Kaizen? Send me an email.",
+    "copy": "Copy address",
+    "copied": "Copied",
+    "copyFailed": "Couldn’t copy, select the address instead"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "This page doesn’t exist, or it moved when the site was rebuilt in October 2026.",
+    "home": "Go to the home page"
+  },
+  "caseStudy": {
+    "breadcrumb": "Breadcrumb",
+    "home": "Home",
+    "lede": "Kaizen is a Pomodoro timer with Focus Rooms: you study next to other people, without a camera or a microphone. I build and run it on my own. This page is about how it is made, including a release that went wrong.",
+    "summary": {
+      "label": "Summary",
+      "role": "Role",
+      "roleValue": "All of it: design, code, backend, releases and support",
+      "timeline": "Timeline",
+      "timelineValue": "Since September 2025, on Google Play since 2 January 2026",
+      "platforms": "Platforms",
+      "platformsValue": "iOS, Android, the web and Windows",
+      "stack": "Stack",
+      "stackValue": "React Native, Expo, TypeScript, Supabase, Tauri, Rust, Kotlin and Swift",
+      "usage": "In use",
+      "usageValue": "More than {signups} sign-ups, more than {hours} hours of focus, {rating} stars on average",
+      "links": "Links",
+      "web": "Web app"
+    },
+    "tourHeading": "A quick tour",
+    "tour": [
+      {
+        "title": "Timer",
+        "body": "Work and break sessions over a background you pick. It keeps time with the screen off, and on Android a notification shows the countdown, with pause and skip.",
+        "alt": "The timer screen: a focus session over an illustrated sunset"
       },
-      "linkedin": {
-        "title": "LinkedIn",
-        "description": "Connect with me on LinkedIn."
+      {
+        "title": "Focus Rooms",
+        "body": "Rooms of 2 to 50 people, each on their own timer. The room shows who is focusing, who is on a break and who stepped away.",
+        "alt": "A Focus Room with six members and their timers"
+      },
+      {
+        "title": "Tasks",
+        "body": "A one-line Inbox for quick capture and a To Do list for what you have committed to. Minutes from the timer go to the task you picked as your focus task.",
+        "alt": "The task list with an Inbox, To Do items and time estimates"
+      },
+      {
+        "title": "Habits",
+        "body": "Habits with schedules, and streaks that survive a planned rest day. Focus-time habits fill up from the timer by themselves.",
+        "alt": "The habit list with a week strip and three habits"
+      },
+      {
+        "title": "App blocking",
+        "body": "Pick the apps that distract you and they stay blocked while a work session runs. A break lifts the block until the next session.",
+        "alt": "The block screen: Reddit is paused until blocking is turned off"
+      },
+      {
+        "title": "Statistics",
+        "body": "A daily streak, focus time by hour and weekday, and a history where you can re-tag or delete a past session.",
+        "alt": "A profile with a 42-day streak and focus statistics"
       }
-    }
+    ],
+    "end": "Questions about any of this? Email me at {email}.",
+    "ogTitle": "How Kaizen is built",
+    "footnotes": "Footnotes",
+    "footnoteBack": "Back to the text"
   }
 }

@@ -2,37 +2,38 @@
 const { t } = useI18n();
 const localePath = useLocalePath();
 
-useHead({ title: t('404.title') });
+useHead({ title: t('notFound.title') });
+useSeoMeta({ robots: 'noindex' });
+
+// A real 404 status, so a broken internal link fails the prerender instead of becoming a page.
+const event = useRequestEvent();
+if (event) setResponseStatus(event, 404);
 </script>
 
 <template>
-  <div class="unknown-page hidden-element">
-    <h1>{{ t('404.title') }}</h1>
-    <p class="unknown-text">{{ t('404.description') }}</p>
+  <section class="not-found container">
+    <h1>{{ t('notFound.title') }}</h1>
+    <p class="muted">{{ t('notFound.body') }}</p>
     <NuxtLink
       :to="localePath('/')"
-      class="unknown-button btn btn-primary"
+      class="btn btn-primary"
     >
-      {{ t('404.button') }}
+      {{ t('notFound.home') }}
+      <AppIcon name="arrow-right" />
     </NuxtLink>
-  </div>
+  </section>
 </template>
 
 <style scoped>
-.unknown-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 55vh;
-}
-
-.unknown-text {
-  color: var(--text-30);
+/* Fills the space between header and footer, with the message in the middle of it. */
+.not-found {
+  flex: 1;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: var(--space-s);
+  padding-block: var(--space-2xl);
+  max-width: var(--measure);
   text-align: center;
-}
-
-.unknown-button {
-  margin-top: 1rem;
 }
 </style>

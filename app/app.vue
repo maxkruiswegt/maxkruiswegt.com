@@ -1,24 +1,26 @@
 <script setup lang="ts">
+import { site, kaizenLinks } from '~/data/site';
+
 const { t } = useI18n();
 const i18nHead = useLocaleHead({ seo: true });
 
-useObserver();
+// Open Graph wants language_TERRITORY: "en" -> "en_GB", "nl-NL" -> "nl_NL".
+const ogLocale = (value: string) => (value === 'en' ? 'en_GB' : value.replace('-', '_'));
 
 useHead({
-  titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} - Max Kruiswegt` : 'Max Kruiswegt';
-  },
+  titleTemplate: (chunk) => (chunk ? `${chunk} · Max Kruiswegt` : 'Max Kruiswegt'),
 });
 
 useHead(() => ({
-  htmlAttrs: { lang: i18nHead.value.htmlAttrs!.lang },
-  link: [...(i18nHead.value.link || [])],
-  meta: [...(i18nHead.value.meta || [])],
+  htmlAttrs: { lang: i18nHead.value.htmlAttrs?.lang },
+  link: [...(i18nHead.value.link ?? [])],
+  meta: (i18nHead.value.meta ?? []).map((tag) =>
+    tag.property?.startsWith('og:locale') ? { ...tag, content: ogLocale(String(tag.content)) } : tag
+  ),
 }));
 
-// Identity home: one Person node, corroborated by every profile in `sameAs`
-// (each of which links back here). The Kaizen site's founder node points at
-// my-kaizen.com/about, listed here so the two entities resolve to one person.
+// One Person node for the whole site; every profile in sameAs links back here, and the Kaizen
+// site's founder node points at the same person.
 useHead({
   script: [
     {
@@ -28,110 +30,62 @@ useHead({
         '@graph': [
           {
             '@type': 'Person',
-            '@id': 'https://maxkruiswegt.com/#person',
+            '@id': `${site.url}/#person`,
             name: 'Max Kruiswegt',
             givenName: 'Max',
             familyName: 'Kruiswegt',
-            url: 'https://maxkruiswegt.com',
-            image: 'https://maxkruiswegt.com/images/Max.webp',
-            email: 'mailto:info@maxkruiswegt.com',
+            url: site.url,
+            image: `${site.url}/images/max/max-head-640.webp`,
             jobTitle: 'Frontend & React Native Developer',
-            description:
-              'Frontend and React Native developer from Haarlem, the Netherlands, and the founder of Kaizen, a Pomodoro app with camera-free Focus Rooms.',
+            homeLocation: { '@type': 'Place', name: 'Haarlem, Netherlands' },
             alumniOf: { '@type': 'CollegeOrUniversity', name: 'Hogeschool Inholland Haarlem' },
             knowsAbout: ['React Native', 'Expo', 'TypeScript', 'Vue', 'Nuxt', 'Supabase', 'Tauri'],
-            sameAs: [
-              'https://www.linkedin.com/in/maxkruiswegt/',
-              'https://github.com/maxkruiswegt',
-              'https://my-kaizen.com/about',
-            ],
+            sameAs: [site.linkedin, site.github, kaizenLinks.about],
           },
           {
             '@type': 'WebSite',
-            '@id': 'https://maxkruiswegt.com/#website',
-            url: 'https://maxkruiswegt.com',
+            '@id': `${site.url}/#website`,
+            url: site.url,
             name: 'Max Kruiswegt',
-            publisher: { '@id': 'https://maxkruiswegt.com/#person' },
+            publisher: { '@id': `${site.url}/#person` },
           },
         ],
       }),
     },
   ],
 });
-
-useSeoMeta({
-  description: () => t('meta.description'),
-  ogTitle: 'Max Kruiswegt',
-  ogDescription: () => t('meta.description'),
-});
 </script>
 
 <template>
-  <div class="app-wrapper background-pattern">
-    <div class="main-app">
-      <header>
-        <AppNavbar />
-      </header>
-      <main class="main-content">
-        <NuxtPage />
-      </main>
-      <footer>
-        <AppFooter />
-      </footer>
-    </div>
+  <div class="app">
+    <a
+      href="#main"
+      class="skip-link"
+      >{{ t('nav.skip') }}</a
+    >
+    <NuxtRouteAnnouncer />
+    <SiteHeader />
+    <main
+      id="main"
+      tabindex="-1"
+    >
+      <NuxtPage />
+    </main>
+    <SiteFooter />
   </div>
 </template>
 
 <style scoped>
-/* Extra Small Devices (Less than 576px) */
-.app-wrapper {
-  min-height: 100vh;
+.app {
   min-height: 100dvh;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-.main-app {
-  flex: 1;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.main-content,
-header {
-  width: 100%;
-  max-width: 1280px;
-}
-
-.main-content {
+/* A column too, so a short page (the 404) can grow into the space above the footer. */
+main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 3.5rem 1rem;
-}
-
-header {
-  animation: fade-down 400ms cubic-bezier(0, 0, 0.2, 1);
-  padding: 1rem;
-}
-
-footer {
-  animation: fade-up 400ms cubic-bezier(0, 0, 0.2, 1);
-  width: 100%;
-}
-
-/* Large Devices*/
-@media screen and (min-width: 992px) {
-  .main-content {
-    padding: 4.5rem 2rem;
-  }
-
-  header {
-    padding: 2rem;
-  }
 }
 </style>
