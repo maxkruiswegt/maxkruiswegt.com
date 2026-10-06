@@ -1,585 +1,460 @@
-/* Modern CSS Reset */
+/*
+ * maxkruiswegt.com
+ * Palette "Grachtengroen": warm paper with the deep green of canal-house doors. Kaizen's coral
+ * appears only inside the Kaizen sections, as that product's own colour.
+ * Every text pair below passes WCAG AA in both themes (ratios checked 6 Oct 2026).
+ */
+
+/* ---------- Tokens ---------- */
+
+:root {
+  color-scheme: light dark;
+
+  /* Light (default) */
+  --bg: #f9f6f2;
+  --surface: #f2efe8;
+  --raised: #fefcf9;
+  --border: #ddd9d0; /* decorative only (~1.3:1) */
+  --border-strong: #8b857d; /* 3.4:1, for controls */
+  --text: #231e19; /* 15.3:1 on bg */
+  --muted: #605a52; /* 6.3:1 */
+  --accent: #215f48; /* 7.0:1, links and accent text */
+  --accent-fill: #164a37;
+  --on-accent: #fcfaf6; /* 9.7:1 on accent-fill */
+  --focus: #237356; /* 5.3:1 */
+  --kaizen: #c25b4f; /* fills only, never body text */
+  --kaizen-text: #a8372a; /* 6.0:1 */
+  --kaizen-wash: #f6e4dc;
+  --portrait-block: #164a37;
+  /* Client logos: in colour on light pages, single-colour masks on dark ones. */
+  --logo-color: block;
+  --logo-mask: none;
+  /* Outline for dark app icons, which would melt into a dark page. */
+  --icon-ring: transparent;
+  /* The availability dot in the hero: a livelier green in the brand's hue, so it reads as a status. */
+  --status: #2a9a6a;
+  --shot-shadow: 0 1px 2px rgb(35 30 25 / 0.06), 0 12px 32px -12px rgb(35 30 25 / 0.22);
+
+  /* Type */
+  --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-text: 'Schibsted Grotesk', Arial, Helvetica, sans-serif;
+
+  /* Fluid type scale, 360px to 1280px viewports (Utopia method) */
+  --step--1: clamp(0.885rem, 0.86rem + 0.112vw, 0.95rem);
+  --step-0: clamp(1.062rem, 1.014rem + 0.217vw, 1.188rem);
+  --step-1: clamp(1.275rem, 1.193rem + 0.364vw, 1.484rem);
+  --step-2: clamp(1.53rem, 1.403rem + 0.566vw, 1.855rem);
+  --step-3: clamp(1.836rem, 1.647rem + 0.841vw, 2.319rem);
+  --step-4: clamp(2.203rem, 1.928rem + 1.222vw, 2.899rem);
+  --step-5: clamp(2.644rem, 2.26rem + 1.705vw, 3.624rem);
+  --step-hero: clamp(3.2rem, 2.4rem + 3.6vw, 5.662rem);
+
+  /* Fluid space scale */
+  --space-3xs: clamp(0.25rem, 0.24rem + 0.05vw, 0.3rem);
+  --space-2xs: clamp(0.5rem, 0.48rem + 0.1vw, 0.6rem);
+  --space-xs: clamp(0.75rem, 0.71rem + 0.16vw, 0.875rem);
+  --space-s: clamp(1.062rem, 1.014rem + 0.217vw, 1.188rem);
+  --space-m: clamp(1.6rem, 1.52rem + 0.33vw, 1.78rem);
+  --space-l: clamp(2.1rem, 2rem + 0.43vw, 2.375rem);
+  --space-xl: clamp(3.2rem, 3.04rem + 0.65vw, 3.56rem);
+  --space-2xl: clamp(4.25rem, 4.05rem + 0.87vw, 4.75rem);
+  --space-3xl: clamp(5.5rem, 4.5rem + 4.4vw, 8rem);
+
+  /* Layout */
+  --measure: 65ch;
+  --wide: 76rem;
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --header-h: 4rem;
+  --radius-s: 6px;
+  --radius-m: 10px;
+
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Dark: follows the OS unless the visitor picked light */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0e1411;
+    --surface: #161e1a;
+    --raised: #1f2723;
+    --border: #2f3834;
+    --border-strong: #6d7772;
+    --text: #ece9e2;
+    --muted: #b1ada6;
+    --accent: #90ceb2;
+    --accent-fill: #90ceb2;
+    --on-accent: #0e1411;
+    --focus: #90ceb2;
+    --kaizen-text: #e58870;
+    --kaizen-wash: #2a1c19;
+    --portrait-block: #24453a;
+    --shot-shadow: none;
+    --logo-color: none;
+    --logo-mask: block;
+    --icon-ring: var(--border);
+    --status: #5fd39c;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0e1411;
+  --surface: #161e1a;
+  --raised: #1f2723;
+  --border: #2f3834;
+  --border-strong: #6d7772;
+  --text: #ece9e2;
+  --muted: #b1ada6;
+  --accent: #90ceb2;
+  --accent-fill: #90ceb2;
+  --on-accent: #0e1411;
+  --focus: #90ceb2;
+  --kaizen-text: #e58870;
+  --kaizen-wash: #2a1c19;
+  --portrait-block: #24453a;
+  --shot-shadow: none;
+  --logo-color: none;
+  --logo-mask: block;
+  --icon-ring: var(--border);
+  --status: #5fd39c;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+/* ---------- Base ---------- */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Generate shades and tints at https://maketintsandshades.com/ */
-
-:root {
-  /* Text */
-  --text: #f5eaea;
-  --text-inverse: #150a0a;
-  --text-10: #ddd3d3;
-  --text-20: #c4bbbb;
-  --text-30: #aca4a4;
-  --text-40: #938c8c;
-  --text-50: #7b7575;
-  --text-60: #625e5e;
-  --text-70: #494646;
-  --text-80: #312f2f;
-  --text-90: #181717;
-
-  /* Background */
-  --background: #171717;
-  --background-inverse: #fbf4f4;
-  --surface: #232323;
-  --background-10: #2e2e2e;
-  --background-20: #454545;
-  --background-30: #5d5d5d;
-  --background-40: #747474;
-  --background-50: #8b8b8b;
-  --background-60: #a2a2a2;
-  --background-70: #b9b9b9;
-  --background-80: #d1d1d1;
-  --background-90: #e8e8e8;
-
-  /* Buttons */
-  --button-primary-text: #ffffff;
-  --button-secondary-text: #dedede;
-
-  /* Primary */
-  --primary: #bf3f36;
-  --primary-tint-10: #c5524a;
-  --primary-tint-20: #cc655e;
-  --primary-tint-30: #d27972;
-  --primary-tint-40: #d98c86;
-  --primary-tint-50: #df9f9b;
-  --primary-tint-60: #e5b2af;
-  --primary-tint-70: #ecc5c3;
-  --primary-tint-80: #f2d9d7;
-  --primary-tint-90: #f9eceb;
-  --primary-shade-10: #ac3931;
-  --primary-shade-20: #99322b;
-  --primary-shade-30: #862c26;
-  --primary-shade-40: #732620;
-  --primary-shade-50: #60201b;
-  --primary-shade-60: #4c1916;
-  --primary-shade-70: #391310;
-  --primary-shade-80: #260d0b;
-  --primary-shade-90: #130605;
-
-  /* Secondary */
-  --secondary: #722018;
-  --secondary-tint-10: #80362f;
-  --secondary-tint-20: #8e4d46;
-  --secondary-tint-30: #9c635d;
-  --secondary-tint-40: #aa7974;
-  --secondary-tint-50: #b9908c;
-  --secondary-tint-60: #c7a6a3;
-  --secondary-tint-70: #d5bcba;
-  --secondary-tint-80: #e3d2d1;
-  --secondary-tint-90: #f1e9e8;
-  --secondary-shade-10: #671d16;
-  --secondary-shade-20: #5b1a13;
-  --secondary-shade-30: #501611;
-  --secondary-shade-40: #44130e;
-  --secondary-shade-50: #39100c;
-  --secondary-shade-60: #2e0d0a;
-  --secondary-shade-70: #220a07;
-  --secondary-shade-80: #170605;
-  --secondary-shade-90: #0b0302;
-
-  /* Accent */
-  --accent: #a92519;
-
-  /* Status */
-  --success: #4aa155;
-  --info: #3eaac5;
-  --warning: #df944a;
-  --danger: #ff6164;
-}
-.light {
-  /* Text */
-  --text: #150a0a;
-  --text-inverse: #f5eaea;
-  --text-10: #2c2323;
-  --text-20: #443b3b;
-  --text-30: #5b5454;
-  --text-40: #736c6c;
-  --text-50: #8a8585;
-  --text-60: #a19d9d;
-  --text-70: #b9b6b6;
-  --text-80: #d0cece;
-  --text-90: #e8e7e7;
-
-  /* Background */
-  --background: #fbf4f4;
-  --background-inverse: #0b0404;
-  --surface: #eee8e8;
-  --background-10: #e2dcdc;
-  --background-20: #c9c3c3;
-  --background-30: #b0abab;
-  --background-40: #979292;
-  --background-50: #7e7a7a;
-  --background-60: #646262;
-  --background-70: #4b4949;
-  --background-80: #323131;
-  --background-90: #191818;
-
-  /* Buttons */
-  --button-primary-text: #000000;
-  --button-secondary-text: #242424;
-
-  /* Primary */
-  --primary: #c94940;
-  --primary-tint-10: #ce5b53;
-  --primary-tint-20: #d46d66;
-  --primary-tint-30: #d98079;
-  --primary-tint-40: #df928c;
-  --primary-tint-50: #e4a4a0;
-  --primary-tint-60: #e9b6b3;
-  --primary-tint-70: #efc8c6;
-  --primary-tint-80: #f4dbd9;
-  --primary-tint-90: #faedec;
-  --primary-shade-10: #b5423a;
-  --primary-shade-20: #a13a33;
-  --primary-shade-30: #8d332d;
-  --primary-shade-40: #792c26;
-  --primary-shade-50: #652520;
-  --primary-shade-60: #501d1a;
-  --primary-shade-70: #3c1613;
-  --primary-shade-80: #280f0d;
-  --primary-shade-90: #140706;
-
-  /* Secondary */
-  --secondary: #e7958d;
-  --secondary-tint-10: #e9a098;
-  --secondary-tint-20: #ecaaa4;
-  --secondary-tint-30: #eeb5af;
-  --secondary-tint-40: #f1bfbb;
-  --secondary-tint-50: #f3cac6;
-  --secondary-tint-60: #f5d5d1;
-  --secondary-tint-70: #f8dfdd;
-  --secondary-tint-80: #faeae8;
-  --secondary-tint-90: #fdf4f4;
-  --secondary-shade-10: #d0867f;
-  --secondary-shade-20: #b97771;
-  --secondary-shade-30: #a26863;
-  --secondary-shade-40: #8b5955;
-  --secondary-shade-50: #744b47;
-  --secondary-shade-60: #5c3c38;
-  --secondary-shade-70: #452d2a;
-  --secondary-shade-80: #2e1e1c;
-  --secondary-shade-90: #170f0e;
-
-  /* Accent */
-  --accent: #e66256;
-
-  /* Status */
-  --success: #1e5a29;
-  --info: #1e5a66;
-  --warning: #8a4d14;
-  --danger: #9c1f22;
+* {
+  margin: 0;
 }
 
 html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Jump targets land flush under the sticky header (its height plus the 1px border), so no strip
+     of the previous section shows above a section with its own background. */
+  scroll-padding-top: calc(var(--header-h) + 1px);
+  hanging-punctuation: first last;
+}
+
+/* ---------- Scrollbar ---------- */
+
+/*
+ * The track is a shade off the page colour, so it reads as a rail: in the page colour itself,
+ * full-width bands and dividers would look cut off at the right edge.
+ *
+ * Everywhere: thin, in the site's colours. Overlay scrollbars (macOS, phones) only pick these up
+ * when the visitor always shows scrollbars, so they keep fading in and out as usual.
+ */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) var(--surface);
+}
+
+/* Chrome and Edge on Windows always draw a classic scrollbar, so it gets the full treatment: a
+   floating pill without arrows that turns green on hover. The -webkit- pseudo-elements only apply
+   while the standard properties are back on auto, and they would turn the overlay scrollbars of
+   macOS into permanent ones, hence the platform flag from the head script in nuxt.config.ts. */
+@supports selector(::-webkit-scrollbar) {
+  :root[data-scrollbar='classic'],
+  :root[data-scrollbar='classic'] * {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+  }
+
+  :root[data-scrollbar='classic']::-webkit-scrollbar,
+  :root[data-scrollbar='classic'] ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background: var(--surface);
+  }
+
+  :root[data-scrollbar='classic']::-webkit-scrollbar-thumb,
+  :root[data-scrollbar='classic'] ::-webkit-scrollbar-thumb {
+    min-height: 3rem;
+    border: 3px solid transparent;
+    border-radius: 999px;
+    background: var(--border-strong) padding-box;
+  }
+
+  :root[data-scrollbar='classic']::-webkit-scrollbar-thumb:hover,
+  :root[data-scrollbar='classic'] ::-webkit-scrollbar-thumb:hover {
+    border-width: 2px;
+    background-color: var(--accent);
+  }
+
+  :root[data-scrollbar='classic']::-webkit-scrollbar-corner,
+  :root[data-scrollbar='classic'] ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 img,
 picture,
-video,
-canvas,
-svg {
+svg,
+video {
   display: block;
   max-width: 100%;
 }
 
-/* Global scrollbar */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--background-10) transparent;
+/* Images don't take the selection tint when text around them is selected (on a cut-out photo it
+   covers the whole transparent box). They can still be dragged and saved. */
+img {
+  height: auto;
+  user-select: none;
 }
 
-body {
-  color: var(--text, #f5eaea);
-  background-color: var(--background);
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin: 0;
-  overflow-x: clip;
-}
-
-p {
-  white-space: pre-wrap;
-  word-break: break-word;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
+input,
+button,
+textarea,
+select {
+  font: inherit;
   color: inherit;
 }
 
-ol,
-ul {
+button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  font-feature-settings: inherit;
-  font-variation-settings: inherit;
-  font-size: 100%;
-  font-weight: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  color: inherit;
-  margin: 0;
-  padding: 0;
-  background-color: inherit;
-  border: none;
+p,
+li,
+dd,
+figcaption {
+  text-wrap: pretty;
+  overflow-wrap: break-word;
 }
 
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  margin: 0;
+h4 {
+  text-wrap: balance;
   overflow-wrap: break-word;
 }
 
+::selection {
+  background: var(--accent-fill);
+  color: var(--on-accent);
+}
+
+/* ---------- Typography ---------- */
+
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  font-optical-sizing: auto;
+}
+
 h1 {
-  font-size: 3.158rem;
-  line-height: 1.2;
+  font-size: var(--step-5);
+  line-height: 1.04;
 }
 
 h2 {
-  font-size: 2.369rem;
-  line-height: 1.2;
+  font-size: var(--step-4);
+  line-height: 1.1;
 }
 
 h3 {
-  font-size: 1.777rem;
+  font-family: var(--font-text);
+  font-size: var(--step-1);
+  font-weight: 600;
   line-height: 1.3;
+  letter-spacing: -0.005em;
 }
 
 h4 {
-  font-size: 1.333rem;
-  line-height: 1.3;
+  font-size: var(--step-0);
+  font-weight: 600;
 }
 
-h5 {
-  font-size: 1rem;
-  line-height: 1.5;
+small,
+.small {
+  font-size: var(--step--1);
 }
 
-small {
-  font-size: 0.75rem;
-  line-height: 1.5;
+.muted {
+  color: var(--muted);
 }
 
-/* Prose — mobile first (based on Tailwind Typography base @ 16px) */
-.prose > :first-child {
-  margin-top: 0;
+/* Schibsted Grotesk is loaded up to 600; browsers would otherwise synthesise a 700 for bold. */
+b,
+strong {
+  font-weight: 600;
 }
 
-.prose > :last-child {
-  margin-bottom: 0;
+.num,
+time {
+  font-variant-numeric: tabular-nums;
 }
 
-.prose p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  line-height: 1.75;
-  white-space: normal;
-  word-break: normal;
-}
-
-.prose h2 {
-  font-size: 1.5em;
-  line-height: 1.333;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.prose h3 {
-  font-size: 1.25em;
-  line-height: 1.6;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.prose h4 {
-  font-size: 1em;
-  line-height: 1.5;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.prose a {
-  color: var(--primary);
-  font-weight: 500;
+a {
+  color: var(--accent);
   text-decoration-line: underline;
-  text-decoration-color: color-mix(in srgb, var(--primary), transparent 60%);
-  text-underline-offset: 0.15em;
-  transition:
-    color 150ms ease,
-    text-decoration-color 150ms ease;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  transition: text-decoration-color 150ms var(--ease-out);
 }
 
-.prose a:hover {
-  color: var(--primary-shade-20);
-  text-decoration-color: var(--primary-shade-20);
+a:hover {
+  text-decoration-color: currentColor;
 }
 
-.prose strong {
-  font-weight: 600;
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-.prose em {
-  color: var(--text-10);
+/* Targets that only receive focus programmatically (main, sections after a jump) get no ring. */
+[tabindex='-1']:focus {
+  outline: none;
 }
 
-.prose code {
-  background-color: var(--background-10);
-  padding: 0.15rem 0.35rem;
-  border-radius: 0.25rem;
-  font-size: 0.875em;
+/* ---------- Layout ---------- */
+
+.container {
+  width: min(var(--wide), 100% - 2 * var(--gutter));
+  margin-inline: auto;
 }
 
-.prose pre {
-  background-color: var(--background-10);
-  font-size: 0.875em;
-  line-height: 1.714;
-  padding: 0.875rem 1.125rem;
-  border-radius: 0.375rem;
-  overflow-x: auto;
-  margin-top: 0;
-  margin-bottom: 1rem;
+.section {
+  padding-block: var(--space-2xl);
 }
 
-.prose pre code {
-  background-color: transparent;
-  padding: 0;
-  font-size: inherit;
+.section + .section {
+  border-top: 1px solid var(--border);
 }
 
-.prose ul {
-  list-style-type: disc;
-  padding-left: 2em;
-  margin: 0 0 1rem;
-}
-
-.prose ol {
-  list-style-type: decimal;
-  padding-left: 2em;
-  margin: 0 0 1rem;
-}
-
-.prose li {
-  margin: 0.5rem 0;
-}
-
-.prose ul ul,
-.prose ol ul,
-.prose ul ol,
-.prose ol ol {
-  margin: 0;
-}
-
-.prose hr {
-  border: none;
-  border-top: 1px solid var(--background-20);
-  margin: 1.5rem 0; /* exception: hr keeps symmetric margins for visual separation */
-}
-
-.prose blockquote {
-  border-inline-start-width: 0.25rem;
-  border-inline-start-color: var(--primary);
-  padding-inline-start: 1em;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: var(--text-10);
-  font-style: italic;
-  font-weight: 500;
-}
-
-.prose blockquote p {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-.prose blockquote p:last-child {
-  margin-bottom: 0;
-}
-
-.prose table {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-  border-collapse: collapse;
-  font-size: 0.875em;
-  line-height: 1.714;
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-.prose thead {
-  border-bottom: 2px solid var(--background-20);
-}
-
-.prose th {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  text-align: left;
-  padding: 0 0.571em 0.571em;
-}
-
-.prose td {
-  padding: 0.571em;
-  border-bottom: 1px solid var(--background-10);
-}
-
-.prose tr:last-child td {
-  border-bottom: none;
-}
-
-.prose img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-/* Carousel */
-.carousel {
-  .carousel__slide {
-    padding: 0.125rem;
-  }
-
-  .carousel__prev,
-  .carousel__next {
-    color: var(--text);
-    transition: color 150ms ease;
-  }
-
-  .carousel__prev:hover,
-  .carousel__next:hover {
-    color: var(--primary);
-  }
-
-  .carousel__pagination-button::after {
-    background-color: var(--text);
-    transition: background-color 150ms ease;
-  }
-
-  .carousel__pagination-button--active::after {
-    background-color: var(--primary);
-  }
-
-  .carousel__pagination-button:hover::after {
-    background-color: var(--primary);
+@media (min-width: 64rem) {
+  .section {
+    padding-block: var(--space-3xl);
   }
 }
 
-/* Scrollbar (for browsers that don't support scrollbar-width: thin) */
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+/* Short sections (side projects) get less air, and read as one block when adjacent. */
+.section.compact {
+  padding-block: var(--space-xl);
 }
 
-::-webkit-scrollbar-track {
-  background-color: transparent;
+.section.compact + .section.compact {
+  border-top: 0;
+  padding-top: 0;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: var(--background-10);
-  border-radius: 6px;
-  border: 3px solid transparent;
-  background-clip: content-box;
+.section-head {
+  display: grid;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-l);
+  max-width: var(--measure);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--background-20);
+.section-head p {
+  color: var(--muted);
+  font-size: var(--step-1);
+  line-height: 1.45;
 }
 
-::-webkit-scrollbar-corner {
-  background-color: transparent;
-}
+/* ---------- Components shared across pages ---------- */
 
-/* Custom Classes */
 .btn {
-  padding: 0.75rem 1.5rem;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition:
-    background-color 150ms ease,
-    box-shadow 150ms ease;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  gap: 0.5em;
+  min-height: 2.75rem;
+  padding: 0.6em 1.1em;
+  border-radius: var(--radius-s);
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: var(--step-0);
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    background-color 150ms var(--ease-out),
+    border-color 150ms var(--ease-out),
+    color 150ms var(--ease-out);
 }
 
-.btn:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
+.btn svg {
+  flex: none;
+  width: 1.1em;
+  height: 1.1em;
 }
 
 .btn-primary {
-  background-color: var(--primary);
-  color: var(--button-primary-text);
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.1),
-    0 1px 2px rgba(0, 0, 0, 0.06);
+  background: var(--accent-fill);
+  color: var(--on-accent);
 }
 
-.btn-primary:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--accent-fill) 88%, var(--text));
 }
 
-.btn-primary:hover:not([disabled]) {
-  background-color: var(--primary-shade-20);
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.15),
-    0 2px 4px rgba(0, 0, 0, 0.1);
+.btn-quiet {
+  border-color: var(--border-strong);
+  color: var(--text);
 }
 
-.btn-secondary {
-  background-color: transparent;
-  color: var(--text-10);
-  border: 1px solid var(--background-20);
+.btn-quiet:hover {
+  border-color: var(--text);
 }
 
-.btn-secondary:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-weight: 600;
 }
 
-.btn-secondary:hover:not([disabled]) {
-  background-color: var(--background-10);
-  border-color: var(--background-30);
+.text-link svg {
+  width: 1em;
+  height: 1em;
+  flex: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .btn {
-    transition: none;
-  }
+/* Screenshot treatment: plain capture, rounded, hairline border. No device frames. */
+.shot {
+  border-radius: var(--shot-radius, 1.6rem);
+  border: 1px solid var(--border);
+  box-shadow: var(--shot-shadow);
+  background: var(--surface);
 }
 
-/* Screen Reader */
+/* .sr-only is the class GFM puts on the footnotes heading. */
+.visually-hidden,
 .sr-only {
-  position: absolute;
+  position: absolute !important;
   width: 1px;
   height: 1px;
   padding: 0;
@@ -587,134 +462,160 @@ small {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
+  border: 0;
 }
 
-/* Noise Texture */
-.noise-texture {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E");
-  background-blend-mode: overlay;
-  background-size: 200px;
+.skip-link {
+  position: fixed;
+  top: var(--space-2xs);
+  left: var(--space-2xs);
+  z-index: 100;
+  padding: 0.6em 1em;
+  background: var(--accent-fill);
+  color: var(--on-accent);
+  border-radius: var(--radius-s);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
 }
 
-.light .noise-texture {
-  background-blend-mode: multiply;
+.skip-link:focus-visible {
+  transform: none;
 }
 
-/* Background Pattern */
-.background-pattern {
-  background-image: radial-gradient(rgb(from var(--background-inverse) r g b / 0.1) 1px, transparent 1px);
-  background-position: 0 0;
-  background-size: 2rem 2rem;
+/* ---------- Long-form prose (case study) ---------- */
+
+.prose {
+  font-size: var(--step-0);
+  line-height: 1.65;
 }
 
-/* Animations */
-.hidden-element {
-  opacity: 0;
-  transform: translateY(1.5rem);
-  transition:
-    opacity 300ms cubic-bezier(0, 0, 0.2, 1),
-    transform 300ms cubic-bezier(0, 0, 0.2, 1);
+/* Nuxt Content wraps the rendered body in a div, so spacing is set on the elements themselves. */
+.prose :is(p, ul, ol, pre, blockquote, figure, table) {
+  margin-block: 0 1.1em;
 }
 
-.show-element {
-  opacity: 1;
-  transform: translateY(0);
+.prose h2 {
+  font-size: var(--step-3);
+  line-height: 1.15;
+  margin-block: 1.9em 0.5em;
 }
 
-@keyframes fade-down {
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.2em;
+  display: grid;
+  gap: 0.5em;
+}
+
+.prose li::marker {
+  color: var(--muted);
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+.prose code {
+  /* System fonts only: @nuxt/fonts would otherwise download any named family it can resolve. */
+  font-family: ui-monospace, monospace;
+  font-size: 0.88em;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
+
+/* GFM footnotes: a quiet sources block at the end (its heading is visually hidden by GFM). */
+.prose sup {
+  /* Keeps the reference number from stretching its line. */
+  line-height: 0;
+}
+
+.prose sup a {
+  text-decoration: none;
+  font-weight: 600;
+  padding-inline: 0.1em;
+}
+
+.prose section[data-footnotes] ol {
+  padding-left: 1.5em;
+}
+
+.prose section[data-footnotes] {
+  margin-top: 3em;
+  padding-top: 1.2em;
+  border-top: 1px solid var(--border);
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+/* ---------- Motion ---------- */
+
+/*
+ * Scroll-driven reveals as progressive enhancement: the base style is always the visible end
+ * state, so nothing is hidden without support, without JS, in print, or under reduced motion.
+ * Used on a handful of blocks only, never on the hero.
+ */
+@keyframes reveal {
   from {
     opacity: 0;
-    transform: translateY(-1.25rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    translate: 0 1.25rem;
   }
 }
 
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(1.25rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry 0% entry 100%)) {
+    /* Over a fixed 8rem from where the element starts to enter, not a share of its height:
+       otherwise a tall element stays half transparent while most of it is already in view
+       (and fades again when scrolling back up, since the timeline follows the scroll position). */
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 8rem;
+    }
   }
 }
 
-/* Reduced Motion */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 200ms;
+}
+
+::view-transition-group(kaizen-phone),
+::view-transition-group(kaizen-room) {
+  animation-duration: 380ms;
+  animation-timing-function: var(--ease-out);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hidden-element {
-    opacity: 0;
-    transform: none;
-    transition: opacity 200ms;
-  }
-
-  @keyframes fade-down {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fade-up {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
   }
 }
 
-/* Large Devices*/
-@media screen and (min-width: 992px) {
-  h1 {
-    font-size: 4.21rem;
+@media (forced-colors: active) {
+  .btn {
+    border-color: ButtonText;
+  }
+}
+
+@media print {
+  .site-header,
+  .site-footer,
+  .skip-link {
+    display: none !important;
   }
 
-  h2 {
-    font-size: 3.158rem;
-  }
-
-  h3 {
-    font-size: 2.369rem;
-  }
-
-  h4 {
-    font-size: 1.777rem;
-  }
-
-  h5 {
-    font-size: 1.333rem;
-  }
-
-  /* Prose — desktop font sizes (based on Tailwind Typography lg @ 18px) */
-  .prose h2 {
-    font-size: 1.667em;
-    line-height: 1.333;
-  }
-
-  .prose h3 {
-    font-size: 1.333em;
-    line-height: 1.5;
-  }
-
-  .prose h4 {
-    line-height: 1.556;
-  }
-
-  .prose pre {
-    font-size: 0.889em;
-    line-height: 1.75;
-    padding: 1rem 1.5rem;
-  }
-
-  .prose table {
-    font-size: 0.889em;
+  body {
+    background: #fff;
+    color: #000;
   }
 }
