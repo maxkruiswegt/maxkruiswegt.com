@@ -86,8 +86,11 @@ export default defineNuxtConfig({
     },
   },
 
-  sitemap: {
-    exclude: ['/og', '/nl/og'],
+  // The Open Graph layout only exists for scripts/export-assets.mjs, which screenshots it on the dev
+  // server; the PNGs it makes are static files. Production builds leave the page out entirely, so
+  // /og doesn't exist on the live site (not even through the app's client-side routing).
+  $production: {
+    ignore: ['app/pages/og.vue'],
   },
 
   nitro: {
@@ -99,9 +102,8 @@ export default defineNuxtConfig({
       crawlLinks: true,
       // The sitemap module prerenders its own files (sitemap_index.xml with i18n).
       routes: ['/', '/nl', '/kaizen', '/nl/kaizen'],
-      // Export-only page (see scripts/export-assets.mjs); the PNGs it produces are static files.
       // /sitemap.xml would only be an HTML redirect page; public/_redirects sends it to the index.
-      ignore: ['/og', '/nl/og', '/sitemap.xml'],
+      ignore: ['/sitemap.xml'],
     },
   },
 });

@@ -49,7 +49,7 @@ app/
 ├── pages/
 │   ├── index.vue            # Home (/ and /nl)
 │   ├── kaizen.vue           # Case study (/kaizen)
-│   ├── og.vue               # 1200x630 Open Graph layout, export-only (not prerendered, noindex)
+│   ├── og.vue               # 1200x630 Open Graph layout for export:assets; dev server only, left out of production builds
 │   └── [...slug].vue        # 404
 ├── plugins/                 # View transitions: catch rejected promises of skipped ones, none on a language switch
 └── utils/                   # icons.ts, languageSwitchAnchor.ts (keeps the reading position across languages)
