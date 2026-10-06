@@ -1,23 +1,23 @@
 import { defineCollection, defineContentConfig } from '@nuxt/content';
 import { z } from 'zod';
 
-const projectSchema = z.object({
+// The Kaizen case study, written separately in each language (the Dutch is not a translation).
+const caseStudySchema = z.object({
   title: z.string(),
   description: z.string(),
-  images: z.array(z.string()),
 });
 
 export default defineContentConfig({
   collections: {
-    projects_en: defineCollection({
+    kaizen_en: defineCollection({
       type: 'page',
-      source: 'en/projects/**/*.md',
-      schema: projectSchema,
+      source: 'en/kaizen.md',
+      schema: caseStudySchema,
     }),
-    projects_nl: defineCollection({
+    kaizen_nl: defineCollection({
       type: 'page',
-      source: 'nl/projects/**/*.md',
-      schema: projectSchema,
+      source: 'nl/kaizen.md',
+      schema: caseStudySchema,
     }),
   },
 });
