@@ -60,8 +60,8 @@ export const experience: Entry[] = [
 export interface Degree {
   name: Localized;
   place: string;
-  /** Same shape as a client logo: a single-colour mask, plus the colour version for light mode. */
-  logo: { src: string; ratio: number; color?: { src: string; ratio: number } };
+  /** Same shape as a client logo: a single-colour mask, plus the colour versions per theme. */
+  logo: { src: string; ratio: number; color?: { src: string; ratio: number }; dark?: string };
   status: Localized;
   highlights: { label: Localized; text: Localized; href?: string }[];
   /** Straight from the official transcript; course names as written there, except the minor project. */
@@ -80,6 +80,7 @@ export const education: Degree = {
     src: '/images/education/inholland.png',
     ratio: 1,
     color: { src: '/images/education/color/inholland.png', ratio: 1 },
+    dark: '/images/education/color/inholland.png',
   },
   status: {
     en: 'Graduated in July 2026 at the age of 20, in four years.',

@@ -12,6 +12,12 @@ export interface Client {
     scale?: number;
     /** Full-colour artwork for light mode, for raster logos (SVGs keep their own colours in `src`). */
     color?: { src: string; ratio: number; scale?: number };
+    /**
+     * Colour artwork for dark mode, on the same canvas as the light one: the light file itself when
+     * it reads on a dark page, or a version in `dark/` with the dark ink turned light and the brand
+     * colours kept, like a brand's own reversed logo. Without it, dark mode draws the mask.
+     */
+    dark?: string;
   };
   /** The part I worked on, in a few words. */
   part: Localized;
@@ -31,6 +37,7 @@ export const clients: Client[] = [
       ratio: 229 / 90,
       scale: 1.25,
       color: { src: '/images/clients/color/erasmus-mc.png', ratio: 229 / 90, scale: 1.25 },
+      dark: '/images/clients/dark/erasmus-mc.png',
     },
     part: { en: 'React Native app', nl: 'React Native-app' },
     about: {
@@ -41,7 +48,7 @@ export const clients: Client[] = [
   {
     id: 'medicinfo',
     name: 'Medicinfo',
-    logo: { src: '/images/clients/medicinfo.svg', ratio: 160 / 27, scale: 0.82 },
+    logo: { src: '/images/clients/medicinfo.svg', ratio: 160 / 27, scale: 0.82, dark: '/images/clients/dark/medicinfo.svg' },
     part: { en: 'Web app', nl: 'Webapp' },
     about: {
       en: 'A provider of remote GP care.',
@@ -51,7 +58,7 @@ export const clients: Client[] = [
   {
     id: 'wme',
     name: 'World Metal Exchange',
-    logo: { src: '/images/clients/wme.svg', ratio: 607 / 282, scale: 1.2 },
+    logo: { src: '/images/clients/wme.svg', ratio: 607 / 282, scale: 1.2, dark: '/images/clients/wme.svg' },
     part: { en: 'Web app', nl: 'Webapp' },
     about: {
       en: 'A trading platform for scrap metal.',
@@ -61,7 +68,7 @@ export const clients: Client[] = [
   {
     id: 'nullifire',
     name: 'Nullifire',
-    logo: { src: '/images/clients/nullifire.svg', ratio: 155 / 39, scale: 0.88 },
+    logo: { src: '/images/clients/nullifire.svg', ratio: 155 / 39, scale: 0.88, dark: '/images/clients/dark/nullifire.svg' },
     part: { en: 'Web app', nl: 'Webapp' },
     about: {
       en: 'An advice tool that helps contractors choose fire protection.',
@@ -76,6 +83,7 @@ export const clients: Client[] = [
       ratio: 271 / 78,
       scale: 0.88,
       color: { src: '/images/clients/color/trimbos.png', ratio: 271 / 78, scale: 0.88 },
+      dark: '/images/clients/color/trimbos.png',
     },
     part: { en: 'Web app', nl: 'Webapp' },
     about: {
@@ -96,7 +104,7 @@ export const clients: Client[] = [
   {
     id: 'mediamasters',
     name: 'MediaMasters',
-    logo: { src: '/images/clients/mediamasters.svg', ratio: 1201 / 636, scale: 0.92 },
+    logo: { src: '/images/clients/mediamasters.svg', ratio: 1201 / 636, scale: 0.92, dark: '/images/clients/dark/mediamasters.svg' },
     part: { en: 'Game platform and CMS', nl: 'Gameplatform en CMS' },
     about: {
       en: 'The national media literacy game for primary schools.',
@@ -122,7 +130,7 @@ export const clients: Client[] = [
   {
     id: 'teladoc',
     name: 'Teladoc Health',
-    logo: { src: '/images/clients/teladoc.svg', ratio: 3 },
+    logo: { src: '/images/clients/teladoc.svg', ratio: 3, dark: '/images/clients/dark/teladoc.svg' },
     part: { en: 'CMS', nl: 'CMS' },
     about: {
       en: 'A provider of virtual care and e-health apps.',
@@ -147,6 +155,7 @@ export const clients: Client[] = [
       ratio: 122 / 179,
       scale: 0.9,
       color: { src: '/images/clients/color/geoballoon.png', ratio: 122 / 179, scale: 0.9 },
+      dark: '/images/clients/color/geoballoon.png',
     },
     part: { en: 'CMS', nl: 'CMS' },
     about: {
@@ -157,7 +166,7 @@ export const clients: Client[] = [
   {
     id: 'dtt',
     name: 'DTT',
-    logo: { src: '/images/clients/dtt.svg', ratio: 3 },
+    logo: { src: '/images/clients/dtt.svg', ratio: 3, dark: '/images/clients/dark/dtt.svg' },
     part: { en: 'Website', nl: 'Website' },
     about: {
       en: 'An app and web agency in Amsterdam.',

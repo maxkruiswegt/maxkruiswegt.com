@@ -26,9 +26,11 @@
   --kaizen-text: #a8372a; /* 6.0:1 */
   --kaizen-wash: #f6e4dc;
   --portrait-block: #164a37;
-  /* Client logos: in colour on light pages, single-colour masks on dark ones. */
-  --logo-color: block;
-  --logo-mask: none;
+  /* Client logos: which theme's colour artwork shows (see ClientMark), and the colour of the
+     single-colour masks. Dark pages use white, like brands' own reversed logos. */
+  --logo-light: block;
+  --logo-dark: none;
+  --logo-ink: var(--text);
   /* Outline for dark app icons, which would melt into a dark page. */
   --icon-ring: transparent;
   /* The availability dot in the hero: a livelier green in the brand's hue, so it reads as a status. */
@@ -89,8 +91,9 @@
     --kaizen-wash: #2a1c19;
     --portrait-block: #24453a;
     --shot-shadow: none;
-    --logo-color: none;
-    --logo-mask: block;
+    --logo-light: none;
+    --logo-dark: block;
+    --logo-ink: #fff;
     --icon-ring: var(--border);
     --status: #5fd39c;
   }
@@ -113,8 +116,9 @@
   --kaizen-wash: #2a1c19;
   --portrait-block: #24453a;
   --shot-shadow: none;
-  --logo-color: none;
-  --logo-mask: block;
+  --logo-light: none;
+  --logo-dark: block;
+  --logo-ink: #fff;
   --icon-ring: var(--border);
   --status: #5fd39c;
 }
