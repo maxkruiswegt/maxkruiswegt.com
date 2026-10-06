@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import 'vue3-carousel/dist/carousel.css';
+import 'vue3-carousel/carousel.css';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 
 const { locale } = useI18n();

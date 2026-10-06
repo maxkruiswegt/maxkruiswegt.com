@@ -9,8 +9,13 @@ Personal portfolio website for Max Kruiswegt / MK Development. Nuxt 4 SSG with d
 - `npm run preview` — Preview production build locally
 - `npm run build` — Production build (SSR mode)
 - `npm run lint` — Run ESLint
+- `npm run typecheck` — Run vue-tsc via `nuxt typecheck`
 
 There is no test suite configured.
+
+## Dependencies
+
+`.npmrc` hardens installs: a 7-day `min-release-age` cooldown, `allow-git=none`, and `ignore-scripts=true` (the project has no lifecycle scripts, and its native deps ship prebuilt binaries). An urgent fix can bypass the cooldown once with `--min-release-age=0`; verify the tree with `npm audit signatures --min-release-age=0`. Nuxt Content uses Node's built-in `node:sqlite` (`content.experimental.nativeSqlite`), not better-sqlite3. TypeScript stays on 6.x: TS 7 drops the JS compiler API that vue-tsc and typescript-eslint need.
 
 ## Tech Stack
 
@@ -128,7 +133,7 @@ Elements with class `hidden-element` get `show-element` added on viewport inters
 
 ## Deployment
 
-GitHub Actions on push to `main`: generates static site with `npx nuxt generate`, deploys `.output/public/` to remote server via SSH/SCP. Secrets: `HOST`, `USERNAME`, `SSH_PRIVATE_KEY`, `SSH_PORT`, `PROJECT_PATH`.
+Cloudflare Pages builds and deploys on push to `main` (`nuxt generate`, output `.output/public/`). The build's Node version comes from `.node-version`.
 
 ## Important Notes
 

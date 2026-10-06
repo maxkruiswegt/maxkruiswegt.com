@@ -8,23 +8,25 @@
     "build": "nuxt build",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@nuxt/content": "^3.11.2",
-    "canvas-confetti": "^1.9.3",
-    "nuxt": "^3.16.0",
-    "pinia": "^2.2.4",
-    "vue3-carousel": "^0.3.4",
-    "zod": "^4.3.6"
+    "@nuxt/content": "^3.16.1",
+    "@vue/devtools-api": "^8.2.1",
+    "canvas-confetti": "^1.9.4",
+    "nuxt": "^4.5.2",
+    "pinia": "^4.0.3",
+    "vue3-carousel": "^0.17.0",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^1.0.0",
-    "@nuxtjs/i18n": "^9.0.0",
-    "@nuxtjs/sitemap": "^7.6.0",
-    "@pinia/nuxt": "^0.9.0",
+    "@nuxt/eslint": "^1.17.0",
+    "@nuxtjs/i18n": "^10.6.0",
+    "@nuxtjs/sitemap": "^8.5.1",
+    "@pinia/nuxt": "^1.0.2",
     "@types/canvas-confetti": "^1.9.0",
-    "better-sqlite3": "^12.6.2",
-    "typescript": "^5.7.0"
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.3.11"
   }
 }

@@ -1,6 +1,5 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  future: { compatibilityVersion: 4 },
 
   app: {
     head: {
@@ -62,7 +61,6 @@ export default defineNuxtConfig({
       strictMessage: false,
     },
     bundle: {
-      optimizeTranslationDirective: false,
       compositionOnly: true,
     },
   },
@@ -70,6 +68,11 @@ export default defineNuxtConfig({
   content: {
     renderer: {
       anchorLinks: false,
+    },
+    // Node's built-in node:sqlite (22.5+) instead of better-sqlite3, a native package that needs an
+    // install script to fetch its binary, which .npmrc's ignore-scripts would skip.
+    experimental: {
+      nativeSqlite: true,
     },
   },
 
