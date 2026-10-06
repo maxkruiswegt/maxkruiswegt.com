@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://maxkruiswegt.com/sitemap.xml
+Sitemap: https://maxkruiswegt.com/sitemap_index.xml

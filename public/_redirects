@@ -1,0 +1,12 @@
+# Cloudflare Pages redirects. The October 2026 rebuild folded the separate portfolio and contact
+# pages into the home page; old links (LinkedIn posts, search results) land on the right section.
+/portfolio/kaizen        /kaizen         301
+/portfolio/*             /#work          301
+/portfolio               /#work          301
+/contact                 /#contact       301
+/nl/portfolio/kaizen     /nl/kaizen      301
+/nl/portfolio/*          /nl#work        301
+/nl/portfolio            /nl#work        301
+/nl/contact              /nl#contact     301
+# With two languages the sitemap module writes an index instead of a single sitemap.xml.
+/sitemap.xml             /sitemap_index.xml  301

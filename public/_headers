@@ -1,0 +1,14 @@
+# Cloudflare Pages headers. Files under /_nuxt/, /_fonts/ and /_i18n/ have content hashes in their paths,
+# so they can be cached for a year. The build manifest under /_nuxt/builds/ changes per deploy.
+/_nuxt/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/_fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/_i18n/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/_nuxt/builds/*
+  ! Cache-Control
+  Cache-Control: public, max-age=0, must-revalidate
