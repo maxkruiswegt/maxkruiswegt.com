@@ -57,7 +57,7 @@ September 2026 was de grootste maand van Kaizen tot nu toe:
 ---
 items:
   - value: '1.500'
-    label: nieuwe aanmeldingen, een kwart van het totaal
+    label: nieuwe aanmeldingen, een vijfde van het totaal
   - value: '750'
     label: mensen actief die maand, zo’n 350 per week
   - value: '6.200'

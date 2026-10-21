@@ -57,7 +57,7 @@ September 2026 was Kaizen’s biggest month so far:
 ---
 items:
   - value: '1,500'
-    label: new sign-ups, a quarter of all time
+    label: new sign-ups, a fifth of all time
   - value: '750'
     label: people active that month, about 350 a week
   - value: '6,200'
