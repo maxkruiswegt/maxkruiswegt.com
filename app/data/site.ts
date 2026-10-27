@@ -23,7 +23,7 @@ export const kaizenFigures = {
   asOf: '2026-10-21',
   signups: 7000, // "more than"
   focusHours: 29300, // "more than"
-  rating: 4.5,
+  rating: 4.6,
 } as const;
 
 export type Locale = 'en' | 'nl';
