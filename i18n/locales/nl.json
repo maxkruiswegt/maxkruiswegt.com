@@ -39,8 +39,8 @@
     "heading": "Kaizen",
     "lead": "Een Pomodoro-timer met Focus Rooms, waarin je in het bijzijn van anderen studeert, zonder camera.",
     "story": "In september 2025 begon ik aan Kaizen. In de studiecommunity die ik op Discord beheer, zag ik steeds hetzelfde: mensen focussen beter als er iemand anders bij is. Die community telt inmiddels zo’n 30.000 leden. De app verscheen op 2 januari 2026 in Google Play, later die maand op het web, en in mei in de App Store en de Microsoft Store.",
-    "figures": "Inmiddels hebben zich meer dan {signups} mensen aangemeld, en samen hebben ze meer dan {hours} uur gefocust. De app scoort gemiddeld {rating} sterren in de App Store en Google Play.",
-    "figuresSource": "Aanmeldingen en uren uit het beheerpaneel van Kaizen, {date}.",
+    "figures": "Inmiddels hebben zich meer dan {signups} mensen aangemeld, samen goed voor meer dan {sessions} timersessies en meer dan {hours} uur focus. De app scoort gemiddeld {rating} sterren in de App Store en Google Play.",
+    "figuresSource": "Aanmeldingen, sessies en uren uit het beheerpaneel van Kaizen, {date}.",
     "insideHeading": "Wat erin zit",
     "inside": [
       "Eén Expo-codebase in TypeScript voor iOS, Android en het web, voor Windows verpakt in een Tauri-shell in Rust.",

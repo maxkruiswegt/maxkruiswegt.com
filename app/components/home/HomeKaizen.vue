@@ -63,6 +63,9 @@ onBeforeUnmount(() => observer?.disconnect());
               <template #signups>
                 <strong>{{ number(kaizenFigures.signups) }}</strong>
               </template>
+              <template #sessions>
+                <strong>{{ number(kaizenFigures.sessions) }}</strong>
+              </template>
               <template #hours>
                 <strong>{{ number(kaizenFigures.focusHours) }}</strong>
               </template>

@@ -6,7 +6,7 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/maxkruiswegt/',
   github: 'https://github.com/maxkruiswegt',
   dtt: { en: 'https://www.d-tt.nl/en', nl: 'https://www.d-tt.nl/' },
-  updated: '2026-10-21',
+  updated: '2026-11-11',
 } as const;
 
 export const kaizenLinks = {
@@ -20,9 +20,10 @@ export const kaizenLinks = {
 
 // From Kaizen's admin panel, all time, read on `asOf`, rounded the way the copy words them.
 export const kaizenFigures = {
-  asOf: '2026-10-21',
-  signups: 7000, // "more than"
-  focusHours: 29300, // "more than"
+  asOf: '2026-11-11',
+  signups: 9000, // "more than"
+  sessions: 100000, // "more than", work and break sessions together
+  focusHours: 40000, // "more than"
   rating: 4.6,
 } as const;
 

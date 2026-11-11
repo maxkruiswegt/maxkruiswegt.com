@@ -51,16 +51,16 @@ The store listings for three stores and seven languages live in their own reposi
 
 ## What the numbers say
 
-September 2026 was Kaizen’s biggest month so far:
+October 2026 was Kaizen’s biggest month so far:
 
 ::stat-row
 ---
 items:
-  - value: '1,500'
-    label: new sign-ups, a fifth of all time
-  - value: '750'
-    label: people active that month, about 350 a week
-  - value: '6,200'
+  - value: '2,700'
+    label: new sign-ups, about 30 percent of all time
+  - value: '1,600'
+    label: people active that month, about 600 a week
+  - value: '12,300'
     label: hours of focus in that month alone
 ---
 ::

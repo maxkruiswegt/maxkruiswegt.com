@@ -39,8 +39,8 @@
     "heading": "Kaizen",
     "lead": "A Pomodoro timer with Focus Rooms, where you study next to other people without a camera.",
     "story": "I started building Kaizen in September 2025, based on something I kept seeing in the study community I run on Discord: people focus better when someone else is there. That community now has about 30,000 members. It came out on Google Play on 2 January 2026, on the web later that month, and on the App Store and the Microsoft Store in May.",
-    "figures": "More than {signups} people have signed up so far, and together they have logged more than {hours} hours of focus. The app averages {rating} stars on the App Store and Google Play.",
-    "figuresSource": "Sign-ups and hours from Kaizen’s admin panel, {date}.",
+    "figures": "More than {signups} people have signed up so far. Together they have run more than {sessions} timer sessions and logged more than {hours} hours of focus. The app averages {rating} stars on the App Store and Google Play.",
+    "figuresSource": "Sign-ups, sessions and hours from Kaizen’s admin panel, {date}.",
     "insideHeading": "What’s inside",
     "inside": [
       "One Expo codebase in TypeScript for iOS, Android and the web, wrapped for Windows in a Tauri shell written in Rust.",

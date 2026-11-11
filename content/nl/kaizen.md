@@ -51,16 +51,16 @@ De storepagina’s voor drie stores in zeven talen staan in een eigen repository
 
 ## Wat de cijfers zeggen
 
-September 2026 was de grootste maand van Kaizen tot nu toe:
+Oktober 2026 was de grootste maand van Kaizen tot nu toe:
 
 ::stat-row
 ---
 items:
-  - value: '1.500'
-    label: nieuwe aanmeldingen, een vijfde van het totaal
-  - value: '750'
-    label: mensen actief die maand, zo’n 350 per week
-  - value: '6.200'
+  - value: '2.700'
+    label: nieuwe aanmeldingen, zo’n 30 procent van het totaal
+  - value: '1.600'
+    label: mensen actief die maand, zo’n 600 per week
+  - value: '12.300'
     label: uur focus in die ene maand
 ---
 ::
