@@ -48,8 +48,8 @@
       "Offline-first synchronisatie met Supabase die meerdere apparaten gelijk houdt.",
       "Property-based tests en mutation tests op de sync- en statistieklogica. De CI faalt onder een mutation score van 80 procent."
     ],
-    "timerAlt": "Het timerscherm van Kaizen: een focussessie op een getekende zonsondergang",
-    "roomAlt": "Een Focus Room met zes leden, elk met hun status en resterende tijd",
+    "timerAlt": "Het timerscherm van Kaizen: een focussessie op bergen onder een sterrenhemel",
+    "roomAlt": "Een Focus Room met zeven leden, elk met hun status en resterende tijd",
     "caseStudyLink": "Hoe het gebouwd is",
     "visit": "my-kaizen.com"
   },
@@ -107,16 +107,16 @@
       {
         "title": "Timer",
         "body": "Werk- en pauzesessies op een achtergrond naar keuze. Hij loopt door met het scherm uit, en op Android staat de countdown in een melding, met pauze en overslaan.",
-        "alt": "Het timerscherm: een focussessie op een getekende zonsondergang"
+        "alt": "Het timerscherm: een focussessie op bergen onder een sterrenhemel"
       },
       {
         "title": "Focus Rooms",
         "body": "Rooms van 2 tot 50 mensen, elk met een eigen timer. De room laat zien wie er focust, wie pauze heeft en wie even weg is.",
-        "alt": "Een Focus Room met zes leden en hun timers"
+        "alt": "Een Focus Room met zeven leden en hun timers"
       },
       {
         "title": "Taken",
-        "body": "Een Inbox van één regel om snel iets vast te leggen, en een To Do-lijst voor wat je echt gaat doen. Minuten van de timer gaan naar de taak die je als focustaak hebt gekozen.",
+        "body": "Een taak leg je in één regel vast en die komt in je Inbox. De To Do-lijst is voor wat je echt gaat doen. Start je een focussessie vanuit een taak, dan tellen de minuten voor die taak.",
         "alt": "De takenlijst met een Inbox, To Do-taken en tijdschattingen"
       },
       {
@@ -126,8 +126,8 @@
       },
       {
         "title": "Apps blokkeren",
-        "body": "Kies de apps die je afleiden en ze blijven geblokkeerd zolang er een werksessie loopt. Een pauze heft de blokkade op tot de volgende sessie.",
-        "alt": "Het blokscherm: Reddit is gepauzeerd tot blokkeren wordt uitgezet"
+        "body": "Kies de apps die je afleiden en ze blijven geblokkeerd zolang er een werksessie loopt. Een pauze heft de blokkade op tot de volgende sessie. Met een schema blokkeer je apps elke week op dezelfde tijden.",
+        "alt": "Het blokscherm: YouTube is de hele dag gepauzeerd door een geplande blokkade"
       },
       {
         "title": "Statistieken",

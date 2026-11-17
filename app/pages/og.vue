@@ -64,14 +64,14 @@ const variant = computed(() => (route.query.variant === 'kaizen' ? 'kaizen' : 'h
       <img
         src="/images/kaizen/timer.webp"
         width="720"
-        height="1560"
+        height="1600"
         alt=""
         class="phone one"
       />
       <img
         src="/images/kaizen/room.webp"
         width="720"
-        height="1560"
+        height="1600"
         alt=""
         class="phone two"
       />
@@ -215,18 +215,18 @@ const variant = computed(() => (route.query.variant === 'kaizen' ? 'kaizen' : 'h
   transform: scaleX(-1);
 }
 
-/* Two 210px phones (455px tall) with a 24px gap, the second 70px lower: 444 x 525, centred. */
+/* Two 210px phones (467px tall) with a 24px gap, the second 70px lower: 444 x 537, centred. */
 .phones {
   position: relative;
   align-self: center;
   width: 444px;
-  height: 525px;
+  height: 537px;
 }
 
 .phone {
   position: absolute;
   width: 210px;
-  border-radius: 9% / 4.2%;
+  border-radius: 9% / 4.05%;
   box-shadow: 0 24px 48px -16px color-mix(in srgb, var(--text) 55%, transparent);
 }
 

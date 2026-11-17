@@ -6,7 +6,7 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/maxkruiswegt/',
   github: 'https://github.com/maxkruiswegt',
   dtt: { en: 'https://www.d-tt.nl/en', nl: 'https://www.d-tt.nl/' },
-  updated: '2026-11-11',
+  updated: '2026-11-17',
 } as const;
 
 export const kaizenLinks = {

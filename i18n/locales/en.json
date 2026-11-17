@@ -48,8 +48,8 @@
       "Offline-first sync on Supabase that keeps several devices in step.",
       "Property-based and mutation tests on the sync and stats logic. CI fails below an 80 percent mutation score."
     ],
-    "timerAlt": "Kaizen’s timer screen: a focus session over an illustrated sunset",
-    "roomAlt": "A Focus Room with six members, each showing their status and time left",
+    "timerAlt": "Kaizen’s timer screen: a focus session over mountains under a starry sky",
+    "roomAlt": "A Focus Room with seven members, each showing their status and time left",
     "caseStudyLink": "How it’s built",
     "visit": "my-kaizen.com"
   },
@@ -107,16 +107,16 @@
       {
         "title": "Timer",
         "body": "Work and break sessions over a background you pick. It keeps time with the screen off, and on Android a notification shows the countdown, with pause and skip.",
-        "alt": "The timer screen: a focus session over an illustrated sunset"
+        "alt": "The timer screen: a focus session over mountains under a starry sky"
       },
       {
         "title": "Focus Rooms",
         "body": "Rooms of 2 to 50 people, each on their own timer. The room shows who is focusing, who is on a break and who stepped away.",
-        "alt": "A Focus Room with six members and their timers"
+        "alt": "A Focus Room with seven members and their timers"
       },
       {
         "title": "Tasks",
-        "body": "A one-line Inbox for quick capture and a To Do list for what you have committed to. Minutes from the timer go to the task you picked as your focus task.",
+        "body": "Add a task in one line and it lands in the Inbox. The To Do list is for what you have committed to. Start a focus session from a task and its minutes count toward that task.",
         "alt": "The task list with an Inbox, To Do items and time estimates"
       },
       {
@@ -126,8 +126,8 @@
       },
       {
         "title": "App blocking",
-        "body": "Pick the apps that distract you and they stay blocked while a work session runs. A break lifts the block until the next session.",
-        "alt": "The block screen: Reddit is paused until blocking is turned off"
+        "body": "Pick the apps that distract you and they stay blocked while a work session runs. A break lifts the block until the next session. Schedules block a set of apps at the same times every week.",
+        "alt": "The block screen: YouTube is paused all day by a scheduled block"
       },
       {
         "title": "Statistics",

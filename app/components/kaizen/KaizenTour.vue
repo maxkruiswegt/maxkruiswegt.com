@@ -83,7 +83,7 @@ onBeforeUnmount(() => observer?.disconnect());
           <img
             :src="`/images/kaizen/${images[i]}.webp`"
             width="720"
-            height="1560"
+            height="1600"
             :alt="step.alt"
             loading="lazy"
             decoding="async"
@@ -102,7 +102,7 @@ onBeforeUnmount(() => observer?.disconnect());
             :key="name"
             :src="`/images/kaizen/${name}.webp`"
             width="720"
-            height="1560"
+            height="1600"
             alt=""
             loading="lazy"
             decoding="async"
@@ -140,7 +140,7 @@ h2 {
 }
 
 .phone {
-  --shot-radius: 9% / 4.2%;
+  --shot-radius: 9% / 4.05%;
 }
 
 .inline-phone {
@@ -161,7 +161,7 @@ h2 {
  */
 @media (min-width: 56rem) {
   .layout {
-    --phone-h: calc(19rem * 1560 / 720);
+    --phone-h: calc(19rem * 1600 / 720);
     --step-h: min(62vh, 36rem);
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);

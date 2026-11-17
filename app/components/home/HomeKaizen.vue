@@ -114,7 +114,7 @@ onBeforeUnmount(() => observer?.disconnect());
             ref="timer"
             src="/images/kaizen/timer.webp"
             width="720"
-            height="1560"
+            height="1600"
             :alt="t('kaizen.timerAlt')"
             loading="lazy"
             decoding="async"
@@ -125,7 +125,7 @@ onBeforeUnmount(() => observer?.disconnect());
             ref="room"
             src="/images/kaizen/room.webp"
             width="720"
-            height="1560"
+            height="1600"
             :alt="t('kaizen.roomAlt')"
             loading="lazy"
             decoding="async"
@@ -242,7 +242,7 @@ onBeforeUnmount(() => observer?.disconnect());
 }
 
 .phone {
-  --shot-radius: 9% / 4.2%;
+  --shot-radius: 9% / 4.05%;
   width: 100%;
 }
 

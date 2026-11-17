@@ -84,7 +84,7 @@ useHead(() => ({
         <img
           src="/images/kaizen/timer.webp"
           width="720"
-          height="1560"
+          height="1600"
           :alt="t('kaizen.timerAlt')"
           fetchpriority="high"
           class="shot phone"
@@ -93,7 +93,7 @@ useHead(() => ({
         <img
           src="/images/kaizen/room.webp"
           width="720"
-          height="1560"
+          height="1600"
           :alt="t('kaizen.roomAlt')"
           decoding="async"
           class="shot phone phone-second"
@@ -194,7 +194,7 @@ h1 {
 }
 
 .phone {
-  --shot-radius: 9% / 4.2%;
+  --shot-radius: 9% / 4.05%;
   width: 100%;
 }
 
