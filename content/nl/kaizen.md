@@ -57,7 +57,7 @@ Oktober 2026 was de grootste maand van Kaizen tot nu toe:
 ---
 items:
   - value: '2.700'
-    label: nieuwe aanmeldingen, zo’n 30 procent van het totaal
+    label: nieuwe aanmeldingen, een kwart van het totaal
   - value: '1.600'
     label: mensen actief die maand, zo’n 600 per week
   - value: '12.300'
